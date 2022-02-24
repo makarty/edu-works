@@ -21,12 +21,3 @@ int main() {
     }
     return 0;
 }
-
-
-/*
-
-gcc ChildProgram.c -o ChildProgram
-gcc main.c -o main
-./main
-
- */
