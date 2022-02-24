@@ -1,0 +1,273 @@
+\hypertarget{ChildProgram_8c}{}\doxysection{Child\+Program.\+c File Reference}
+\label{ChildProgram_8c}\index{ChildProgram.c@{ChildProgram.c}}
+
+
+Дочерняя программа  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$malloc.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+Include dependency graph for Child\+Program.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ChildProgram_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcases}{cases}}
+\begin{DoxyCompactList}\small\item\em Массив структур \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structunit}{unit}}
+\begin{DoxyCompactList}\small\item\em Массив структур \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{ChildProgram_8c_a99cfe30531f53f987fd054edd37758f2}{input}} (char $\ast$text)
+\begin{DoxyCompactList}\small\item\em Функция ввода строки из потока ввода \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ChildProgram_8c_a3d4d114ca828cc7035a89e93acaf1c97}{isnumber}} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Функция проверки строки \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ChildProgram_8c_a735b18c8cbc75519bf975b9ccc37257d}{number\+\_\+in\+\_\+words}} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Функция вывода числа строкой \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ChildProgram_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Основная функция \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcases}{cases}} {\bfseries w\+\_\+in\+\_\+cases} \mbox{[}$\,$\mbox{]}
+\item 
+struct \mbox{\hyperlink{structunit}{unit}} {\bfseries units} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Дочерняя программа 
+
+Данная программа выводит число прописью 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ChildProgram_8c_a99cfe30531f53f987fd054edd37758f2}\label{ChildProgram_8c_a99cfe30531f53f987fd054edd37758f2}} 
+\index{ChildProgram.c@{ChildProgram.c}!input@{input}}
+\index{input@{input}!ChildProgram.c@{ChildProgram.c}}
+\doxysubsubsection{\texorpdfstring{input()}{input()}}
+{\footnotesize\ttfamily char$\ast$ input (\begin{DoxyParamCaption}\item[{char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Функция ввода строки из потока ввода 
+
+Считывает строку, введённую пользователем 
+\begin{DoxyParams}{Parameters}
+{\em text} & -\/ Сообщение пользователю \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Строку 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{char}* \mbox{\hyperlink{ChildProgram_8c_a99cfe30531f53f987fd054edd37758f2}{input}}(\textcolor{keywordtype}{char}* text)\{}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%s"{}}, text);}
+\DoxyCodeLine{    \textcolor{keywordtype}{char} *str = (\textcolor{keywordtype}{char} *)malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{    str[0] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} lenght = 1;}
+\DoxyCodeLine{    \textcolor{keywordtype}{char} cur\_char = 0;}
+\DoxyCodeLine{    fflush(stdin);}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} ((cur\_char = getc(stdin)) != \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{        str[lenght -\/ 1] = cur\_char;}
+\DoxyCodeLine{        lenght++;}
+\DoxyCodeLine{        str = (\textcolor{keywordtype}{char} *)realloc(str, lenght);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    str[lenght -\/ 1] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} str;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ChildProgram_8c_a3d4d114ca828cc7035a89e93acaf1c97}\label{ChildProgram_8c_a3d4d114ca828cc7035a89e93acaf1c97}} 
+\index{ChildProgram.c@{ChildProgram.c}!isnumber@{isnumber}}
+\index{isnumber@{isnumber}!ChildProgram.c@{ChildProgram.c}}
+\doxysubsubsection{\texorpdfstring{isnumber()}{isnumber()}}
+{\footnotesize\ttfamily int isnumber (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Функция проверки строки 
+
+Проверяет, является ли введённая пользователем строка числом 
+\begin{DoxyParams}{Parameters}
+{\em str} & -\/ Проверяемая строка \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 -\/ если строка является числом 
+
+0 -\/ если ввод некорректен или строка не является числом 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{ChildProgram_8c_a3d4d114ca828cc7035a89e93acaf1c97}{isnumber}}(\textcolor{keywordtype}{char}* str)\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} k = 0, len = strlen(str);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < len; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(len == 1 \& str[0] == \textcolor{charliteral}{'0'})}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}((str[i] == \textcolor{charliteral}{'-\/'} | str[i] == \textcolor{charliteral}{'+'}) \& (i == 0))}
+\DoxyCodeLine{            \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(str[i] == \textcolor{charliteral}{'0'} \& k <= 0)}
+\DoxyCodeLine{            k-\/-\/;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(str[i] != \textcolor{charliteral}{'0'} \& k >= 0)}
+\DoxyCodeLine{            k++;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(!isdigit(str[i]) | (k < 0))}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ChildProgram_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{ChildProgram_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{ChildProgram.c@{ChildProgram.c}!main@{main}}
+\index{main@{main}!ChildProgram.c@{ChildProgram.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Основная функция 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{ChildProgram_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{char}* str;}
+\DoxyCodeLine{    str = \mbox{\hyperlink{ChildProgram_8c_a99cfe30531f53f987fd054edd37758f2}{input}}(\textcolor{stringliteral}{"{}Введите строку: "{}});}
+\DoxyCodeLine{    \textcolor{keywordflow}{if}(\mbox{\hyperlink{ChildProgram_8c_a3d4d114ca828cc7035a89e93acaf1c97}{isnumber}}(str) == 1)}
+\DoxyCodeLine{        \mbox{\hyperlink{ChildProgram_8c_a735b18c8cbc75519bf975b9ccc37257d}{number\_in\_words}}(str);}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}}
+\DoxyCodeLine{        puts(\textcolor{stringliteral}{"{}Некорректный ввод"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    free(str);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{ChildProgram_8c_a735b18c8cbc75519bf975b9ccc37257d}\label{ChildProgram_8c_a735b18c8cbc75519bf975b9ccc37257d}} 
+\index{ChildProgram.c@{ChildProgram.c}!number\_in\_words@{number\_in\_words}}
+\index{number\_in\_words@{number\_in\_words}!ChildProgram.c@{ChildProgram.c}}
+\doxysubsubsection{\texorpdfstring{number\_in\_words()}{number\_in\_words()}}
+{\footnotesize\ttfamily void number\+\_\+in\+\_\+words (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Функция вывода числа строкой 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & -\/ Строка, содержащая число 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{ChildProgram_8c_a735b18c8cbc75519bf975b9ccc37257d}{number\_in\_words}}(\textcolor{keywordtype}{char}* str)\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} len\_str = strlen(str), d;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if}(len\_str == 1 \& str[0] == \textcolor{charliteral}{'0'})}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}ноль"{}});}
+\DoxyCodeLine{        \textcolor{keywordflow}{return};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < strlen(str);) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(len\_str == 0)}
+\DoxyCodeLine{            \textcolor{keywordflow}{return};}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'-\/'} \& i == 0)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            printf(\textcolor{stringliteral}{"{}минус "{}});}
+\DoxyCodeLine{            len\_str-\/-\/;}
+\DoxyCodeLine{            \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'+'} \& i == 0)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            len\_str-\/-\/;}
+\DoxyCodeLine{            \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordtype}{int} len = len\_str \% 3;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(len == 0)}
+\DoxyCodeLine{            len = 3;}
+\DoxyCodeLine{        \textcolor{keywordtype}{int} len1 = len;}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = i; j < (i + len1); j++) \{}
+\DoxyCodeLine{            d = (int) str[j] -\/ 48;}
+\DoxyCodeLine{}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (len \% 3 == 0 \& d != 0)}
+\DoxyCodeLine{                printf(\textcolor{stringliteral}{"{}\%s "{}}, units[d].hun);}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (len \% 3 == 1 \& d != 0)}
+\DoxyCodeLine{                \textcolor{keywordflow}{if} (i == 0 \& len\_str >= 7)}
+\DoxyCodeLine{                    printf(\textcolor{stringliteral}{"{}\%s "{}}, units[d].one[0]);}
+\DoxyCodeLine{                \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (len\_str == 1)}
+\DoxyCodeLine{                    printf(\textcolor{stringliteral}{"{}\%s "{}}, units[d].one[0]);}
+\DoxyCodeLine{                \textcolor{keywordflow}{else}}
+\DoxyCodeLine{                    printf(\textcolor{stringliteral}{"{}\%s "{}}, units[d].one[1]);}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (len \% 3 == 2 \& str[j] == \textcolor{charliteral}{'1'} \& str[j + 1] != \textcolor{charliteral}{'0'}) \{}
+\DoxyCodeLine{                d = (int) str[j + 1] -\/ 48;}
+\DoxyCodeLine{                \textcolor{keywordflow}{if}(d != 0)\{}
+\DoxyCodeLine{                    printf(\textcolor{stringliteral}{"{}\%s "{}}, units[d].two);}
+\DoxyCodeLine{                    \textcolor{keywordflow}{if} (len <= 3)}
+\DoxyCodeLine{                        \textcolor{keywordflow}{return};}
+\DoxyCodeLine{                \}}
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (len \% 3 == 2 \& d != 0)}
+\DoxyCodeLine{                printf(\textcolor{stringliteral}{"{}\%s "{}}, units[d].dec);}
+\DoxyCodeLine{            len-\/-\/;}
+\DoxyCodeLine{            len\_str-\/-\/;}
+\DoxyCodeLine{            \textcolor{keywordflow}{if}(len\_str \% 3 == 0 \& d == 1)}
+\DoxyCodeLine{                printf(\textcolor{stringliteral}{"{}\%s "{}}, w\_in\_cases[len\_str / 3].one);}
+\DoxyCodeLine{            \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(len\_str \% 3 == 0 \& d >= 2 \& d <= 4)}
+\DoxyCodeLine{                printf(\textcolor{stringliteral}{"{}\%s "{}}, w\_in\_cases[len\_str / 3].two);}
+\DoxyCodeLine{            \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(len\_str \% 3 == 0 \& d >= 5)}
+\DoxyCodeLine{                printf(\textcolor{stringliteral}{"{}\%s "{}}, w\_in\_cases[len\_str / 3].many);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        i += len1;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ChildProgram_8c_abe12522eb4da54d32be7560cd0750206}\label{ChildProgram_8c_abe12522eb4da54d32be7560cd0750206}} 
+\index{ChildProgram.c@{ChildProgram.c}!units@{units}}
+\index{units@{units}!ChildProgram.c@{ChildProgram.c}}
+\doxysubsubsection{\texorpdfstring{units}{units}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structunit}{unit}} units\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{\{\{\textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}"{}}\}, \textcolor{stringliteral}{"{}десять"{}}, \textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}один"{}}, \textcolor{stringliteral}{"{}одна"{}}\}, \textcolor{stringliteral}{"{}одиннадцать"{}}, \textcolor{stringliteral}{"{}десять"{}}, \textcolor{stringliteral}{"{}сто"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}два"{}}, \textcolor{stringliteral}{"{}две"{}}\}, \textcolor{stringliteral}{"{}двенадцать"{}}, \textcolor{stringliteral}{"{}двадцать"{}}, \textcolor{stringliteral}{"{}двести"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}три"{}}, \textcolor{stringliteral}{"{}три"{}}\}, \textcolor{stringliteral}{"{}тринадцать"{}}, \textcolor{stringliteral}{"{}тридцать"{}}, \textcolor{stringliteral}{"{}триста"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}четыре"{}}, \textcolor{stringliteral}{"{}четыре"{}}\}, \textcolor{stringliteral}{"{}четырнадцать"{}}, \textcolor{stringliteral}{"{}сорок"{}}, \textcolor{stringliteral}{"{}четыреста"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}пять"{}}, \textcolor{stringliteral}{"{}пять"{}}\}, \textcolor{stringliteral}{"{}пятнадцать"{}}, \textcolor{stringliteral}{"{}пятьдесят"{}}, \textcolor{stringliteral}{"{}пятьсот"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}шесть"{}}, \textcolor{stringliteral}{"{}шесть"{}}\}, \textcolor{stringliteral}{"{}шестнадцать"{}}, \textcolor{stringliteral}{"{}шестьдесят"{}}, \textcolor{stringliteral}{"{}шестьсот"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}семь"{}}, \textcolor{stringliteral}{"{}семь"{}}\}, \textcolor{stringliteral}{"{}семнадцать"{}}, \textcolor{stringliteral}{"{}семьдесят"{}}, \textcolor{stringliteral}{"{}семьсот"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}восемь"{}}, \textcolor{stringliteral}{"{}восемь"{}}\}, \textcolor{stringliteral}{"{}восемнадцать"{}}, \textcolor{stringliteral}{"{}восемьдесят"{}}, \textcolor{stringliteral}{"{}восемьсот"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}девять"{}}, \textcolor{stringliteral}{"{}девять"{}}\}, \textcolor{stringliteral}{"{}девятнадцать"{}}, \textcolor{stringliteral}{"{}девяносто"{}}, \textcolor{stringliteral}{"{}девятьсот"{}}\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ChildProgram_8c_a4b73dfb0426103efae9252a0b14e8c48}\label{ChildProgram_8c_a4b73dfb0426103efae9252a0b14e8c48}} 
+\index{ChildProgram.c@{ChildProgram.c}!w\_in\_cases@{w\_in\_cases}}
+\index{w\_in\_cases@{w\_in\_cases}!ChildProgram.c@{ChildProgram.c}}
+\doxysubsubsection{\texorpdfstring{w\_in\_cases}{w\_in\_cases}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structcases}{cases}} w\+\_\+in\+\_\+cases\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{\{\textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}"{}}\},}
+\DoxyCodeLine{                  \{\textcolor{stringliteral}{"{}тысяча"{}}, \textcolor{stringliteral}{"{}тысячи"{}}, \textcolor{stringliteral}{"{}тысяч"{}}\},}
+\DoxyCodeLine{                  \{\textcolor{stringliteral}{"{}миллион"{}}, \textcolor{stringliteral}{"{}миллиона"{}}, \textcolor{stringliteral}{"{}миллионов"{}}\},}
+\DoxyCodeLine{                  \{\textcolor{stringliteral}{"{}миллиард"{}}, \textcolor{stringliteral}{"{}миллиарда"{}}, \textcolor{stringliteral}{"{}миллиардов"{}}\},}
+\DoxyCodeLine{                  \{\textcolor{stringliteral}{"{}триллион"{}}, \textcolor{stringliteral}{"{}триллиона"{}}, \textcolor{stringliteral}{"{}триллионов"{}}\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

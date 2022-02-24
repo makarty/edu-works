@@ -1,0 +1,63 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+Родительская программа  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+Include dependency graph for main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Основная функция \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Родительская программа 
+
+Данная программа является родителем, запускает дочернюю программу 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Основная функция 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{ChildProgram_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
+\DoxyCodeLine{    pid\_t childPid;}
+\DoxyCodeLine{    \textcolor{keywordtype}{char}* args[] = \{\textcolor{stringliteral}{"{}./ChildProgram"{}}, \textcolor{stringliteral}{"{}str"{}}, NULL\};}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} childStatus;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    childPid = fork();}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (-\/1 == childPid)}
+\DoxyCodeLine{        puts(\textcolor{stringliteral}{"{}error"{}});}
+\DoxyCodeLine{    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(0 == childPid) \{}
+\DoxyCodeLine{        execvp(args[0], args);}
+\DoxyCodeLine{    \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{        wait(\&childStatus);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(WIFEXITED(childStatus))}
+\DoxyCodeLine{            printf(\textcolor{stringliteral}{"{}\(\backslash\)nPARENT: process finished with code \%d.\(\backslash\)n"{}}, WEXITSTATUS(childStatus));}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
