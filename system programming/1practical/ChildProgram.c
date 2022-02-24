@@ -99,16 +99,23 @@ void number_in_words(char* str){
         for (int j = i; j < (i + len1); j++) {
             d = (int) str[j] - 48;
 
-            if (len % 3 == 0)
+            if (len % 3 == 0 & d != 0)
                 printf("%s ", units[d].hun);
-            if (len % 3 == 1) // Доработать падежи
-                printf("%s ", units[d].one[0]);
+            if (len % 3 == 1 & d != 0)
+                if (i == 0 & len_str >= 7)
+                    printf("%s ", units[d].one[0]);
+                else if (len_str == 1)
+                    printf("%s ", units[d].one[0]);
+                else
+                    printf("%s ", units[d].one[1]);
             if (len % 3 == 2 & str[j] == '1' & str[j + 1] != '0') {
                 d = (int) str[j + 1] - 48;
-                printf("%s ", units[d].two);
-                if (len <= 3)
-                    return;
-            } else if (len % 3 == 2)
+                if(d != 0){
+                    printf("%s ", units[d].two);
+                    if (len <= 3)
+                        return;
+                }
+            } else if (len % 3 == 2 & d != 0)
                 printf("%s ", units[d].dec);
             len--;
             len_str--;
