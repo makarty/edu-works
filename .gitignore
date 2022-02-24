@@ -1,0 +1,14 @@
+# cache directory
+__pycache__
+.idea
+
+# user interface files
+*.ui
+
+# virtual enveroinment
+venv
+.vscode
+
+# data files
+*txt
+*docx
