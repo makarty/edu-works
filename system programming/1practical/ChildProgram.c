@@ -143,20 +143,26 @@ int isnumber(char* str){
  * @brief Функция вывода числа строкой
  * @param str - Строка, содержащая число
  * @code
-void number_in_words(char* str){
-    int len_str = strlen(str), d;
+char* number_in_words(char* str)
+{
+    int len_str = strlen(str), d, length = 1;
+    char* words = (char*) malloc(sizeof(char));
 
     if(len_str == 1 & str[0] == '0')
     {
-        printf("ноль");
-        return;
+        length += strlen("ноль");
+        words = (char*) realloc(words, length);
+        strcpy(words, "ноль");
+        return words;
     }
     for (int i = 0; i < strlen(str);) {
         if(len_str == 0)
-            return;
+            return words;
         if (str[i] == '-' & i == 0)
         {
-            printf("минус ");
+            length += strlen("минус");
+            words = (char*)realloc(words, length);
+            strcat(words, "минус");
             len_str--;
             continue;
         }
@@ -165,129 +171,326 @@ void number_in_words(char* str){
             len_str--;
             continue;
         }
-        int len = len_str % 3;
-        if(len == 0)
-            len = 3;
-        int len1 = len;
+        int three = len_str % 3;
+        if(three == 0)
+            three = 3;
+        int len1 = three;
         for (int j = i; j < (i + len1); j++) {
             d = (int) str[j] - 48;
 
-            if (len % 3 == 0 & d != 0)
-                printf("%s ", units[d].hun);
-            if (len % 3 == 1 & d != 0)
-                if (i == 0 & len_str >= 7)
-                    printf("%s ", units[d].one[0]);
-                else if (len_str == 1)
-                    printf("%s ", units[d].one[0]);
-                else
-                    printf("%s ", units[d].one[1]);
-            if (len % 3 == 2 & str[j] == '1' & str[j + 1] != '0') {
-                d = (int) str[j + 1] - 48;
-                if(d != 0){
-                    printf("%s ", units[d].two);
-                    if (len <= 3)
-                        return;
+            if (three % 3 == 0 & d != 0)
+            {
+                if(length > 1)
+                {
+                    length += strlen(" ");
+                    words = (char*)realloc(words, length);
+                    strcat(words, " ");
                 }
-            } else if (len % 3 == 2 & d != 0)
-                printf("%s ", units[d].dec);
-            len--;
+
+                length += strlen(units[d].hun);
+                words = (char*)realloc(words, length);
+                strcat(words, units[d].hun);
+            }
+            if (three % 3 == 1 & d != 0)
+                if (i == 0 & len_str >= 7)
+                {
+                    if(length > 1)
+                    {
+                        length += strlen(" ");
+                        words = (char*)realloc(words, length);
+                        strcat(words, " ");
+                    }
+
+                    length += strlen(units[d].one[0]);
+                    words = (char*)realloc(words, length);
+                    strcat(words, units[d].one[0]);
+                }
+                else if (len_str == 1)
+                {
+                    if(length > 1)
+                    {
+                        length += strlen(" ");
+                        words = (char*)realloc(words, length);
+                        strcat(words, " ");
+                    }
+
+                    length += strlen(units[d].one[0]);
+                    words = (char*)realloc(words, length);
+                    strcat(words, units[d].one[0]);
+                }
+                else
+                {
+                    if(length > 1)
+                    {
+                        length += strlen(" ");
+                        words = (char*)realloc(words, length);
+                        strcat(words, " ");
+                    }
+
+                    length += strlen(units[d].one[1]);
+                    words = (char*)realloc(words, length);
+                    strcat(words, units[d].one[1]);
+                }
+            if (three % 3 == 2 & str[j] == '1' & str[j + 1] != '0')
+            {
+                d = (int) str[j + 1] - 48;
+                if(d != 0)
+                {
+                    if(length > 1)
+                    {
+                        length += strlen(" ");
+                        words = (char*)realloc(words, length);
+                        strcat(words, " ");
+                    }
+
+                    length += strlen(units[d].two);
+                    words = (char*)realloc(words, length);
+                    strcat(words, units[d].two);
+                    if (three <= 3)
+                        return words;
+                }
+            } else if (three % 3 == 2 & d != 0)
+            {
+                if(length > 1)
+                {
+                    length += strlen(" ");
+                    words = (char*)realloc(words, length);
+                    strcat(words, " ");
+                }
+
+                length += strlen(units[d].dec);
+                words = (char*)realloc(words, length);
+                strcat(words, units[d].dec);
+            }
+            three--;
             len_str--;
             if(len_str % 3 == 0 & d == 1)
-                printf("%s ", w_in_cases[len_str / 3].one);
+            {
+                length += strlen(" ");
+                words = (char*)realloc(words, length);
+                strcat(words, " ");
+
+                length += strlen(w_in_cases[len_str / 3].one);
+                words = (char*)realloc(words, length);
+                strcat(words, w_in_cases[len_str / 3].one);
+            }
             else if(len_str % 3 == 0 & d >= 2 & d <= 4)
-                printf("%s ", w_in_cases[len_str / 3].two);
+            {
+                length += strlen(" ");
+                words = (char*)realloc(words, length);
+                strcat(words, " ");
+
+                length += strlen(w_in_cases[len_str / 3].two);
+                words = (char*)realloc(words, length);
+                strcat(words, w_in_cases[len_str / 3].two);
+            }
             else if(len_str % 3 == 0 & d >= 5)
-                printf("%s ", w_in_cases[len_str / 3].many);
+            {
+                length += strlen(" ");
+                words = (char*)realloc(words, length);
+                strcat(words, " ");
+
+                length += strlen(w_in_cases[len_str / 3].many);
+                words = (char*)realloc(words, length);
+                strcat(words, w_in_cases[len_str / 3].many);
+            }
         }
         i += len1;
     }
+    return words;
 }
  @endcode
  */
-void number_in_words(char* str){
-    int len_str = strlen(str), d;
+char* number_in_words(char* str)
+{
+    int len_str = strlen(str), d, length = 1;
+    char* words = (char*) malloc(sizeof(char));
 
     if(len_str == 1 & str[0] == '0')
     {
-        printf("ноль");
-        return;
+        length += strlen("ноль");
+        words = (char*) realloc(words, length);
+        strcpy(words, "ноль");
+        return words;
     }
-    for (int i = 0; i < strlen(str);) {
+    for (int i = 0; i < strlen(str);)
+    {
         if(len_str == 0)
-            return;
+            return words;
         if (str[i] == '-' & i == 0)
         {
-            printf("минус ");
+            printf("%s ", "минус");
             len_str--;
+            i++;
             continue;
         }
         if (str[i] == '+' & i == 0)
         {
             len_str--;
+            i++;
             continue;
         }
-        int len = len_str % 3;
-        if(len == 0)
-            len = 3;
-        int len1 = len;
+        int three = len_str % 3;
+        if(three == 0)
+            three = 3;
+        int len1 = three;
         for (int j = i; j < (i + len1); j++) {
             d = (int) str[j] - 48;
 
-            if (len % 3 == 0 & d != 0)
-                printf("%s ", units[d].hun);
-            if (len % 3 == 1 & d != 0)
-                if (i == 0 & len_str >= 7)
-                    printf("%s ", units[d].one[0]);
-                else if (len_str == 1)
-                    printf("%s ", units[d].one[0]);
-                else
-                    printf("%s ", units[d].one[1]);
-            if (len % 3 == 2 & str[j] == '1' & str[j + 1] != '0') {
-                d = (int) str[j + 1] - 48;
-                if(d != 0){
-                    printf("%s ", units[d].two);
-                    if (len <= 3)
-                        return;
+            if (three % 3 == 0 & d != 0)
+            {
+                if(length > 1)
+                {
+                    length = strlen(" ");
+                    words = (char*)realloc(words, length);
+                    strcat(words, " ");
                 }
-            } else if (len % 3 == 2 & d != 0)
-                printf("%s ", units[d].dec);
-            len--;
+
+                length = strlen(units[d].hun);
+                words = (char*)realloc(words, length);
+                strcat(words, units[d].hun);
+            }
+            if (three % 3 == 1 & d != 0)
+                if (i == 0 & len_str >= 7)
+                {
+                    if(length > 1)
+                    {
+                        length += strlen(" ");
+                        words = (char*)realloc(words, length);
+                        strcat(words, " ");
+                    }
+
+                    length += strlen(units[d].one[0]);
+                    words = (char*)realloc(words, length);
+                    strcat(words, units[d].one[0]);
+                }
+                else if (len_str == 1)
+                {
+                    if(length > 1)
+                    {
+                        length += strlen(" ");
+                        words = (char*)realloc(words, length);
+                        strcat(words, " ");
+                    }
+
+                    length += strlen(units[d].one[0]);
+                    words = (char*)realloc(words, length);
+                    strcat(words, units[d].one[0]);
+                }
+                else
+                {
+                    if(length > 1)
+                    {
+                        length += strlen(" ");
+                        words = (char*)realloc(words, length);
+                        strcat(words, " ");
+                    }
+
+                    length += strlen(units[d].one[1]);
+                    words = (char*)realloc(words, length);
+                    strcat(words, units[d].one[1]);
+                }
+            if (three % 3 == 2 & str[j] == '1' & str[j + 1] != '0')
+            {
+                d = (int) str[j + 1] - 48;
+                if(d != 0)
+                {
+                    if(length > 1)
+                    {
+                        length += strlen(" ");
+                        words = (char*)realloc(words, length);
+                        strcat(words, " ");
+                    }
+
+                    length += strlen(units[d].two);
+                    words = (char*)realloc(words, length);
+                    strcat(words, units[d].two);
+                    if (three <= 3)
+                        return words;
+                }
+            } else if (three % 3 == 2 & d != 0)
+            {
+                if(length > 1)
+                {
+                    length += strlen(" ");
+                    words = (char*)realloc(words, length);
+                    strcat(words, " ");
+                }
+
+                length += strlen(units[d].dec);
+                words = (char*)realloc(words, length);
+                strcat(words, units[d].dec);
+            }
+            three--;
             len_str--;
             if(len_str % 3 == 0 & d == 1)
-                printf("%s ", w_in_cases[len_str / 3].one);
+            {
+                length += strlen(" ");
+                words = (char*)realloc(words, length);
+                strcat(words, " ");
+
+                length += strlen(w_in_cases[len_str / 3].one);
+                words = (char*)realloc(words, length);
+                strcat(words, w_in_cases[len_str / 3].one);
+            }
             else if(len_str % 3 == 0 & d >= 2 & d <= 4)
-                printf("%s ", w_in_cases[len_str / 3].two);
+            {
+                length += strlen(" ");
+                words = (char*)realloc(words, length);
+                strcat(words, " ");
+
+                length += strlen(w_in_cases[len_str / 3].two);
+                words = (char*)realloc(words, length);
+                strcat(words, w_in_cases[len_str / 3].two);
+            }
             else if(len_str % 3 == 0 & d >= 5)
-                printf("%s ", w_in_cases[len_str / 3].many);
+            {
+                length += strlen(" ");
+                words = (char*)realloc(words, length);
+                strcat(words, " ");
+
+                length += strlen(w_in_cases[len_str / 3].many);
+                words = (char*)realloc(words, length);
+                strcat(words, w_in_cases[len_str / 3].many);
+            }
         }
         i += len1;
     }
+    char* words1 = (char*) malloc((strlen(words)/2 + 1) * sizeof(char));
+    strcpy(words1, words);
+    return words1;
 }
 
 /*!
  * @brief Основная функция
  * @code
 int main(){
-    char* str;
+    char* str, *result;
     str = input("Введите строку: ");
     if(isnumber(str) == 1)
-        number_in_words(str);
+        result = number_in_words(str);
     else
         puts("Некорректный ввод");
 
+    printf("%s", result);
+
+    free(result);
     free(str);
     return 0;
 }
  @endcode
  */
 int main(){
-    char* str;
+    char* str, *result;
     str = input("Введите строку: ");
     if(isnumber(str) == 1)
-        number_in_words(str);
+        result = number_in_words(str);
     else
         puts("Некорректный ввод");
 
+    printf("%s", result);
+
+    free(result);
     free(str);
     return 0;
 }

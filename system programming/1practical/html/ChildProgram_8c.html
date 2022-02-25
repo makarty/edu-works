@@ -106,9 +106,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3d4d114ca828cc7035a89e93acaf1c97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ChildProgram_8c.html#a3d4d114ca828cc7035a89e93acaf1c97">isnumber</a> (char *str)</td></tr>
 <tr class="memdesc:a3d4d114ca828cc7035a89e93acaf1c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция проверки строки  <a href="ChildProgram_8c.html#a3d4d114ca828cc7035a89e93acaf1c97">More...</a><br /></td></tr>
 <tr class="separator:a3d4d114ca828cc7035a89e93acaf1c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a735b18c8cbc75519bf975b9ccc37257d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ChildProgram_8c.html#a735b18c8cbc75519bf975b9ccc37257d">number_in_words</a> (char *str)</td></tr>
-<tr class="memdesc:a735b18c8cbc75519bf975b9ccc37257d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция вывода числа строкой  <a href="ChildProgram_8c.html#a735b18c8cbc75519bf975b9ccc37257d">More...</a><br /></td></tr>
-<tr class="separator:a735b18c8cbc75519bf975b9ccc37257d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad06924be293de6abc1a6f52774b5c3f5"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ChildProgram_8c.html#ad06924be293de6abc1a6f52774b5c3f5">number_in_words</a> (char *str)</td></tr>
+<tr class="memdesc:ad06924be293de6abc1a6f52774b5c3f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция вывода числа строкой  <a href="ChildProgram_8c.html#ad06924be293de6abc1a6f52774b5c3f5">More...</a><br /></td></tr>
+<tr class="separator:ad06924be293de6abc1a6f52774b5c3f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ChildProgram_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основная функция  <a href="ChildProgram_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">More...</a><br /></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -232,29 +232,32 @@ Variables</h2></td></tr>
 
 <p>Основная функция </p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="ChildProgram_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(){</div>
-<div class="line">    <span class="keywordtype">char</span>* str;</div>
+<div class="line">    <span class="keywordtype">char</span>* str, *result;</div>
 <div class="line">    str = <a class="code" href="ChildProgram_8c.html#a99cfe30531f53f987fd054edd37758f2">input</a>(<span class="stringliteral">&quot;Введите строку: &quot;</span>);</div>
 <div class="line">    <span class="keywordflow">if</span>(<a class="code" href="ChildProgram_8c.html#a3d4d114ca828cc7035a89e93acaf1c97">isnumber</a>(str) == 1)</div>
-<div class="line">        <a class="code" href="ChildProgram_8c.html#a735b18c8cbc75519bf975b9ccc37257d">number_in_words</a>(str);</div>
+<div class="line">        result = <a class="code" href="ChildProgram_8c.html#ad06924be293de6abc1a6f52774b5c3f5">number_in_words</a>(str);</div>
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">        puts(<span class="stringliteral">&quot;Некорректный ввод&quot;</span>);</div>
 <div class="line"> </div>
+<div class="line">    printf(<span class="stringliteral">&quot;%s&quot;</span>, result);</div>
+<div class="line"> </div>
+<div class="line">    free(result);</div>
 <div class="line">    free(str);</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aChildProgram_8c_html_a735b18c8cbc75519bf975b9ccc37257d"><div class="ttname"><a href="ChildProgram_8c.html#a735b18c8cbc75519bf975b9ccc37257d">number_in_words</a></div><div class="ttdeci">void number_in_words(char *str)</div><div class="ttdoc">Функция вывода числа строкой</div><div class="ttdef"><b>Definition:</b> ChildProgram.c:207</div></div>
-<div class="ttc" id="aChildProgram_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="ChildProgram_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Основная функция</div><div class="ttdef"><b>Definition:</b> ChildProgram.c:283</div></div>
+<div class="ttc" id="aChildProgram_8c_html_ad06924be293de6abc1a6f52774b5c3f5"><div class="ttname"><a href="ChildProgram_8c.html#ad06924be293de6abc1a6f52774b5c3f5">number_in_words</a></div><div class="ttdeci">char * number_in_words(char *str)</div><div class="ttdoc">Функция вывода числа строкой</div><div class="ttdef"><b>Definition:</b> ChildProgram.c:304</div></div>
+<div class="ttc" id="aChildProgram_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="ChildProgram_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Основная функция</div><div class="ttdef"><b>Definition:</b> ChildProgram.c:483</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a735b18c8cbc75519bf975b9ccc37257d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a735b18c8cbc75519bf975b9ccc37257d">&#9670;&nbsp;</a></span>number_in_words()</h2>
+<a id="ad06924be293de6abc1a6f52774b5c3f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad06924be293de6abc1a6f52774b5c3f5">&#9670;&nbsp;</a></span>number_in_words()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void number_in_words </td>
+          <td class="memname">char* number_in_words </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>str</em></td><td>)</td>
@@ -266,20 +269,26 @@ Variables</h2></td></tr>
 <p>Функция вывода числа строкой </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>- Строка, содержащая число <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="ChildProgram_8c.html#a735b18c8cbc75519bf975b9ccc37257d">number_in_words</a>(<span class="keywordtype">char</span>* str){</div>
-<div class="line">    <span class="keywordtype">int</span> len_str = strlen(str), d;</div>
+    <tr><td class="paramname">str</td><td>- Строка, содержащая число <div class="fragment"><div class="line"><span class="keywordtype">char</span>* <a class="code" href="ChildProgram_8c.html#ad06924be293de6abc1a6f52774b5c3f5">number_in_words</a>(<span class="keywordtype">char</span>* str)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> len_str = strlen(str), d, length = 1;</div>
+<div class="line">    <span class="keywordtype">char</span>* words = (<span class="keywordtype">char</span>*) malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">char</span>));</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span>(len_str == 1 &amp; str[0] == <span class="charliteral">&#39;0&#39;</span>)</div>
 <div class="line">    {</div>
-<div class="line">        printf(<span class="stringliteral">&quot;ноль&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">        length += strlen(<span class="stringliteral">&quot;ноль&quot;</span>);</div>
+<div class="line">        words = (<span class="keywordtype">char</span>*) realloc(words, length);</div>
+<div class="line">        strcpy(words, <span class="stringliteral">&quot;ноль&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> words;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; strlen(str);) {</div>
 <div class="line">        <span class="keywordflow">if</span>(len_str == 0)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> words;</div>
 <div class="line">        <span class="keywordflow">if</span> (str[i] == <span class="charliteral">&#39;-&#39;</span> &amp; i == 0)</div>
 <div class="line">        {</div>
-<div class="line">            printf(<span class="stringliteral">&quot;минус &quot;</span>);</div>
+<div class="line">            length += strlen(<span class="stringliteral">&quot;минус&quot;</span>);</div>
+<div class="line">            words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">            strcat(words, <span class="stringliteral">&quot;минус&quot;</span>);</div>
 <div class="line">            len_str--;</div>
 <div class="line">            <span class="keywordflow">continue</span>;</div>
 <div class="line">        }</div>
@@ -288,42 +297,133 @@ Variables</h2></td></tr>
 <div class="line">            len_str--;</div>
 <div class="line">            <span class="keywordflow">continue</span>;</div>
 <div class="line">        }</div>
-<div class="line">        <span class="keywordtype">int</span> len = len_str % 3;</div>
-<div class="line">        <span class="keywordflow">if</span>(len == 0)</div>
-<div class="line">            len = 3;</div>
-<div class="line">        <span class="keywordtype">int</span> len1 = len;</div>
+<div class="line">        <span class="keywordtype">int</span> three = len_str % 3;</div>
+<div class="line">        <span class="keywordflow">if</span>(three == 0)</div>
+<div class="line">            three = 3;</div>
+<div class="line">        <span class="keywordtype">int</span> len1 = three;</div>
 <div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = i; j &lt; (i + len1); j++) {</div>
 <div class="line">            d = (int) str[j] - 48;</div>
 <div class="line"> </div>
-<div class="line">            <span class="keywordflow">if</span> (len % 3 == 0 &amp; d != 0)</div>
-<div class="line">                printf(<span class="stringliteral">&quot;%s &quot;</span>, units[d].hun);</div>
-<div class="line">            <span class="keywordflow">if</span> (len % 3 == 1 &amp; d != 0)</div>
-<div class="line">                <span class="keywordflow">if</span> (i == 0 &amp; len_str &gt;= 7)</div>
-<div class="line">                    printf(<span class="stringliteral">&quot;%s &quot;</span>, units[d].one[0]);</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (len_str == 1)</div>
-<div class="line">                    printf(<span class="stringliteral">&quot;%s &quot;</span>, units[d].one[0]);</div>
-<div class="line">                <span class="keywordflow">else</span></div>
-<div class="line">                    printf(<span class="stringliteral">&quot;%s &quot;</span>, units[d].one[1]);</div>
-<div class="line">            <span class="keywordflow">if</span> (len % 3 == 2 &amp; str[j] == <span class="charliteral">&#39;1&#39;</span> &amp; str[j + 1] != <span class="charliteral">&#39;0&#39;</span>) {</div>
-<div class="line">                d = (int) str[j + 1] - 48;</div>
-<div class="line">                <span class="keywordflow">if</span>(d != 0){</div>
-<div class="line">                    printf(<span class="stringliteral">&quot;%s &quot;</span>, units[d].two);</div>
-<div class="line">                    <span class="keywordflow">if</span> (len &lt;= 3)</div>
-<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">if</span> (three % 3 == 0 &amp; d != 0)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span>(length &gt; 1)</div>
+<div class="line">                {</div>
+<div class="line">                    length += strlen(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                    words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                    strcat(words, <span class="stringliteral">&quot; &quot;</span>);</div>
 <div class="line">                }</div>
-<div class="line">            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (len % 3 == 2 &amp; d != 0)</div>
-<div class="line">                printf(<span class="stringliteral">&quot;%s &quot;</span>, units[d].dec);</div>
-<div class="line">            len--;</div>
+<div class="line"> </div>
+<div class="line">                length += strlen(units[d].hun);</div>
+<div class="line">                words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                strcat(words, units[d].hun);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">if</span> (three % 3 == 1 &amp; d != 0)</div>
+<div class="line">                <span class="keywordflow">if</span> (i == 0 &amp; len_str &gt;= 7)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">if</span>(length &gt; 1)</div>
+<div class="line">                    {</div>
+<div class="line">                        length += strlen(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                        words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                        strcat(words, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                    }</div>
+<div class="line"> </div>
+<div class="line">                    length += strlen(units[d].one[0]);</div>
+<div class="line">                    words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                    strcat(words, units[d].one[0]);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (len_str == 1)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">if</span>(length &gt; 1)</div>
+<div class="line">                    {</div>
+<div class="line">                        length += strlen(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                        words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                        strcat(words, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                    }</div>
+<div class="line"> </div>
+<div class="line">                    length += strlen(units[d].one[0]);</div>
+<div class="line">                    words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                    strcat(words, units[d].one[0]);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span></div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">if</span>(length &gt; 1)</div>
+<div class="line">                    {</div>
+<div class="line">                        length += strlen(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                        words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                        strcat(words, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                    }</div>
+<div class="line"> </div>
+<div class="line">                    length += strlen(units[d].one[1]);</div>
+<div class="line">                    words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                    strcat(words, units[d].one[1]);</div>
+<div class="line">                }</div>
+<div class="line">            <span class="keywordflow">if</span> (three % 3 == 2 &amp; str[j] == <span class="charliteral">&#39;1&#39;</span> &amp; str[j + 1] != <span class="charliteral">&#39;0&#39;</span>)</div>
+<div class="line">            {</div>
+<div class="line">                d = (int) str[j + 1] - 48;</div>
+<div class="line">                <span class="keywordflow">if</span>(d != 0)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">if</span>(length &gt; 1)</div>
+<div class="line">                    {</div>
+<div class="line">                        length += strlen(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                        words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                        strcat(words, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                    }</div>
+<div class="line"> </div>
+<div class="line">                    length += strlen(units[d].two);</div>
+<div class="line">                    words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                    strcat(words, units[d].two);</div>
+<div class="line">                    <span class="keywordflow">if</span> (three &lt;= 3)</div>
+<div class="line">                        <span class="keywordflow">return</span> words;</div>
+<div class="line">                }</div>
+<div class="line">            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (three % 3 == 2 &amp; d != 0)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span>(length &gt; 1)</div>
+<div class="line">                {</div>
+<div class="line">                    length += strlen(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                    words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                    strcat(words, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                }</div>
+<div class="line"> </div>
+<div class="line">                length += strlen(units[d].dec);</div>
+<div class="line">                words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                strcat(words, units[d].dec);</div>
+<div class="line">            }</div>
+<div class="line">            three--;</div>
 <div class="line">            len_str--;</div>
 <div class="line">            <span class="keywordflow">if</span>(len_str % 3 == 0 &amp; d == 1)</div>
-<div class="line">                printf(<span class="stringliteral">&quot;%s &quot;</span>, w_in_cases[len_str / 3].one);</div>
+<div class="line">            {</div>
+<div class="line">                length += strlen(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                strcat(words, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">                length += strlen(w_in_cases[len_str / 3].one);</div>
+<div class="line">                words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                strcat(words, w_in_cases[len_str / 3].one);</div>
+<div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(len_str % 3 == 0 &amp; d &gt;= 2 &amp; d &lt;= 4)</div>
-<div class="line">                printf(<span class="stringliteral">&quot;%s &quot;</span>, w_in_cases[len_str / 3].two);</div>
+<div class="line">            {</div>
+<div class="line">                length += strlen(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                strcat(words, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">                length += strlen(w_in_cases[len_str / 3].two);</div>
+<div class="line">                words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                strcat(words, w_in_cases[len_str / 3].two);</div>
+<div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(len_str % 3 == 0 &amp; d &gt;= 5)</div>
-<div class="line">                printf(<span class="stringliteral">&quot;%s &quot;</span>, w_in_cases[len_str / 3].many);</div>
+<div class="line">            {</div>
+<div class="line">                length += strlen(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line">                words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                strcat(words, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">                length += strlen(w_in_cases[len_str / 3].many);</div>
+<div class="line">                words = (<span class="keywordtype">char</span>*)realloc(words, length);</div>
+<div class="line">                strcat(words, w_in_cases[len_str / 3].many);</div>
+<div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        i += len1;</div>
 <div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> words;</div>
 <div class="line">}</div>
 </div><!-- fragment --> </td></tr>
   </table>

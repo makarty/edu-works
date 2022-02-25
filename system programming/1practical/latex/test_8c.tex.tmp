@@ -1,0 +1,119 @@
+\hypertarget{test_8c}{}\doxysection{test.\+c File Reference}
+\label{test_8c}\index{test.c@{test.c}}
+{\ttfamily \#include $<$CUnit/\+CUnit.\+h$>$}\newline
+{\ttfamily \#include $<$CUnit/\+Console.\+h$>$}\newline
+{\ttfamily \#include $<$CUnit/\+Test\+DB.\+h$>$}\newline
+{\ttfamily \#include $<$CUnit/\+Basic.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$malloc.\+h$>$}\newline
+Include dependency graph for test.\+c\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcases}{cases}}
+\begin{DoxyCompactList}\small\item\em Массив структур \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structunit}{unit}}
+\begin{DoxyCompactList}\small\item\em Массив структур \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{test_8c_ad06924be293de6abc1a6f52774b5c3f5}{number\+\_\+in\+\_\+words}} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Функция записи числа просписью \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{test_8c_a3d4d114ca828cc7035a89e93acaf1c97}{isnumber}} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Функция проверки числа в строке \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8c_a1440a7779ac56f47a3f355ce4a8c7da0}\label{test_8c_a1440a7779ac56f47a3f355ce4a8c7da0}} 
+void \mbox{\hyperlink{test_8c_a1440a7779ac56f47a3f355ce4a8c7da0}{test1}} ()
+\begin{DoxyCompactList}\small\item\em Тесты, проверяющие функцию isnumber. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{test_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcases}{cases}} {\bfseries w\+\_\+in\+\_\+cases} \mbox{[}$\,$\mbox{]}
+\item 
+struct \mbox{\hyperlink{structunit}{unit}} {\bfseries units} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Файл с тестами 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{test_8c_a3d4d114ca828cc7035a89e93acaf1c97}\label{test_8c_a3d4d114ca828cc7035a89e93acaf1c97}} 
+\index{test.c@{test.c}!isnumber@{isnumber}}
+\index{isnumber@{isnumber}!test.c@{test.c}}
+\doxysubsubsection{\texorpdfstring{isnumber()}{isnumber()}}
+{\footnotesize\ttfamily int isnumber (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Функция проверки числа в строке 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Строка с числом \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 если строка содержит число 0 если ввод некорректен или неправильно записано число 
+\end{DoxyReturn}
+\mbox{\Hypertarget{test_8c_ad06924be293de6abc1a6f52774b5c3f5}\label{test_8c_ad06924be293de6abc1a6f52774b5c3f5}} 
+\index{test.c@{test.c}!number\_in\_words@{number\_in\_words}}
+\index{number\_in\_words@{number\_in\_words}!test.c@{test.c}}
+\doxysubsubsection{\texorpdfstring{number\_in\_words()}{number\_in\_words()}}
+{\footnotesize\ttfamily char$\ast$ number\+\_\+in\+\_\+words (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Функция записи числа просписью 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Строка с числом \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Строка пропись числа 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{test_8c_abe12522eb4da54d32be7560cd0750206}\label{test_8c_abe12522eb4da54d32be7560cd0750206}} 
+\index{test.c@{test.c}!units@{units}}
+\index{units@{units}!test.c@{test.c}}
+\doxysubsubsection{\texorpdfstring{units}{units}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structunit}{unit}} units\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{\{\{\textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}"{}}\}, \textcolor{stringliteral}{"{}десять"{}}, \textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}один"{}}, \textcolor{stringliteral}{"{}одна"{}}\}, \textcolor{stringliteral}{"{}одиннадцать"{}}, \textcolor{stringliteral}{"{}десять"{}}, \textcolor{stringliteral}{"{}сто"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}два"{}}, \textcolor{stringliteral}{"{}две"{}}\}, \textcolor{stringliteral}{"{}двенадцать"{}}, \textcolor{stringliteral}{"{}двадцать"{}}, \textcolor{stringliteral}{"{}двести"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}три"{}}, \textcolor{stringliteral}{"{}три"{}}\}, \textcolor{stringliteral}{"{}тринадцать"{}}, \textcolor{stringliteral}{"{}тридцать"{}}, \textcolor{stringliteral}{"{}триста"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}четыре"{}}, \textcolor{stringliteral}{"{}четыре"{}}\}, \textcolor{stringliteral}{"{}четырнадцать"{}}, \textcolor{stringliteral}{"{}сорок"{}}, \textcolor{stringliteral}{"{}четыреста"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}пять"{}}, \textcolor{stringliteral}{"{}пять"{}}\}, \textcolor{stringliteral}{"{}пятнадцать"{}}, \textcolor{stringliteral}{"{}пятьдесят"{}}, \textcolor{stringliteral}{"{}пятьсот"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}шесть"{}}, \textcolor{stringliteral}{"{}шесть"{}}\}, \textcolor{stringliteral}{"{}шестнадцать"{}}, \textcolor{stringliteral}{"{}шестьдесят"{}}, \textcolor{stringliteral}{"{}шестьсот"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}семь"{}}, \textcolor{stringliteral}{"{}семь"{}}\}, \textcolor{stringliteral}{"{}семнадцать"{}}, \textcolor{stringliteral}{"{}семьдесят"{}}, \textcolor{stringliteral}{"{}семьсот"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}восемь"{}}, \textcolor{stringliteral}{"{}восемь"{}}\}, \textcolor{stringliteral}{"{}восемнадцать"{}}, \textcolor{stringliteral}{"{}восемьдесят"{}}, \textcolor{stringliteral}{"{}восемьсот"{}}\},}
+\DoxyCodeLine{             \{\{\textcolor{stringliteral}{"{}девять"{}}, \textcolor{stringliteral}{"{}девять"{}}\}, \textcolor{stringliteral}{"{}девятнадцать"{}}, \textcolor{stringliteral}{"{}девяносто"{}}, \textcolor{stringliteral}{"{}девятьсот"{}}\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{test_8c_a4b73dfb0426103efae9252a0b14e8c48}\label{test_8c_a4b73dfb0426103efae9252a0b14e8c48}} 
+\index{test.c@{test.c}!w\_in\_cases@{w\_in\_cases}}
+\index{w\_in\_cases@{w\_in\_cases}!test.c@{test.c}}
+\doxysubsubsection{\texorpdfstring{w\_in\_cases}{w\_in\_cases}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structcases}{cases}} w\+\_\+in\+\_\+cases\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{\{\textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}"{}}\},}
+\DoxyCodeLine{                  \{\textcolor{stringliteral}{"{}тысяча"{}}, \textcolor{stringliteral}{"{}тысячи"{}}, \textcolor{stringliteral}{"{}тысяч"{}}\},}
+\DoxyCodeLine{                  \{\textcolor{stringliteral}{"{}миллион"{}}, \textcolor{stringliteral}{"{}миллиона"{}}, \textcolor{stringliteral}{"{}миллионов"{}}\},}
+\DoxyCodeLine{                  \{\textcolor{stringliteral}{"{}миллиард"{}}, \textcolor{stringliteral}{"{}миллиарда"{}}, \textcolor{stringliteral}{"{}миллиардов"{}}\},}
+\DoxyCodeLine{                  \{\textcolor{stringliteral}{"{}триллион"{}}, \textcolor{stringliteral}{"{}триллиона"{}}, \textcolor{stringliteral}{"{}триллионов"{}}\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
