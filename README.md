@@ -10,4 +10,4 @@
 
 - [Практическая работа № 1. Основы HTML](https://gitlab.com/makarty/edu-works/-/tree/master/web/1practical)
 
-- [Практическая работа № 1. Каскадные таблицы стилей (CSS)](https://gitlab.com/makarty/edu-works/-/tree/master/web/2practical)
+- [Практическая работа № 2. Каскадные таблицы стилей (CSS)](https://gitlab.com/makarty/edu-works/-/tree/master/web/2practical)
