@@ -1,0 +1,18 @@
+.background{
+    background-image: url(images/fan-art-56.jpg);
+    background-attachment: fixed;
+}
+
+.table1{
+    background-image: url(images/bumaga.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: -10px;
+    background-position-y: center;
+    background-color: transparent;
+    width: 240px;
+}
+
+.table2{
+    width: 50%;
+}
