@@ -4,14 +4,18 @@
  * Файл с тестами
  */
 #include <CUnit/CUnit.h>
-#include <CUnit/Console.h>
 #include <CUnit/TestDB.h>
 #include <CUnit/Basic.h>
 #include <ctype.h>
 #include <malloc.h>
+#include <limits.h>
+
+#define FIRST_ITERATION 0
+#define SINGLE_DIGIT_NUMBER 1
 
 
-struct cases{
+struct cases
+        {
     char* one;
     char* two;
     char* many;
@@ -23,7 +27,8 @@ struct cases{
 };
 
 
-struct unit{
+struct unit
+        {
     char* one[2];
     char* two;
     char* dec;
@@ -41,185 +46,63 @@ struct unit{
 };
 
 
+int degree[] = {1, 10, 100, 1000, 10000,
+                100000, 1000000, 10000000, 100000000, 1000000000};
+
+
 /*!
- * @brief Функция записи числа просписью
- * @param str Строка с числом
- * @return Строка пропись числа
+ * @brief Функция проверки числа на максимально/минимально возможное для int
+ * @param str Строка, содержащая число
+ * @return 1 - если число входит в диапазон
+ * @return 0 - если не входит в диапазон
  */
-char* number_in_words(char* str)
+int check_limit(char* str)
 {
-    int len_str = strlen(str), d, length = 1;
-    char* words = (char*) malloc(sizeof(char));
-
-    if(len_str == 1 & str[0] == '0')
+    int figure, sign = 1, len = strlen(str);
+    long long int number = 0;
+    for(int i = 0; i < strlen(str); i++)
     {
-        length += strlen("ноль");
-        words = (char*) realloc(words, length);
-        strcpy(words, "ноль");
-        return words;
-    }
-    for (int i = 0; i < strlen(str);) {
-        if(len_str == 0)
-            return words;
-        if (str[i] == '-' & i == 0)
+        if(str[i] == '-' & i == FIRST_ITERATION)
         {
-            length += strlen("минус");
-            words = (char*)realloc(words, length);
-            strcat(words, "минус");
-            len_str--;
+            sign = -1;
+            len--;
             continue;
         }
-        if (str[i] == '+' & i == 0)
+        if(str[i] == '+' & i == FIRST_ITERATION)
         {
-            len_str--;
+            len--;
             continue;
         }
-        int three = len_str % 3;
-        if(three == 0)
-            three = 3;
-        int len1 = three;
-        for (int j = i; j < (i + len1); j++) {
-            d = (int) str[j] - 48;
-
-            if (three % 3 == 0 & d != 0)
-            {
-                if(length > 1)
-                {
-                    length = strlen(" ");
-                    words = (char*)realloc(words, length);
-                    strcat(words, " ");
-                }
-
-                length = strlen(units[d].hun);
-                words = (char*)realloc(words, length);
-                strcat(words, units[d].hun);
-            }
-            if (three % 3 == 1 & d != 0)
-                if (i == 0 & len_str >= 7)
-                {
-                    if(length > 1)
-                    {
-                        length += strlen(" ");
-                        words = (char*)realloc(words, length);
-                        strcat(words, " ");
-                    }
-
-                    length += strlen(units[d].one[0]);
-                    words = (char*)realloc(words, length);
-                    strcat(words, units[d].one[0]);
-                }
-                else if (len_str == 1)
-                {
-                    if(length > 1)
-                    {
-                        length += strlen(" ");
-                        words = (char*)realloc(words, length);
-                        strcat(words, " ");
-                    }
-
-                    length += strlen(units[d].one[0]);
-                    words = (char*)realloc(words, length);
-                    strcat(words, units[d].one[0]);
-                }
-                else
-                {
-                    if(length > 1)
-                    {
-                        length += strlen(" ");
-                        words = (char*)realloc(words, length);
-                        strcat(words, " ");
-                    }
-
-                    length += strlen(units[d].one[1]);
-                    words = (char*)realloc(words, length);
-                    strcat(words, units[d].one[1]);
-                }
-            if (three % 3 == 2 & str[j] == '1' & str[j + 1] != '0')
-            {
-                d = (int) str[j + 1] - 48;
-                if(d != 0)
-                {
-                    if(length > 1)
-                    {
-                        length += strlen(" ");
-                        words = (char*)realloc(words, length);
-                        strcat(words, " ");
-                    }
-
-                    length += strlen(units[d].two);
-                    words = (char*)realloc(words, length);
-                    strcat(words, units[d].two);
-                    if (three <= 3)
-                        return words;
-                }
-            } else if (three % 3 == 2 & d != 0)
-            {
-                if(length > 1)
-                {
-                    length += strlen(" ");
-                    words = (char*)realloc(words, length);
-                    strcat(words, " ");
-                }
-
-                length += strlen(units[d].dec);
-                words = (char*)realloc(words, length);
-                strcat(words, units[d].dec);
-            }
-            three--;
-            len_str--;
-            if(len_str % 3 == 0 & d == 1)
-            {
-                length += strlen(" ");
-                words = (char*)realloc(words, length);
-                strcat(words, " ");
-
-                length += strlen(w_in_cases[len_str / 3].one);
-                words = (char*)realloc(words, length);
-                strcat(words, w_in_cases[len_str / 3].one);
-            }
-            else if(len_str % 3 == 0 & d >= 2 & d <= 4)
-            {
-                length += strlen(" ");
-                words = (char*)realloc(words, length);
-                strcat(words, " ");
-
-                length += strlen(w_in_cases[len_str / 3].two);
-                words = (char*)realloc(words, length);
-                strcat(words, w_in_cases[len_str / 3].two);
-            }
-            else if(len_str % 3 == 0 & d >= 5)
-            {
-                length += strlen(" ");
-                words = (char*)realloc(words, length);
-                strcat(words, " ");
-
-                length += strlen(w_in_cases[len_str / 3].many);
-                words = (char*)realloc(words, length);
-                strcat(words, w_in_cases[len_str / 3].many);
-            }
-        }
-        i += len1;
+        if(len > 10)
+            return 0;
+        figure = (int)str[i] - 48;
+        if(len == 10 & figure > 2)
+            return 0;
+        number += figure * degree[len - 1];
+        len--;
     }
-    char* words1 = (char*) malloc((strlen(words)/2 + 1) * sizeof(char));
-    strcpy(words1, words);
-    return words1;
+    number *= sign;
+    if(number > INT_MAX | number < INT_MIN)
+        return 0;
+    return 1;
 }
 
 
 /*!
  * @brief Функция проверки числа в строке
  * @param str Строка с числом
- * @return 1 если строка содержит число
- * 0 если ввод некорректен или неправильно записано число
+ * @return 1 - если строка содержит число
+ * @return 0 - если ввод некорректен или неправильно записано число
  */
-int isnumber(char* str){
+int isnumber(char* str)
+{
     int k = 0, len = strlen(str);
 
     for (int i = 0; i < len; i++)
     {
-        if(len == 1 & str[0] == '0')
+        if(len == SINGLE_DIGIT_NUMBER & str[0] == '0')
             return 1;
-        if((str[i] == '-' | str[i] == '+') & (i == 0))
+        if((str[i] == '-' | str[i] == '+') & (i == FIRST_ITERATION))
             continue;
         if(str[i] == '0' & k <= 0)
             k--;
@@ -241,12 +124,24 @@ void test1()
 }
 
 
+/*!
+ * @brief Тесты, проверяющие функцию check_limit
+ */
+void test2()
+{
+    CU_ASSERT_EQUAL(check_limit("2344"), 1);
+    CU_ASSERT_EQUAL(check_limit("3000000000"), 0);
+    CU_ASSERT_EQUAL(check_limit("2147483648"), 0);
+}
+
+
 int main()
 {
     CU_pSuite suit;
     CU_initialize_registry();
     suit = CU_add_suite("number_in_words", NULL, NULL);
     CU_add_test(suit, "test1", test1);
+    CU_add_test(suit, "test2", test2);
     CU_basic_set_mode(CU_BRM_VERBOSE);
     CU_basic_run_tests();
     CU_cleanup_registry();

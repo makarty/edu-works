@@ -9,21 +9,26 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 
+#define PROCESS_CREATION_ERROR -1
+#define CHILD_PROCESS 0
 
 /*!
  * @brief Основная функция
  * @code
-int main() {
+int main()
+{
     pid_t childPid;
     char* args[] = {"./ChildProgram", "str", NULL};
     int childStatus;
 
     childPid = fork();
-    if (-1 == childPid)
+    if (PROCESS_CREATION_ERROR == childPid)
         puts("error");
-    else if(0 == childPid) {
+    else if(CHILD_PROCESS == childPid)
+    {
         execvp(args[0], args);
-    }else{
+    }else
+    {
         wait(&childStatus);
         if(WIFEXITED(childStatus))
             printf("\nPARENT: process finished with code %d.\n", WEXITSTATUS(childStatus));
@@ -32,17 +37,20 @@ int main() {
 }
  @endcode
  */
-int main() {
+int main()
+{
     pid_t childPid;
     char* args[] = {"./ChildProgram", "str", NULL};
     int childStatus;
 
     childPid = fork();
-    if (-1 == childPid)
+    if (PROCESS_CREATION_ERROR == childPid)
         puts("error");
-    else if(0 == childPid) {
+    else if(CHILD_PROCESS == childPid)
+    {
         execvp(args[0], args);
-    }else{
+    }else
+    {
         wait(&childStatus);
         if(WIFEXITED(childStatus))
             printf("\nPARENT: process finished with code %d.\n", WEXITSTATUS(childStatus));
