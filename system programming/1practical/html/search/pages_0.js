@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['install_23',['INSTALL',['../md_INSTALL.html',1,'']]]
+  ['Запуск_20программы_23',['Запуск программы',['../md_USING.html',1,'']]]
 ];

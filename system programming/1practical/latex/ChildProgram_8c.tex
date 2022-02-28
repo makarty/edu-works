@@ -23,6 +23,33 @@ struct \mbox{\hyperlink{structcases}{cases}}
 \begin{DoxyCompactList}\small\item\em Массив структур \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structunit}{unit}}
 \begin{DoxyCompactList}\small\item\em Массив структур \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ChildProgram_8c_ad1146a8f6ea86437ec8bfc53de00807a}\label{ChildProgram_8c_ad1146a8f6ea86437ec8bfc53de00807a}} 
+\#define {\bfseries THERE\+\_\+\+IS\+\_\+\+NO\+\_\+\+REMAINDER}~0
+\item 
+\mbox{\Hypertarget{ChildProgram_8c_a625dac461fbab83b1c1d04f3aceeb8f3}\label{ChildProgram_8c_a625dac461fbab83b1c1d04f3aceeb8f3}} 
+\#define {\bfseries HUNDRED}~0
+\item 
+\mbox{\Hypertarget{ChildProgram_8c_aabc53aa7e6353d8f58b8ae93fd015fab}\label{ChildProgram_8c_aabc53aa7e6353d8f58b8ae93fd015fab}} 
+\#define {\bfseries TEN}~2
+\item 
+\mbox{\Hypertarget{ChildProgram_8c_a0079cc4909964ed0d782c06b1753ce14}\label{ChildProgram_8c_a0079cc4909964ed0d782c06b1753ce14}} 
+\#define {\bfseries UNIT}~1
+\item 
+\mbox{\Hypertarget{ChildProgram_8c_a368e7704f92e34c8ea0a5c263a95a1b1}\label{ChildProgram_8c_a368e7704f92e34c8ea0a5c263a95a1b1}} 
+\#define {\bfseries MILLION}~7
+\item 
+\mbox{\Hypertarget{ChildProgram_8c_ad7b34964fc63ab23abf23d64da5d78e5}\label{ChildProgram_8c_ad7b34964fc63ab23abf23d64da5d78e5}} 
+\#define {\bfseries FIRST\+\_\+\+ITERATION}~0
+\item 
+\mbox{\Hypertarget{ChildProgram_8c_a75164d4a2b076a86a7949a4529a1cac9}\label{ChildProgram_8c_a75164d4a2b076a86a7949a4529a1cac9}} 
+\#define {\bfseries SINGLE\+\_\+\+DIGIT\+\_\+\+NUMBER}~1
+\item 
+\mbox{\Hypertarget{ChildProgram_8c_a641bbab35fbff0f398936d0b1cb606ba}\label{ChildProgram_8c_a641bbab35fbff0f398936d0b1cb606ba}} 
+\#define {\bfseries CORRECT\+\_\+\+NUMBER}~1
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -106,14 +133,15 @@ struct \mbox{\hyperlink{structunit}{unit}} {\bfseries units} \mbox{[}$\,$\mbox{]
 
 0 -\/ если ввод некорректен или строка не является числом 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{ChildProgram_8c_a3d4d114ca828cc7035a89e93acaf1c97}{isnumber}}(\textcolor{keywordtype}{char}* str)\{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{ChildProgram_8c_a3d4d114ca828cc7035a89e93acaf1c97}{isnumber}}(\textcolor{keywordtype}{char}* str)}
+\DoxyCodeLine{\{}
 \DoxyCodeLine{    \textcolor{keywordtype}{int} k = 0, len = strlen(str);}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < len; i++)}
 \DoxyCodeLine{    \{}
-\DoxyCodeLine{        \textcolor{keywordflow}{if}(len == 1 \& str[0] == \textcolor{charliteral}{'0'})}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(len == SINGLE\_DIGIT\_NUMBER \& str[0] == \textcolor{charliteral}{'0'})}
 \DoxyCodeLine{            \textcolor{keywordflow}{return} 1;}
-\DoxyCodeLine{        \textcolor{keywordflow}{if}((str[i] == \textcolor{charliteral}{'-\/'} | str[i] == \textcolor{charliteral}{'+'}) \& (i == 0))}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}((str[i] == \textcolor{charliteral}{'-\/'} | str[i] == \textcolor{charliteral}{'+'}) \& (i == FIRST\_ITERATION))}
 \DoxyCodeLine{            \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{        \textcolor{keywordflow}{if}(str[i] == \textcolor{charliteral}{'0'} \& k <= 0)}
 \DoxyCodeLine{            k-\/-\/;}
@@ -143,12 +171,12 @@ struct \mbox{\hyperlink{structunit}{unit}} {\bfseries units} \mbox{[}$\,$\mbox{]
 \DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{ChildProgram_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\{}
 \DoxyCodeLine{    \textcolor{keywordtype}{char}* str, *result;}
 \DoxyCodeLine{    str = \mbox{\hyperlink{ChildProgram_8c_a99cfe30531f53f987fd054edd37758f2}{input}}(\textcolor{stringliteral}{"{}Введите строку: "{}});}
-\DoxyCodeLine{    \textcolor{keywordflow}{if}(\mbox{\hyperlink{ChildProgram_8c_a3d4d114ca828cc7035a89e93acaf1c97}{isnumber}}(str) == 1)}
+\DoxyCodeLine{    \textcolor{keywordflow}{if}(\mbox{\hyperlink{ChildProgram_8c_a3d4d114ca828cc7035a89e93acaf1c97}{isnumber}}(str) == CORRECT\_NUMBER)}
 \DoxyCodeLine{        result = \mbox{\hyperlink{ChildProgram_8c_ad06924be293de6abc1a6f52774b5c3f5}{number\_in\_words}}(str);}
 \DoxyCodeLine{    \textcolor{keywordflow}{else}}
 \DoxyCodeLine{        puts(\textcolor{stringliteral}{"{}Некорректный ввод"{}});}
 \DoxyCodeLine{}
-\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%s"{}}, result);}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}Результат: \%s"{}}, result);}
 \DoxyCodeLine{}
 \DoxyCodeLine{    free(result);}
 \DoxyCodeLine{    free(str);}
@@ -172,126 +200,119 @@ struct \mbox{\hyperlink{structunit}{unit}} {\bfseries units} \mbox{[}$\,$\mbox{]
 \begin{DoxyCode}{1}
 \DoxyCodeLine{\textcolor{keywordtype}{char}* \mbox{\hyperlink{ChildProgram_8c_ad06924be293de6abc1a6f52774b5c3f5}{number\_in\_words}}(\textcolor{keywordtype}{char}* str)}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{    \textcolor{keywordtype}{int} len\_str = strlen(str), d, length = 1;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} len\_str = strlen(str), figure, length = 1;}
 \DoxyCodeLine{    \textcolor{keywordtype}{char}* words = (\textcolor{keywordtype}{char}*) malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keywordflow}{if}(len\_str == 1 \& str[0] == \textcolor{charliteral}{'0'})}
+\DoxyCodeLine{    \textcolor{keywordflow}{if}(len\_str == SINGLE\_DIGIT\_NUMBER \& str[0] == \textcolor{charliteral}{'0'})}
 \DoxyCodeLine{    \{}
 \DoxyCodeLine{        length += strlen(\textcolor{stringliteral}{"{}ноль"{}});}
 \DoxyCodeLine{        words = (\textcolor{keywordtype}{char}*) realloc(words, length);}
 \DoxyCodeLine{        strcpy(words, \textcolor{stringliteral}{"{}ноль"{}});}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} words;}
 \DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < strlen(str);) \{}
-\DoxyCodeLine{        \textcolor{keywordflow}{if}(len\_str == 0)}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < strlen(str);)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(len\_str == THERE\_IS\_NO\_REMAINDER)}
 \DoxyCodeLine{            \textcolor{keywordflow}{return} words;}
-\DoxyCodeLine{        \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'-\/'} \& i == 0)}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'-\/'} \& i == FIRST\_ITERATION)}
 \DoxyCodeLine{        \{}
-\DoxyCodeLine{            length += strlen(\textcolor{stringliteral}{"{}минус"{}});}
-\DoxyCodeLine{            words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{            strcat(words, \textcolor{stringliteral}{"{}минус"{}});}
+\DoxyCodeLine{            printf(\textcolor{stringliteral}{"{}\%s "{}}, \textcolor{stringliteral}{"{}минус"{}});}
 \DoxyCodeLine{            len\_str-\/-\/;}
+\DoxyCodeLine{            i++;}
 \DoxyCodeLine{            \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{        \}}
-\DoxyCodeLine{        \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'+'} \& i == 0)}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (str[i] == \textcolor{charliteral}{'+'} \& i == FIRST\_ITERATION)}
 \DoxyCodeLine{        \{}
 \DoxyCodeLine{            len\_str-\/-\/;}
+\DoxyCodeLine{            i++;}
 \DoxyCodeLine{            \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{        \textcolor{keywordtype}{int} three = len\_str \% 3;}
-\DoxyCodeLine{        \textcolor{keywordflow}{if}(three == 0)}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(three == THERE\_IS\_NO\_REMAINDER)}
 \DoxyCodeLine{            three = 3;}
 \DoxyCodeLine{        \textcolor{keywordtype}{int} len1 = three;}
 \DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = i; j < (i + len1); j++) \{}
-\DoxyCodeLine{            d = (int) str[j] -\/ 48;}
+\DoxyCodeLine{            figure = (int) str[j] -\/ 48;}
 \DoxyCodeLine{}
-\DoxyCodeLine{            \textcolor{keywordflow}{if} (three \% 3 == 0 \& d != 0)}
-\DoxyCodeLine{            \{}
-\DoxyCodeLine{                \textcolor{keywordflow}{if}(length > 1)}
-\DoxyCodeLine{                \{}
-\DoxyCodeLine{                    length += strlen(\textcolor{stringliteral}{"{} "{}});}
-\DoxyCodeLine{                    words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (three \% 3 == HUNDRED \& figure != 0) \{}
+\DoxyCodeLine{                \textcolor{keywordflow}{if} (length > SINGLE\_DIGIT\_NUMBER) \{}
+\DoxyCodeLine{                    length = strlen(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{                    words = (\textcolor{keywordtype}{char} *) realloc(words, length);}
 \DoxyCodeLine{                    strcat(words, \textcolor{stringliteral}{"{} "{}});}
 \DoxyCodeLine{                \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{                length += strlen(units[d].hun);}
-\DoxyCodeLine{                words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{                strcat(words, units[d].hun);}
+\DoxyCodeLine{                length = strlen(units[figure].hun);}
+\DoxyCodeLine{                words = (\textcolor{keywordtype}{char} *) realloc(words, length);}
+\DoxyCodeLine{                strcat(words, units[figure].hun);}
 \DoxyCodeLine{            \}}
-\DoxyCodeLine{            \textcolor{keywordflow}{if} (three \% 3 == 1 \& d != 0)}
-\DoxyCodeLine{                \textcolor{keywordflow}{if} (i == 0 \& len\_str >= 7)}
-\DoxyCodeLine{                \{}
-\DoxyCodeLine{                    \textcolor{keywordflow}{if}(length > 1)}
-\DoxyCodeLine{                    \{}
-\DoxyCodeLine{                        length += strlen(\textcolor{stringliteral}{"{} "{}});}
-\DoxyCodeLine{                        words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{                        strcat(words, \textcolor{stringliteral}{"{} "{}});}
-\DoxyCodeLine{                    \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{                    length += strlen(units[d].one[0]);}
-\DoxyCodeLine{                    words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{                    strcat(words, units[d].one[0]);}
-\DoxyCodeLine{                \}}
-\DoxyCodeLine{                \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (len\_str == 1)}
-\DoxyCodeLine{                \{}
-\DoxyCodeLine{                    \textcolor{keywordflow}{if}(length > 1)}
-\DoxyCodeLine{                    \{}
-\DoxyCodeLine{                        length += strlen(\textcolor{stringliteral}{"{} "{}});}
-\DoxyCodeLine{                        words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{                        strcat(words, \textcolor{stringliteral}{"{} "{}});}
-\DoxyCodeLine{                    \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{                    length += strlen(units[d].one[0]);}
-\DoxyCodeLine{                    words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{                    strcat(words, units[d].one[0]);}
-\DoxyCodeLine{                \}}
-\DoxyCodeLine{                \textcolor{keywordflow}{else}}
-\DoxyCodeLine{                \{}
-\DoxyCodeLine{                    \textcolor{keywordflow}{if}(length > 1)}
-\DoxyCodeLine{                    \{}
-\DoxyCodeLine{                        length += strlen(\textcolor{stringliteral}{"{} "{}});}
-\DoxyCodeLine{                        words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{                        strcat(words, \textcolor{stringliteral}{"{} "{}});}
-\DoxyCodeLine{                    \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{                    length += strlen(units[d].one[1]);}
-\DoxyCodeLine{                    words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{                    strcat(words, units[d].one[1]);}
-\DoxyCodeLine{                \}}
-\DoxyCodeLine{            \textcolor{keywordflow}{if} (three \% 3 == 2 \& str[j] == \textcolor{charliteral}{'1'} \& str[j + 1] != \textcolor{charliteral}{'0'})}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (three \% 3 == UNIT \& figure != 0)}
 \DoxyCodeLine{            \{}
-\DoxyCodeLine{                d = (int) str[j + 1] -\/ 48;}
-\DoxyCodeLine{                \textcolor{keywordflow}{if}(d != 0)}
+\DoxyCodeLine{                \textcolor{keywordflow}{if} (i == FIRST\_ITERATION \& len\_str >= MILLION) \{}
+\DoxyCodeLine{                    \textcolor{keywordflow}{if} (length > SINGLE\_DIGIT\_NUMBER) \{}
+\DoxyCodeLine{                        length += strlen(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{                        words = (\textcolor{keywordtype}{char} *) realloc(words, length);}
+\DoxyCodeLine{                        strcat(words, \textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{                    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{                    length += strlen(units[figure].one[0]);}
+\DoxyCodeLine{                    words = (\textcolor{keywordtype}{char} *) realloc(words, length);}
+\DoxyCodeLine{                    strcat(words, units[figure].one[0]);}
+\DoxyCodeLine{                \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (len\_str == UNIT) \{}
+\DoxyCodeLine{                    \textcolor{keywordflow}{if} (length > SINGLE\_DIGIT\_NUMBER) \{}
+\DoxyCodeLine{                        length += strlen(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{                        words = (\textcolor{keywordtype}{char} *) realloc(words, length);}
+\DoxyCodeLine{                        strcat(words, \textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{                    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{                    length += strlen(units[figure].one[0]);}
+\DoxyCodeLine{                    words = (\textcolor{keywordtype}{char} *) realloc(words, length);}
+\DoxyCodeLine{                    strcat(words, units[figure].one[0]);}
+\DoxyCodeLine{                \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{                    \textcolor{keywordflow}{if} (length > SINGLE\_DIGIT\_NUMBER) \{}
+\DoxyCodeLine{                        length += strlen(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{                        words = (\textcolor{keywordtype}{char} *) realloc(words, length);}
+\DoxyCodeLine{                        strcat(words, \textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{                    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{                    length += strlen(units[figure].one[1]);}
+\DoxyCodeLine{                    words = (\textcolor{keywordtype}{char} *) realloc(words, length);}
+\DoxyCodeLine{                    strcat(words, units[figure].one[1]);}
+\DoxyCodeLine{                \}}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (three \% 3 == TEN \& str[j] == \textcolor{charliteral}{'1'} \& str[j + 1] != \textcolor{charliteral}{'0'})}
+\DoxyCodeLine{            \{}
+\DoxyCodeLine{                figure = (int) str[j + 1] -\/ 48;}
+\DoxyCodeLine{                \textcolor{keywordflow}{if}(figure != 0)}
 \DoxyCodeLine{                \{}
-\DoxyCodeLine{                    \textcolor{keywordflow}{if}(length > 1)}
+\DoxyCodeLine{                    \textcolor{keywordflow}{if}(length > SINGLE\_DIGIT\_NUMBER)}
 \DoxyCodeLine{                    \{}
 \DoxyCodeLine{                        length += strlen(\textcolor{stringliteral}{"{} "{}});}
 \DoxyCodeLine{                        words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
 \DoxyCodeLine{                        strcat(words, \textcolor{stringliteral}{"{} "{}});}
 \DoxyCodeLine{                    \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{                    length += strlen(units[d].two);}
+\DoxyCodeLine{                    length += strlen(units[figure].two);}
 \DoxyCodeLine{                    words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{                    strcat(words, units[d].two);}
+\DoxyCodeLine{                    strcat(words, units[figure].two);}
 \DoxyCodeLine{                    \textcolor{keywordflow}{if} (three <= 3)}
 \DoxyCodeLine{                        \textcolor{keywordflow}{return} words;}
 \DoxyCodeLine{                \}}
-\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (three \% 3 == 2 \& d != 0)}
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (three \% 3 == TEN \& figure != 0)}
 \DoxyCodeLine{            \{}
-\DoxyCodeLine{                \textcolor{keywordflow}{if}(length > 1)}
+\DoxyCodeLine{                \textcolor{keywordflow}{if}(length > SINGLE\_DIGIT\_NUMBER)}
 \DoxyCodeLine{                \{}
 \DoxyCodeLine{                    length += strlen(\textcolor{stringliteral}{"{} "{}});}
 \DoxyCodeLine{                    words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
 \DoxyCodeLine{                    strcat(words, \textcolor{stringliteral}{"{} "{}});}
 \DoxyCodeLine{                \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{                length += strlen(units[d].dec);}
+\DoxyCodeLine{                length += strlen(units[figure].dec);}
 \DoxyCodeLine{                words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
-\DoxyCodeLine{                strcat(words, units[d].dec);}
+\DoxyCodeLine{                strcat(words, units[figure].dec);}
 \DoxyCodeLine{            \}}
 \DoxyCodeLine{            three-\/-\/;}
 \DoxyCodeLine{            len\_str-\/-\/;}
-\DoxyCodeLine{            \textcolor{keywordflow}{if}(len\_str \% 3 == 0 \& d == 1)}
+\DoxyCodeLine{            \textcolor{keywordflow}{if}(len\_str \% 3 == THERE\_IS\_NO\_REMAINDER \& figure == 1)}
 \DoxyCodeLine{            \{}
 \DoxyCodeLine{                length += strlen(\textcolor{stringliteral}{"{} "{}});}
 \DoxyCodeLine{                words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
@@ -301,7 +322,7 @@ struct \mbox{\hyperlink{structunit}{unit}} {\bfseries units} \mbox{[}$\,$\mbox{]
 \DoxyCodeLine{                words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
 \DoxyCodeLine{                strcat(words, w\_in\_cases[len\_str / 3].one);}
 \DoxyCodeLine{            \}}
-\DoxyCodeLine{            \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(len\_str \% 3 == 0 \& d >= 2 \& d <= 4)}
+\DoxyCodeLine{            \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(len\_str \% 3 == THERE\_IS\_NO\_REMAINDER \& figure >= 2 \& figure <= 4)}
 \DoxyCodeLine{            \{}
 \DoxyCodeLine{                length += strlen(\textcolor{stringliteral}{"{} "{}});}
 \DoxyCodeLine{                words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
@@ -311,7 +332,7 @@ struct \mbox{\hyperlink{structunit}{unit}} {\bfseries units} \mbox{[}$\,$\mbox{]
 \DoxyCodeLine{                words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
 \DoxyCodeLine{                strcat(words, w\_in\_cases[len\_str / 3].two);}
 \DoxyCodeLine{            \}}
-\DoxyCodeLine{            \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(len\_str \% 3 == 0 \& d >= 5)}
+\DoxyCodeLine{            \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(len\_str \% 3 == THERE\_IS\_NO\_REMAINDER \& figure >= 5)}
 \DoxyCodeLine{            \{}
 \DoxyCodeLine{                length += strlen(\textcolor{stringliteral}{"{} "{}});}
 \DoxyCodeLine{                words = (\textcolor{keywordtype}{char}*)realloc(words, length);}
@@ -324,7 +345,9 @@ struct \mbox{\hyperlink{structunit}{unit}} {\bfseries units} \mbox{[}$\,$\mbox{]
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{        i += len1;}
 \DoxyCodeLine{    \}}
-\DoxyCodeLine{    \textcolor{keywordflow}{return} words;}
+\DoxyCodeLine{    \textcolor{keywordtype}{char}* words1 = (\textcolor{keywordtype}{char}*) malloc((strlen(words)/2 + 1) * \textcolor{keyword}{sizeof}(char));}
+\DoxyCodeLine{    strcpy(words1, words);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} words1;}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}

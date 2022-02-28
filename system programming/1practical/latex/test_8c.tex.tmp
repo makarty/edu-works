@@ -15,6 +15,30 @@ struct \mbox{\hyperlink{structcases}{cases}}
 \begin{DoxyCompactList}\small\item\em Массив структур \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structunit}{unit}}
 \begin{DoxyCompactList}\small\item\em Массив структур \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{test_8c_ad1146a8f6ea86437ec8bfc53de00807a}\label{test_8c_ad1146a8f6ea86437ec8bfc53de00807a}} 
+\#define {\bfseries THERE\+\_\+\+IS\+\_\+\+NO\+\_\+\+REMAINDER}~0
+\item 
+\mbox{\Hypertarget{test_8c_a625dac461fbab83b1c1d04f3aceeb8f3}\label{test_8c_a625dac461fbab83b1c1d04f3aceeb8f3}} 
+\#define {\bfseries HUNDRED}~0
+\item 
+\mbox{\Hypertarget{test_8c_aabc53aa7e6353d8f58b8ae93fd015fab}\label{test_8c_aabc53aa7e6353d8f58b8ae93fd015fab}} 
+\#define {\bfseries TEN}~2
+\item 
+\mbox{\Hypertarget{test_8c_a0079cc4909964ed0d782c06b1753ce14}\label{test_8c_a0079cc4909964ed0d782c06b1753ce14}} 
+\#define {\bfseries UNIT}~1
+\item 
+\mbox{\Hypertarget{test_8c_a368e7704f92e34c8ea0a5c263a95a1b1}\label{test_8c_a368e7704f92e34c8ea0a5c263a95a1b1}} 
+\#define {\bfseries MILLION}~7
+\item 
+\mbox{\Hypertarget{test_8c_ad7b34964fc63ab23abf23d64da5d78e5}\label{test_8c_ad7b34964fc63ab23abf23d64da5d78e5}} 
+\#define {\bfseries FIRST\+\_\+\+ITERATION}~0
+\item 
+\mbox{\Hypertarget{test_8c_a75164d4a2b076a86a7949a4529a1cac9}\label{test_8c_a75164d4a2b076a86a7949a4529a1cac9}} 
+\#define {\bfseries SINGLE\+\_\+\+DIGIT\+\_\+\+NUMBER}~1
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 

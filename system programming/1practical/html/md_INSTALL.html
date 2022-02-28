@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: INSTALL</title>
+<title>My Project: Подготовка виртуального окружения</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,10 +62,23 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">INSTALL </div>  </div>
+<div class="title">Подготовка виртуального окружения </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"></div></div><!-- contents -->
+<div class="textblock"><h1><a class="anchor" id="autotoc_md1"></a>
+Установка библиотек</h1>
+<div class="fragment"><div class="line">sudo apt update</div>
+<div class="line">sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev</div>
+<div class="line">sudo apt install doxygen</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
+Сборка программы</h1>
+<p>Создание исполняемых файлом:</p>
+<div class="fragment"><div class="line">gcc main.c -o main</div>
+<div class="line">gcc ChildProgram.c -o ChildProgram</div>
+<div class="line">gcc test.c -o test -lcunit</div>
+</div><!-- fragment --><p>Генерация документации(опционально):</p>
+<div class="fragment"><div class="line">doxygen Doxyfile</div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
