@@ -8,6 +8,10 @@
 
 - [Практическая работа № 2. Синхронизация потоков в ОС GNU/Linux](https://gitlab.com/makarty/edu-works/-/tree/master/system%20programming/2practical)
 
+## [Объектно-ориентированное программирование](https://gitlab.com/makarty/edu-works/-/tree/master/oop)
+
+- [Наследование и полиморфизм](https://gitlab.com/makarty/edu-works/-/tree/master/oop/inheritance%20and%20polymorphism)
+
 ## [Разработка Web-приложений](https://gitlab.com/makarty/edu-works/-/tree/master/web)
 
 - [Практическая работа № 1. Основы HTML](https://gitlab.com/makarty/edu-works/-/tree/master/web/1practical)
