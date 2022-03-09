@@ -12,6 +12,8 @@
 
 - [Наследование и полиморфизм](https://gitlab.com/makarty/edu-works/-/tree/master/oop/inheritance%20and%20polymorphism)
 
+- [Многопоточность](https://gitlab.com/makarty/edu-works/-/tree/master/oop/multithreading)
+
 ## [Разработка Web-приложений](https://gitlab.com/makarty/edu-works/-/tree/master/web)
 
 - [Практическая работа № 1. Основы HTML](https://gitlab.com/makarty/edu-works/-/tree/master/web/1practical)
