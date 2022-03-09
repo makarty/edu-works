@@ -23,3 +23,5 @@
 ## [Методы анализа данных](https://gitlab.com/makarty/edu-works/-/tree/master/data%20analysis)
 
 - [Практическая работа № 1. Предварительная обработка данных](https://gitlab.com/makarty/edu-works/-/tree/master/data%20analysis/1practical)
+
+- [Практическая работа № 2. Бинарная классификация](https://gitlab.com/makarty/edu-works/-/tree/master/data%20analysis/2practical)
