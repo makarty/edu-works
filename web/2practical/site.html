@@ -6,25 +6,34 @@
     <meta content="Виды драконов, встречающихся в Скайриме" title="description">
     <meta content="Драконы, Скайрим, Виды драконов" name="keywords">
     <meta content='Артём Макаров' title="Автор">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--Связывание-->
+    <link rel="stylesheet" title="default" href="styles.css">
+    <link rel="alternate stylesheet" title="new" href="new_styles.css">
+    <!--Внедрение-->
+    <style>
+        .table1{
+            width: 80%;
+        }
+    </style>
 </head>
 <body class="background">
     <header>
         <!--Содержание и лого-->
-        <table Bgcolor="#ffffff" class="table1">
+        <table align="center" class="content">
             <tbody>
                 <tr>
                     <td>
-                        <ul>
-                            <li type=disk><a href="#dragon">Обычный дракон</a></li>
-                            <li type=disk><a href="#blood_dragon">Кровавый дракон</a></li>
-                            <li type=disk><a href="#frost_dragon">Морозный дракон</a></li>
-                            <li type=disk><a href="#old_dragon">Старейший дракон</a></li>
-                            <li type=disk><a href="#drevny_dragon">Древний дракон</a></li>
-                            <li type=disk><a href="#red_dragon">Красный дракон</a></li>
-                            <li type=disk><a href="#noble_dragon">Благородный дракон</a></li>
-                            <li type=disk><a href="#legendary_dragon">Легендарный дракон</a></li>
-                            <li type=disk><a href="#snake_dragon">Змеевидный дракон</a></li>
+                        <!--Встраивание-->
+                        <ul style="list-style-type: none;">
+                            <li><a href="#dragon">Обычный дракон</a></li>
+                            <li><a href="#blood_dragon">Кровавый дракон</a></li>
+                            <li><a href="#frost_dragon">Морозный дракон</a></li>
+                            <li><a href="#old_dragon">Старейший дракон</a></li>
+                            <li><a href="#drevny_dragon">Древний дракон</a></li>
+                            <li><a href="#red_dragon">Красный дракон</a></li>
+                            <li><a href="#noble_dragon">Благородный дракон</a></li>
+                            <li><a href="#legendary_dragon">Легендарный дракон</a></li>
+                            <li><a href="#snake_dragon">Змеевидный дракон</a></li>
                         </ul>
                     </td>
                 </tr>
@@ -33,24 +42,24 @@
     </header>
     <main>
         <!--Суть-->
-        <table align="center", Bgcolor="#ffffff" class="table2">
+        <table align="center" Bgcolor="#ffffff" class="table1">
             <tbody>
                 <tr>
                     <td align="center">
-                        <hr size="4" color="black">
-                        <h1>Классификация драконов Скайрима</h1>
+                        <hr  width = "1300" color="black">
+                        <h1 id="h1">Классификация драконов Скайрима</h1>
                     </td>
                 </tr>
                 <tr>
                     <td align="center">
-                        <hr size="4" color="black">
+                        <hr color="black" width="1300">
                         <p><a name="dragon"></a></p>
-                        <h2><font size="5" face="Arial">Обычный дракон</font></h2>
+                        <div id="h2"><h2 class="colortmt">Обычный дракон</h2></div>
                     </td>
                 </tr>
                 <tr>
                     <td align="left">
-                        <hr width="1300" class="separator">
+                        <hr color="black" width="1300">
                         <img align="left" src="images/dragon.jpg" width="385" height="220">
                         <p>
                             Обычный дракон — самая распространённая разновидность драконов,
@@ -71,7 +80,7 @@
                     <td align="center">
                         <hr color="black" width="1300">
                         <p><a name="blood_dragon"></a></p>
-                        <h2><font size="5" face="Arial">Кровавый дракон</font></h2>
+                        <h2>Кровавый дракон</h2>
                     </td>
                 </tr>
                 <tr>
@@ -95,7 +104,7 @@
                     <td align="center">
                         <hr color="black" width="1300">
                         <p><a name="frost_dragon"></a></p>
-                        <h2><font size="5" face="Arial">Морозный дракон</font></h2>
+                        <h2>Морозный дракон</h2>
                     </td>
                 </tr>
                 <tr>
@@ -116,7 +125,7 @@
                     <td align="center">
                         <hr color="black" width="1300">
                         <p><a name="old_dragon"></a></p>
-                        <h2><font size="5" face="Arial">Старейший дракон</font></h2>
+                        <h2>Старейший дракон</h2>
                     </td>
                 </tr>
                 <tr>
@@ -137,7 +146,7 @@
                     <td align="center">
                         <hr color="black" width="1300">
                         <p><a name="drevny_dragon"></a></p>
-                        <h2><font size="5" face="Arial">Древний дракон</font></h2>
+                        <h2>Древний дракон</h2>
                     </td>
                 </tr>
                 <tr>
@@ -157,7 +166,7 @@
                     <td align="center">
                         <hr color="black" width="1300">
                         <p><a name="red_dragon"></a></p>
-                        <h2><font size="5" face="Arial">Красный дракон</font></h2>
+                        <h2>Красный дракон</h2>
                     </td>
                 </tr>
                 <tr>
@@ -178,7 +187,7 @@
                     <td align="center">
                         <hr color="black" width="1300">
                         <p><a name="noble_dragon"></a></p>
-                        <h2><font size="5" face="Arial">Благородный дракон</font></h2>
+                        <h2>Благородный дракон</h2>
                     </td>
                 </tr>
                 <tr>
@@ -201,7 +210,7 @@
                     <td align="center">
                         <hr color="black" width="1300">
                         <p><a name="legendary_dragon"></a></p>
-                        <h2><font size="5" face="Arial">Легендарный дракон</font></h2>
+                        <h2>Легендарный дракон</h2>
                     </td>
                 </tr>
                 <tr>
@@ -219,7 +228,7 @@
                     <td align="center">
                         <hr color="black" width="1300">
                         <p><a name="snake_dragon"></a></p>
-                        <h2><font size="5" face="Arial">Змеевидный дракон</font></h2>
+                        <h2>Змеевидный дракон</h2>
                     </td>
                 </tr>
                 <tr>
