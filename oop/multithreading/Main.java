@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         int N;
         int numberOfAircraft;
+		
         while (true) {
             System.out.print("Введите количество взлётно-посадочных полос: ");
             if (in.hasNextInt()) {
@@ -54,16 +55,21 @@ public class Main {
         }
     }
 }
+
+
 class Plain extends Thread{
+	
     private final Semaphore runway;
     private static final Random randomTimer = new Random();
     private boolean landed = false;
     private String name;
+	
     public Plain(Semaphore runway, String name) {
         super();
         this.runway = runway;
         this.name = name;
     }
+	
     @Override
     public void run() {
         while (true) {
@@ -79,13 +85,16 @@ class Plain extends Thread{
                     say("Посадка завершена, полоса свободна");
                     runway.release();
                     sleep(randomTimer.nextInt(0, 1000));
+					break;
                 }
             } catch (InterruptedException ignored) {}
         }
     }
+	
     public void say(String text){
         System.out.println("Пилот самолёта " + name + ": " + text);
     }
+	
     public boolean getLanded(){
         return landed;
     }
