@@ -1,0 +1,33 @@
+\hypertarget{md_INSTALL_autotoc_md1}{}\doxysection{Установка библиотек}\label{md_INSTALL_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt install doxygen}
+
+\end{DoxyCode}
+\hypertarget{md_INSTALL_autotoc_md2}{}\doxysection{Сборка программы}\label{md_INSTALL_autotoc_md2}
+Создание исполняемых файлов
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{gcc -\/pthread -\/o main main.c}
+
+\end{DoxyCode}
+
+
+Создание файла конфигурации Doxyfile(если его не существует)
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen -\/g Doxyfile}
+
+\end{DoxyCode}
+
+
+Генерация документации(опционально)
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen Doxyfile}
+
+\end{DoxyCode}
+ 

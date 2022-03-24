@@ -14,6 +14,12 @@ sudo apt install doxygen
 gcc -pthread -o main main.c
 ```
 
+Создание файла конфигурации Doxyfile(если его не существует)
+
+```bash
+doxygen -g Doxyfile
+```
+
 Генерация документации(опционально)
 
 ```bash

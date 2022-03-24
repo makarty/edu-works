@@ -1,0 +1,294 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a3c8499e80fbb9d61c35a1c0d99dc903b}\label{main_8c_a3c8499e80fbb9d61c35a1c0d99dc903b}} 
+\#define {\bfseries EMPTY\+\_\+\+BUFFER}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{main_8c_a291f76137b5bb3b10f35fefb0f118682}{reading\+\_\+from\+\_\+file}} (FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Функция чтения из файла \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{main_8c_a15318108b21f5ba24fa6552fea32b46b}{reader}} ()
+\begin{DoxyCompactList}\small\item\em Функция, описывающая поведение потока-\/читателя \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{main_8c_a496698bd56da6384ff09a9246abaff82}{writer}} ()
+\begin{DoxyCompactList}\small\item\em Функция, описывающая поведение потока-\/писателя \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Основная функция \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a4a5348b5cc38f9a5e6019997aabfb92d}\label{main_8c_a4a5348b5cc38f9a5e6019997aabfb92d}} 
+sem\+\_\+t {\bfseries records}
+\item 
+\mbox{\Hypertarget{main_8c_a551abd0762a43d8077ef4e5628c19927}\label{main_8c_a551abd0762a43d8077ef4e5628c19927}} 
+sem\+\_\+t {\bfseries buffers}
+\item 
+\mbox{\Hypertarget{main_8c_ae5e116687d208e0087115879f0311f20}\label{main_8c_ae5e116687d208e0087115879f0311f20}} 
+int {\bfseries readers}
+\item 
+\mbox{\Hypertarget{main_8c_aa1aacd6e7a3b4927101d1b48fd327a2e}\label{main_8c_aa1aacd6e7a3b4927101d1b48fd327a2e}} 
+int {\bfseries writers}
+\item 
+\mbox{\Hypertarget{main_8c_a7722c8ecbb62d99aee7ce68b1752f337}\label{main_8c_a7722c8ecbb62d99aee7ce68b1752f337}} 
+int {\bfseries N}
+\item 
+\mbox{\Hypertarget{main_8c_a63bd75f20c553f0d65d7bb29b3f35696}\label{main_8c_a63bd75f20c553f0d65d7bb29b3f35696}} 
+int {\bfseries choice}
+\item 
+\mbox{\Hypertarget{main_8c_a90c2ace84e5523d06b7162ea5928acc1}\label{main_8c_a90c2ace84e5523d06b7162ea5928acc1}} 
+int {\bfseries sec}
+\item 
+\mbox{\Hypertarget{main_8c_ada310e7f72b38fadd4b24d80ed3438ee}\label{main_8c_ada310e7f72b38fadd4b24d80ed3438ee}} 
+time\+\_\+t {\bfseries start}
+\item 
+\mbox{\Hypertarget{main_8c_a13455ba845bf5d4dba37be491bc6a036}\label{main_8c_a13455ba845bf5d4dba37be491bc6a036}} 
+time\+\_\+t {\bfseries end}
+\item 
+\mbox{\Hypertarget{main_8c_a97f6819fad9ac7557b61db5871004d2e}\label{main_8c_a97f6819fad9ac7557b61db5871004d2e}} 
+double {\bfseries timer}
+\item 
+\mbox{\Hypertarget{main_8c_a5e2482e3fe895c610b7eaaa7f36e3844}\label{main_8c_a5e2482e3fe895c610b7eaaa7f36e3844}} 
+char $\ast$ {\bfseries files} \mbox{[}$\,$\mbox{]} = \{\char`\"{}file1.\+txt\char`\"{}, \char`\"{}file2.\+txt\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Основная функция 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} check = 0;}
+\DoxyCodeLine{    sem\_init(\&records, 0, 0);}
+\DoxyCodeLine{    puts(\textcolor{stringliteral}{"{}1) Честное чтение, честная запись"{}});}
+\DoxyCodeLine{    puts(\textcolor{stringliteral}{"{}2) Нечестное чтение, нечестное запись"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}Выберите действие: "{}});}
+\DoxyCodeLine{        check = scanf(\textcolor{stringliteral}{"{}\%d"{}}, \&choice);}
+\DoxyCodeLine{        fflush(stdin);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (check == 0 || choice <= 0 || choice > 2)}
+\DoxyCodeLine{            puts(\textcolor{stringliteral}{"{}Ошибка! Несуществующий вариант ответа"{}});}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (!check || choice <= 0 ||choice > 2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (choice == 1)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        N = 2;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{            printf(\textcolor{stringliteral}{"{}Сколько секунд должна работать программа: "{}});}
+\DoxyCodeLine{            check = scanf(\textcolor{stringliteral}{"{}\%d"{}}, \&sec);}
+\DoxyCodeLine{            fflush(stdin);}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (check == 0 || sec <= 0)}
+\DoxyCodeLine{                puts(\textcolor{stringliteral}{"{}Ошибка! Значение не может быть отрицательным"{}});}
+\DoxyCodeLine{        \} \textcolor{keywordflow}{while} (!check || sec <= 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{            printf(\textcolor{stringliteral}{"{}Введите количество буферов: "{}});}
+\DoxyCodeLine{            check = scanf(\textcolor{stringliteral}{"{}\%d"{}}, \&N);}
+\DoxyCodeLine{            fflush(stdin);}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (check == 0 || N <= 0)}
+\DoxyCodeLine{                puts(\textcolor{stringliteral}{"{}Ошибка! Количество буферов должно быть больше нуля"{}});}
+\DoxyCodeLine{        \} \textcolor{keywordflow}{while} (!check || N <= 0);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    sem\_init(\&buffers, 0, N);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}Введите количество писателей: "{}});}
+\DoxyCodeLine{        check = scanf(\textcolor{stringliteral}{"{}\%d"{}}, \&writers);}
+\DoxyCodeLine{        fflush(stdin);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (check == 0 || writers <= 0)}
+\DoxyCodeLine{            puts(\textcolor{stringliteral}{"{}Ошибка! Количество писателей должно быть больше нуля"{}});}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (!check || writers <= 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}Введите количество читателей: "{}});}
+\DoxyCodeLine{        check = scanf(\textcolor{stringliteral}{"{}\%d"{}}, \&readers);}
+\DoxyCodeLine{        fflush(stdin);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (check == 0 || readers <= 0)}
+\DoxyCodeLine{            puts(\textcolor{stringliteral}{"{}Ошибка! Количество читателей должно быть больше нуля"{}});}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (!check || readers <= 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    pthread\_t threadRE[readers], threadWR[writers];}
+\DoxyCodeLine{    time(\&start);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < writers; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        pthread\_create(\&(threadWR[i]), NULL, (\textcolor{keywordtype}{void} *(*)(\textcolor{keywordtype}{void} *)) \mbox{\hyperlink{main_8c_a496698bd56da6384ff09a9246abaff82}{writer}}, NULL);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < readers; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        pthread\_create(\&(threadRE[i]), NULL, (\textcolor{keywordtype}{void} *(*)(\textcolor{keywordtype}{void} *)) \mbox{\hyperlink{main_8c_a15318108b21f5ba24fa6552fea32b46b}{reader}}, NULL);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < readers; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        pthread\_join(threadRE[i],NULL);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < writers; i++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        pthread\_join(threadWR[i],NULL);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    sem\_destroy(\&records);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{main_8c_a15318108b21f5ba24fa6552fea32b46b}\label{main_8c_a15318108b21f5ba24fa6552fea32b46b}} 
+\index{main.c@{main.c}!reader@{reader}}
+\index{reader@{reader}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{reader()}{reader()}}
+{\footnotesize\ttfamily void$\ast$ reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция, описывающая поведение потока-\/читателя 
+
+Блокирует семафор records и разблокирует семафор buffer 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} *\mbox{\hyperlink{main_8c_a15318108b21f5ba24fa6552fea32b46b}{reader}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    FILE *fp;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} nRE = rand() \% 10;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} rec\_value, buff\_value, i = 0;}
+\DoxyCodeLine{    \textcolor{keywordtype}{char}* record\_from\_file;}
+\DoxyCodeLine{    sem\_getvalue(\&records, \&rec\_value);}
+\DoxyCodeLine{    sem\_getvalue(\&buffers, \&buff\_value);}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (rec\_value >= 0 \& buff\_value <= N)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (buff\_value == N)}
+\DoxyCodeLine{            printf(\textcolor{stringliteral}{"{}Читатель \%d в ожидании\(\backslash\)n"{}}, nRE);}
+\DoxyCodeLine{        sem\_wait(\&records);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (choice == 1)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            fp = fopen(files[i], \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (fp == NULL)}
+\DoxyCodeLine{            \{}
+\DoxyCodeLine{                printf(\textcolor{stringliteral}{"{}Error"{}});}
+\DoxyCodeLine{                fclose(fp);}
+\DoxyCodeLine{                \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            record\_from\_file = \mbox{\hyperlink{main_8c_a291f76137b5bb3b10f35fefb0f118682}{reading\_from\_file}}(fp);}
+\DoxyCodeLine{            fclose(fp);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}Читатель \%d читает\(\backslash\)n"{}}, nRE);}
+\DoxyCodeLine{        sleep(1 + rand() \% 2);}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}Читатель \%d прочитал следующее: \%s\(\backslash\)n"{}}, nRE, record\_from\_file);}
+\DoxyCodeLine{        sem\_post(\&buffers);}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}Читатель \%d закончил чтение\(\backslash\)n"{}}, nRE);}
+\DoxyCodeLine{        i++;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (i > 1)}
+\DoxyCodeLine{            i = 0;}
+\DoxyCodeLine{        time(\&end);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (difftime(end, start) > sec)}
+\DoxyCodeLine{            \textcolor{keywordflow}{break};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{main_8c_a291f76137b5bb3b10f35fefb0f118682}\label{main_8c_a291f76137b5bb3b10f35fefb0f118682}} 
+\index{main.c@{main.c}!reading\_from\_file@{reading\_from\_file}}
+\index{reading\_from\_file@{reading\_from\_file}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{reading\_from\_file()}{reading\_from\_file()}}
+{\footnotesize\ttfamily char$\ast$ reading\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+Функция чтения из файла 
+
+Считывает информацию из файла 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{char}* \mbox{\hyperlink{main_8c_a291f76137b5bb3b10f35fefb0f118682}{reading\_from\_file}}(FILE *file)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{char} *str = (\textcolor{keywordtype}{char} *)malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{    str[0] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} lenght = 1;}
+\DoxyCodeLine{    \textcolor{keywordtype}{char} cur\_char = 0;}
+\DoxyCodeLine{    fflush(stdin);}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} ((cur\_char = fgetc(file)) != EOF)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        str[lenght -\/ 1] = cur\_char;}
+\DoxyCodeLine{        lenght++;}
+\DoxyCodeLine{        str = (\textcolor{keywordtype}{char} *)realloc(str, lenght);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    str[lenght -\/ 1] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} str;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{main_8c_a496698bd56da6384ff09a9246abaff82}\label{main_8c_a496698bd56da6384ff09a9246abaff82}} 
+\index{main.c@{main.c}!writer@{writer}}
+\index{writer@{writer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{writer()}{writer()}}
+{\footnotesize\ttfamily void$\ast$ writer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция, описывающая поведение потока-\/писателя 
+
+Блокирует семафор buffer и разблокирует семафор records 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} *\mbox{\hyperlink{main_8c_a496698bd56da6384ff09a9246abaff82}{writer}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    FILE *fp;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} nWR = rand() \% 10;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} rec\_value, buff\_value, i = 0;}
+\DoxyCodeLine{    sem\_getvalue(\&records, \&rec\_value);}
+\DoxyCodeLine{    sem\_getvalue(\&buffers, \&buff\_value);}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (rec\_value < N \& buff\_value >= EMPTY\_BUFFER)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (buff\_value == EMPTY\_BUFFER)}
+\DoxyCodeLine{            printf(\textcolor{stringliteral}{"{}Писатель \%d в очереди\(\backslash\)n"{}}, nWR);}
+\DoxyCodeLine{        sem\_wait(\&buffers);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (choice == 1)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            fp = fopen(files[i], \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (fp == NULL)}
+\DoxyCodeLine{            \{}
+\DoxyCodeLine{                printf(\textcolor{stringliteral}{"{}Error"{}});}
+\DoxyCodeLine{                fclose(fp);}
+\DoxyCodeLine{                \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            fprintf(fp, \textcolor{stringliteral}{"{}\%d"{}}, (rand() \% 100));}
+\DoxyCodeLine{            fclose(fp);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}Писатель \%d пишет\(\backslash\)n"{}}, nWR);}
+\DoxyCodeLine{        sleep(1 + rand() \% 2);}
+\DoxyCodeLine{        sem\_post(\&records);}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}Писатель \%d создал запись\(\backslash\)n"{}}, nWR);}
+\DoxyCodeLine{        i++;}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (i > 1)}
+\DoxyCodeLine{            i = 0;}
+\DoxyCodeLine{        time(\&end);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (difftime(end, start) > sec)}
+\DoxyCodeLine{            \textcolor{keywordflow}{break};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

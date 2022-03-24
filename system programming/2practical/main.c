@@ -1,25 +1,33 @@
 #include <pthread.h>
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
 #include <semaphore.h>
 #include <unistd.h>
+#include <time.h>
+
+#define EMPTY_BUFFER 0
+
+sem_t records, buffers;
+int readers, writers, N, choice, sec;
+time_t start, end;
+double timer;
 
 
-unsigned int iter;
-sem_t records;
-int readers, writers;
+char* files[] = {"file1.txt", "file2.txt"};
 
 
-char* input(char* text)
+/**
+ * @brief Функция чтения из файла
+ * @details Считывает информацию из файла
+ */
+char* reading_from_file(FILE *file)
 {
-    printf("%s", text);
     char *str = (char *)malloc(sizeof(char));
     str[0] = '\0';
     int lenght = 1;
     char cur_char = 0;
     fflush(stdin);
-    while ((cur_char = getc(stdin)) != '\n')
+    while ((cur_char = fgetc(file)) != EOF)
     {
         str[lenght - 1] = cur_char;
         lenght++;
@@ -30,60 +38,133 @@ char* input(char* text)
 }
 
 
+/**
+ * @brief Функция, описывающая поведение потока-читателя
+ * @details Блокирует семафор records и разблокирует семафор buffer
+ */
 void *reader()
 {
-    int nRE = rand() % 100;
-    int sem_value;
-    sem_getvalue(&records, &sem_value);
-    while (sem_value >= 0)
+    FILE *fp;
+    int nRE = rand() % 10;
+    int rec_value, buff_value, i = 0;
+    char* record_from_file;
+    sem_getvalue(&records, &rec_value);
+    sem_getvalue(&buffers, &buff_value);
+    while (rec_value >= 0 & buff_value <= N)
     {
-        if (sem_value == 0)
+        if (buff_value == N)
             printf("Читатель %d в ожидании\n", nRE);
         sem_wait(&records);
-        // readers--;
+        if (choice == 1)
+        {
+            fp = fopen(files[i], "r");
+            if (fp == NULL)
+            {
+                printf("Error");
+                fclose(fp);
+                continue;
+            }
+            record_from_file = reading_from_file(fp);
+            fclose(fp);
+        }
+
         printf("Читатель %d читает\n", nRE);
         sleep(1 + rand() % 2);
+        printf("Читатель %d прочитал следующее: %s\n", nRE, record_from_file);
+        sem_post(&buffers);
         printf("Читатель %d закончил чтение\n", nRE);
-        // readers++;
-        // sem_post(&records);
+        i++;
+        if (i > 1)
+            i = 0;
+        time(&end);
+        if (difftime(end, start) > sec)
+            break;
     }
 }
 
-
+/**
+ * @brief Функция, описывающая поведение потока-писателя
+ * @details Блокирует семафор buffer и разблокирует семафор records
+ */
 void *writer()
 {
-    int nWR = rand() % 100;
-    int sem_value;
-    sem_getvalue(&records, &sem_value);
-    for (int i = 0; i < iter; i++)
+    FILE *fp;
+    int nWR = rand() % 10;
+    int rec_value, buff_value, i = 0;
+    sem_getvalue(&records, &rec_value);
+    sem_getvalue(&buffers, &buff_value);
+    while (rec_value < N & buff_value >= EMPTY_BUFFER)
     {
-        if (sem_value == 0)
+        if (buff_value == EMPTY_BUFFER)
             printf("Писатель %d в очереди\n", nWR);
-        // sem_wait(&records);
-        // writers--;
+        sem_wait(&buffers);
+        if (choice == 1)
+        {
+            fp = fopen(files[i], "w");
+            if (fp == NULL)
+            {
+                printf("Error");
+                fclose(fp);
+                continue;
+            }
+            fprintf(fp, "%d", (rand() % 100));
+            fclose(fp);
+        }
         printf("Писатель %d пишет\n", nWR);
         sleep(1 + rand() % 2);
-        printf("Писатель %d создал запись\n", nWR);
-        // writers++;
         sem_post(&records);
+        printf("Писатель %d создал запись\n", nWR);
+        i++;
+        if (i > 1)
+            i = 0;
+        time(&end);
+        if (difftime(end, start) > sec)
+            break;
     }
 }
 
-
+/**
+ * @brief Основная функция
+ */
 int main()
 {
     int check = 0;
-    pthread_t threadRE[readers];
-    pthread_t threadWR[writers];
     sem_init(&records, 0, 0);
+    puts("1) Честное чтение, честная запись");
+    puts("2) Нечестное чтение, нечестное запись");
 
     do{
-        printf("Введите количество итераций: ");
-        check = scanf("%d", &iter);
+        printf("Выберите действие: ");
+        check = scanf("%d", &choice);
         fflush(stdin);
-        if (check == 0 || iter <= 0)
-            puts("Ошибка! Количество итераций должно быть больше нуля");
-    } while (!check || iter <= 0);
+        if (check == 0 || choice <= 0 || choice > 2)
+            puts("Ошибка! Несуществующий вариант ответа");
+    } while (!check || choice <= 0 ||choice > 2);
+
+    if (choice == 1)
+    {
+        N = 2;
+
+        do{
+            printf("Сколько секунд должна работать программа: ");
+            check = scanf("%d", &sec);
+            fflush(stdin);
+            if (check == 0 || sec <= 0)
+                puts("Ошибка! Значение не может быть отрицательным");
+        } while (!check || sec <= 0);
+
+    } else
+    {
+        do{
+            printf("Введите количество буферов: ");
+            check = scanf("%d", &N);
+            fflush(stdin);
+            if (check == 0 || N <= 0)
+                puts("Ошибка! Количество буферов должно быть больше нуля");
+        } while (!check || N <= 0);
+    }
+
+    sem_init(&buffers, 0, N);
 
     do{
         printf("Введите количество писателей: ");
@@ -100,6 +181,9 @@ int main()
         if (check == 0 || readers <= 0)
             puts("Ошибка! Количество читателей должно быть больше нуля");
     } while (!check || readers <= 0);
+
+    pthread_t threadRE[readers], threadWR[writers];
+    time(&start);
 
     for(int i = 0; i < writers; i++)
     {
