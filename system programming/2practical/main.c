@@ -3,11 +3,12 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <semaphore.h>
+#include <unistd.h>
 
 
 unsigned int iter;
-sem_t semaphore;
-unsigned int readers = 2;
+sem_t records;
+int readers, writers;
 
 
 char* input(char* text)
@@ -29,61 +30,95 @@ char* input(char* text)
 }
 
 
-void *reader(int numberRE)
+void *reader()
 {
-    bool read = false;
-    int r, sem_value;
-    sem_getvalue(&semaphore, &sem_value);
-    while (true)
+    int nRE = rand() % 100;
+    int sem_value;
+    sem_getvalue(&records, &sem_value);
+    while (sem_value >= 0)
     {
-        if(!read)
-        {
-            if (sem_value == 0)
-                printf("Читатель %d в очереди\n", numberRE);
-            sem_wait(&semaphore);
-            readers--;
-            printf("Читатель %d читает", numberRE);
-            read = true;
-            printf("Читатель %d закончил чтение", numberRE);
-            sem_post(&semaphore);
-            break;
-        }
+        if (sem_value == 0)
+            printf("Читатель %d в ожидании\n", nRE);
+        sem_wait(&records);
+        // readers--;
+        printf("Читатель %d читает\n", nRE);
+        sleep(1 + rand() % 2);
+        printf("Читатель %d закончил чтение\n", nRE);
+        // readers++;
+        // sem_post(&records);
     }
 }
 
 
-void *writer();
+void *writer()
+{
+    int nWR = rand() % 100;
+    int sem_value;
+    sem_getvalue(&records, &sem_value);
+    for (int i = 0; i < iter; i++)
+    {
+        if (sem_value == 0)
+            printf("Писатель %d в очереди\n", nWR);
+        // sem_wait(&records);
+        // writers--;
+        printf("Писатель %d пишет\n", nWR);
+        sleep(1 + rand() % 2);
+        printf("Писатель %d создал запись\n", nWR);
+        // writers++;
+        sem_post(&records);
+    }
+}
 
 
 int main()
 {
-    pthread_t threadRE[2];
-    pthread_t threadWR[2];
-    sem_init(&semaphore, 0, 2);
+    int check = 0;
+    pthread_t threadRE[readers];
+    pthread_t threadWR[writers];
+    sem_init(&records, 0, 0);
 
-    printf("Введите количество итераций: ");
-    scanf("%d",&iter);
-    printf("Iter                         ОЧЕРЕДЬ/ВЫПОЛНЕНИЕ\n");
-    int i;
-    for(i = 0;i < 2;i++)
+    do{
+        printf("Введите количество итераций: ");
+        check = scanf("%d", &iter);
+        fflush(stdin);
+        if (check == 0 || iter <= 0)
+            puts("Ошибка! Количество итераций должно быть больше нуля");
+    } while (!check || iter <= 0);
+
+    do{
+        printf("Введите количество писателей: ");
+        check = scanf("%d", &writers);
+        fflush(stdin);
+        if (check == 0 || writers <= 0)
+            puts("Ошибка! Количество писателей должно быть больше нуля");
+    } while (!check || writers <= 0);
+
+    do{
+        printf("Введите количество читателей: ");
+        check = scanf("%d", &readers);
+        fflush(stdin);
+        if (check == 0 || readers <= 0)
+            puts("Ошибка! Количество читателей должно быть больше нуля");
+    } while (!check || readers <= 0);
+
+    for(int i = 0; i < writers; i++)
     {
-        pthread_create(&(threadWR[i]),NULL,writer,(void*)&i);
+        pthread_create(&(threadWR[i]), NULL, (void *(*)(void *)) writer, NULL);
     }
-    for(i = 0;i < 2;i++)
+    for(int i = 0; i < readers; i++)
     {
-        pthread_create(&(threadRE[i]),NULL,reader,(void*)&i);
+        pthread_create(&(threadRE[i]), NULL, (void *(*)(void *)) reader, NULL);
     }
 
-
-    for(i = 0;i < 2;i++)
+    for(int i = 0; i < readers; i++)
     {
         pthread_join(threadRE[i],NULL);
     }
-    for(i = 0;i < 2;i++)
+    for(int i = 0; i < writers; i++)
     {
         pthread_join(threadWR[i],NULL);
     }
 
-    sem_destroy(&semaphore);
+    sem_destroy(&records);
     return 0;
 }
