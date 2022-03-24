@@ -6,6 +6,7 @@
 #include <time.h>
 
 #define EMPTY_BUFFER 0
+#define HONEST_READING_AND_WRITING 1
 
 sem_t records, buffers;
 int readers, writers, N, choice, sec;
@@ -55,7 +56,7 @@ void *reader()
         if (buff_value == N)
             printf("Читатель %d в ожидании\n", nRE);
         sem_wait(&records);
-        if (choice == 1)
+        if (choice == HONEST_READING_AND_WRITING)
         {
             fp = fopen(files[i], "r");
             if (fp == NULL)
@@ -70,7 +71,8 @@ void *reader()
 
         printf("Читатель %d читает\n", nRE);
         sleep(1 + rand() % 2);
-        printf("Читатель %d прочитал следующее: %s\n", nRE, record_from_file);
+        if (choice == HONEST_READING_AND_WRITING)
+            printf("Читатель %d прочитал следующее: %s\n", nRE, record_from_file);
         sem_post(&buffers);
         printf("Читатель %d закончил чтение\n", nRE);
         i++;
@@ -141,7 +143,7 @@ int main()
             puts("Ошибка! Несуществующий вариант ответа");
     } while (!check || choice <= 0 ||choice > 2);
 
-    if (choice == 1)
+    if (choice == HONEST_READING_AND_WRITING)
     {
         N = 2;
 
