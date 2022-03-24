@@ -8,6 +8,8 @@
 
 - [Практическая работа № 2. Синхронизация потоков в ОС GNU/Linux](https://gitlab.com/makarty/edu-works/-/tree/master/system%20programming/2practical)
 
+- [Практическая работа № 3. Использование механизма виртуальной памяти в программах для ОС GNU/Linux](https://gitlab.com/makarty/edu-works/-/tree/master/system%20programming/3practical)
+
 ## Объектно-ориентированное программирование
 
 - [Наследование и полиморфизм](https://gitlab.com/makarty/edu-works/-/tree/master/oop/inheritance%20and%20polymorphism)
