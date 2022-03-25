@@ -1,11 +1,11 @@
 /* Селекторы с выборкой по классу */ 
 .background{
-    background-image: url(images/fan-art-56.jpg);
+    background-image: url(../images/fan-art-56.jpg);
     background-attachment: fixed;
 }
 
 table.content{
-    background-image: url(images/bumaga.png);
+    background-image: url(../images/bumaga.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: -10px;

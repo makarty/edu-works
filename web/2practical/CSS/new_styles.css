@@ -1,10 +1,10 @@
 .background{
-    background-image: url(images/back2.jpg);
+    background-image: url(../images/back2.jpg);
     background-attachment: fixed;
 }
 
 table.content{
-    background-image: url(images/bumaga.png);
+    background-image: url(../images/bumaga.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: -10px;
