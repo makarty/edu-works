@@ -1,0 +1,31 @@
+/* Селекторы с выборкой по классу */ 
+.background{
+    background-image: url(../images/fan-art-56.jpg);
+    background-attachment: fixed;
+}
+
+table.content{
+    background-image: url(../images/bumaga.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: -10px;
+    background-position-y: center;
+    background-color: transparent;
+    width: 240px;
+}
+
+/* Селекторы с выборкой по элементу */
+h2{
+    font-family: "Courier";
+    font-size: 180%;
+}
+
+/* Селекторы с выборкой по идентификатору */
+#h1{
+    color: brown;
+}
+
+/* Комбинированные селекторы */
+#h2 .colortmt{
+    color: tomato;
+}
