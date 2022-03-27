@@ -1,0 +1,91 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}struct.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a5a2a76e18bbd8b8cd9026f1cee18f197}\label{main_8c_a5a2a76e18bbd8b8cd9026f1cee18f197}} 
+\#define {\bfseries APPEND}~1
+\item 
+\mbox{\Hypertarget{main_8c_a576d206ea9b5b59c13f3870142ae858d}\label{main_8c_a576d206ea9b5b59c13f3870142ae858d}} 
+\#define {\bfseries EDIT}~2
+\item 
+\mbox{\Hypertarget{main_8c_abbbe5949f3c1f72e439924f8cf503509}\label{main_8c_abbbe5949f3c1f72e439924f8cf503509}} 
+\#define {\bfseries DELETE}~3
+\item 
+\mbox{\Hypertarget{main_8c_ab6d3b1307b365e48c56507a2c8d3c2cd}\label{main_8c_ab6d3b1307b365e48c56507a2c8d3c2cd}} 
+\#define {\bfseries PRINT\+\_\+\+ALL\+\_\+\+INFORMATION}~4
+\item 
+\mbox{\Hypertarget{main_8c_ab40bc3fcdd899da3f520f857066cd7ed}\label{main_8c_ab40bc3fcdd899da3f520f857066cd7ed}} 
+\#define {\bfseries PRINT\+\_\+\+INFORMATION}~5
+\item 
+\mbox{\Hypertarget{main_8c_aebde15b113399744575f62908b3dcbbf}\label{main_8c_aebde15b113399744575f62908b3dcbbf}} 
+\#define {\bfseries CHECK\+\_\+\+IS\+\_\+\+UNINHABITED}~6
+\item 
+\mbox{\Hypertarget{main_8c_ad111e603bbebe5d87f6bc39264ce4733}\label{main_8c_ad111e603bbebe5d87f6bc39264ce4733}} 
+\#define {\bfseries EXIT}~7
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a95b4c447c0d3b1e7f49831969a3a96aa}{get\+\_\+user\+\_\+int}} (char $\ast$question, int min, int max)
+\begin{DoxyCompactList}\small\item\em Функция ввода числа \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{main_8c_a59041c58142455deba39b341a62b96f2}{input}} ()
+\begin{DoxyCompactList}\small\item\em Функция ввода строки \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Основная функция \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a95b4c447c0d3b1e7f49831969a3a96aa}\label{main_8c_a95b4c447c0d3b1e7f49831969a3a96aa}} 
+\index{main.c@{main.c}!get\_user\_int@{get\_user\_int}}
+\index{get\_user\_int@{get\_user\_int}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{get\_user\_int()}{get\_user\_int()}}
+{\footnotesize\ttfamily int get\+\_\+user\+\_\+int (\begin{DoxyParamCaption}\item[{char $\ast$}]{question,  }\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+Функция ввода числа 
+
+
+\begin{DoxyParams}{Parameters}
+{\em question} & Сообщение пользователю \\
+\hline
+{\em min} & минимально возможное число для выбора \\
+\hline
+{\em max} & максимально возможное число для выбора \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+число которое ввёл пользователь 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a59041c58142455deba39b341a62b96f2}\label{main_8c_a59041c58142455deba39b341a62b96f2}} 
+\index{main.c@{main.c}!input@{input}}
+\index{input@{input}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{input()}{input()}}
+{\footnotesize\ttfamily char$\ast$ input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция ввода строки 
+
+\begin{DoxyReturn}{Returns}
+строку которую ввёл пользователь 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Основная функция 
+
+\begin{DoxyReturn}{Returns}
+0 при успешном завершении программы 
+\end{DoxyReturn}

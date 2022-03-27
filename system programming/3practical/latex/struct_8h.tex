@@ -1,0 +1,215 @@
+\hypertarget{struct_8h}{}\doxysection{struct.\+h File Reference}
+\label{struct_8h}\index{struct.h@{struct.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for struct.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structarchipelago}{archipelago}}
+\item 
+struct \mbox{\hyperlink{structnode}{node}}
+\item 
+struct \mbox{\hyperlink{structlinked__list}{linked\+\_\+list}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{struct_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\#define {\bfseries TRUE}~1
+\item 
+\mbox{\Hypertarget{struct_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{struct_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
+\#define {\bfseries FALSE}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_8h_a8558b60e344ca90c8ba5bd4729dbeed9}{is\+\_\+uninhabited}} (\mbox{\hyperlink{structarchipelago}{archipelago}} archplg)
+\begin{DoxyCompactList}\small\item\em Функция проверки на необитаемость архипелага \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_a300a94031567f893096c5db2a66b7894}{choose\+\_\+archipelago}} (\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Функция вывода краткой информации \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_ac35080cfa4b71101e55c2bc57814a0e4}{print\+\_\+information}} (\mbox{\hyperlink{structarchipelago}{archipelago}} archplg)
+\begin{DoxyCompactList}\small\item\em Функция вывода полной информации об элементе \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$ \mbox{\hyperlink{struct_8h_af73a1a7cb7b2ef007718c7ca2223ef03}{create\+\_\+linked\+\_\+list}} ()
+\begin{DoxyCompactList}\small\item\em Функция создания двусвязного списка \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_8h_aad185c4f0c4890681211fb7c19116ba4}{is\+\_\+empty}} (\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Функция проверки списка на пустоту \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_ab2502b12af7d2ebda4868b2e1939e2a3}{add}} (\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$list, \mbox{\hyperlink{structarchipelago}{archipelago}} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Функция вставки элемента в конец списка \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_ab7484bec38e55520e12927c52797cd85}{remove\+\_\+element}} (\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$list, int index)
+\begin{DoxyCompactList}\small\item\em Функция удаления элемента по индексу \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structarchipelago}{archipelago}} $\ast$ \mbox{\hyperlink{struct_8h_aea68e4027f636d8183c56a47d8cfdfdf}{get\+\_\+element}} (\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$list, int index)
+\begin{DoxyCompactList}\small\item\em Функция получения элемента по индексу \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_aa9de53d0568bd07d726b6ef633fab425}{print\+\_\+linked\+\_\+list}} (\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Функция вывода всех элементов списка \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+remove}} (\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Функция освобождения памяти \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{struct_8h_ab2502b12af7d2ebda4868b2e1939e2a3}\label{struct_8h_ab2502b12af7d2ebda4868b2e1939e2a3}} 
+\index{struct.h@{struct.h}!add@{add}}
+\index{add@{add}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$}]{list,  }\item[{\mbox{\hyperlink{structarchipelago}{archipelago}} $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Функция вставки элемента в конец списка 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Список в который необходимо вставить элемент \\
+\hline
+{\em data} & Данный, которые необходимо вставить \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8h_a300a94031567f893096c5db2a66b7894}\label{struct_8h_a300a94031567f893096c5db2a66b7894}} 
+\index{struct.h@{struct.h}!choose\_archipelago@{choose\_archipelago}}
+\index{choose\_archipelago@{choose\_archipelago}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{choose\_archipelago()}{choose\_archipelago()}}
+{\footnotesize\ttfamily void choose\+\_\+archipelago (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Функция вывода краткой информации 
+
+Выводит номер и название всех элементов списка архипелагов 
+\begin{DoxyParams}{Parameters}
+{\em list} & список архипелагов \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8h_af73a1a7cb7b2ef007718c7ca2223ef03}\label{struct_8h_af73a1a7cb7b2ef007718c7ca2223ef03}} 
+\index{struct.h@{struct.h}!create\_linked\_list@{create\_linked\_list}}
+\index{create\_linked\_list@{create\_linked\_list}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{create\_linked\_list()}{create\_linked\_list()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlinked__list}{linked\+\_\+list}}$\ast$ create\+\_\+linked\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция создания двусвязного списка 
+
+\begin{DoxyReturn}{Returns}
+созданный список 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_8h_aea68e4027f636d8183c56a47d8cfdfdf}\label{struct_8h_aea68e4027f636d8183c56a47d8cfdfdf}} 
+\index{struct.h@{struct.h}!get\_element@{get\_element}}
+\index{get\_element@{get\_element}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{get\_element()}{get\_element()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structarchipelago}{archipelago}}$\ast$ get\+\_\+element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$}]{list,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Функция получения элемента по индексу 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Список из которого получают элемент \\
+\hline
+{\em index} & Индекс элемента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Элемент списка 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_8h_aad185c4f0c4890681211fb7c19116ba4}\label{struct_8h_aad185c4f0c4890681211fb7c19116ba4}} 
+\index{struct.h@{struct.h}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily int is\+\_\+empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Функция проверки списка на пустоту 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Двусвязный список, который нужно проверить \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 если список пуст 0 если список не пуст 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_8h_a8558b60e344ca90c8ba5bd4729dbeed9}\label{struct_8h_a8558b60e344ca90c8ba5bd4729dbeed9}} 
+\index{struct.h@{struct.h}!is\_uninhabited@{is\_uninhabited}}
+\index{is\_uninhabited@{is\_uninhabited}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{is\_uninhabited()}{is\_uninhabited()}}
+{\footnotesize\ttfamily int is\+\_\+uninhabited (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structarchipelago}{archipelago}}}]{archplg }\end{DoxyParamCaption})}
+
+
+
+Функция проверки на необитаемость архипелага 
+
+
+\begin{DoxyParams}{Parameters}
+{\em archplg} & Архипелаг \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 если архипелаг необитаемый 0 если архипелаг обитаемый 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_8h_a6c50e8c2ad497e241a0e31647a258962}\label{struct_8h_a6c50e8c2ad497e241a0e31647a258962}} 
+\index{struct.h@{struct.h}!list\_remove@{list\_remove}}
+\index{list\_remove@{list\_remove}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{list\_remove()}{list\_remove()}}
+{\footnotesize\ttfamily void list\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Функция освобождения памяти 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Двусвязный список \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8h_ac35080cfa4b71101e55c2bc57814a0e4}\label{struct_8h_ac35080cfa4b71101e55c2bc57814a0e4}} 
+\index{struct.h@{struct.h}!print\_information@{print\_information}}
+\index{print\_information@{print\_information}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{print\_information()}{print\_information()}}
+{\footnotesize\ttfamily void print\+\_\+information (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structarchipelago}{archipelago}}}]{archplg }\end{DoxyParamCaption})}
+
+
+
+Функция вывода полной информации об элементе 
+
+Выводит полную информацию об архипелаге 
+\begin{DoxyParams}{Parameters}
+{\em archplg} & Архипелаг \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8h_aa9de53d0568bd07d726b6ef633fab425}\label{struct_8h_aa9de53d0568bd07d726b6ef633fab425}} 
+\index{struct.h@{struct.h}!print\_linked\_list@{print\_linked\_list}}
+\index{print\_linked\_list@{print\_linked\_list}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{print\_linked\_list()}{print\_linked\_list()}}
+{\footnotesize\ttfamily void print\+\_\+linked\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Функция вывода всех элементов списка 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Двусвязный список \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8h_ab7484bec38e55520e12927c52797cd85}\label{struct_8h_ab7484bec38e55520e12927c52797cd85}} 
+\index{struct.h@{struct.h}!remove\_element@{remove\_element}}
+\index{remove\_element@{remove\_element}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{remove\_element()}{remove\_element()}}
+{\footnotesize\ttfamily void remove\+\_\+element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$}]{list,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Функция удаления элемента по индексу 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Двусвязный список из которого удаляют элемент \\
+\hline
+{\em index} & Индекс элемента \\
+\hline
+\end{DoxyParams}

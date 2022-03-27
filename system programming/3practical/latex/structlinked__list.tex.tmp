@@ -1,0 +1,23 @@
+\hypertarget{structlinked__list}{}\doxysection{linked\+\_\+list Struct Reference}
+\label{structlinked__list}\index{linked\_list@{linked\_list}}
+
+
+Collaboration diagram for linked\+\_\+list\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structlinked__list_aca36351e81c94271822706f244246ba0}\label{structlinked__list_aca36351e81c94271822706f244246ba0}} 
+struct \mbox{\hyperlink{structnode}{node}} $\ast$ {\bfseries head}
+\item 
+\mbox{\Hypertarget{structlinked__list_a45525cc50a03aa9fc38be999054c1118}\label{structlinked__list_a45525cc50a03aa9fc38be999054c1118}} 
+struct \mbox{\hyperlink{structnode}{node}} $\ast$ {\bfseries tail}
+\item 
+\mbox{\Hypertarget{structlinked__list_a49d49e43ab79e8596916a3fb33d524f2}\label{structlinked__list_a49d49e43ab79e8596916a3fb33d524f2}} 
+int {\bfseries size}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+struct.\+h\end{DoxyCompactItemize}

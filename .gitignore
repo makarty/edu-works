@@ -1,6 +1,7 @@
 # cache directory
 __pycache__
 .idea
+cmake-build-debug
 
 # user interface files
 *.ui
@@ -12,4 +13,3 @@ venv
 # data files
 *txt
 *docx
-!Doxyfile.txt

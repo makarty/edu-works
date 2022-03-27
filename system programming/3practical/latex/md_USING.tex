@@ -1,0 +1,248 @@
+Перед запуском необходимо скомпилировать файлы. О том как это сделать я написал в файле \href{https://gitlab.com/makarty/edu-works/-/blob/master/system\%20programming/3practical/INSTALL.md}{\texttt{ INSTALL.\+md}}
+
+Запуск программы\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./main}
+
+\end{DoxyCode}
+
+
+После запуска, программа попросит выбрать режим работы\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1) Добавить архипелаг}
+\DoxyCodeLine{2) Редактировать архипелаг}
+\DoxyCodeLine{3) Удалить архипелаг}
+\DoxyCodeLine{4) Вывести информацию обо всех архипелагах}
+\DoxyCodeLine{5) Вывести информацию об одном архипелаге}
+\DoxyCodeLine{6) Проверка архипелага на необитаемость}
+\DoxyCodeLine{7) Выход}
+\DoxyCodeLine{Выберите действие: }
+
+\end{DoxyCode}
+
+
+Коротко о пунктах меню\+:
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Добавить архипелаг
+\end{DoxyItemize}
+
+Осуществяется ввод данных и вставка архипелага в список
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Редактировать архипелаг
+\end{DoxyItemize}
+
+Выбор архипелага и редактирование выбранного поля
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Удалить архипелаг
+\end{DoxyItemize}
+
+Удаление выбранного архипелага
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Вывести информацию обо всех архипелагах
+\end{DoxyItemize}
+
+Вывод списка архипелагов
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Вывести информацию об одном архипелаге
+\end{DoxyItemize}
+
+Вывод выбранного элемента из списка архипелагов
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Проверка архипелага на необитаемость
+\end{DoxyItemize}
+
+Проверяет наличие обитаемых островов в архипелаге и делает вывод об обитаемости/необитаемости
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
+\item Выход
+\end{DoxyItemize}
+
+Выход из программы
+
+\DoxyHorRuler{0}
+\hypertarget{md_USING_autotoc_md14}{}\doxysubsection{Пример использования программы}\label{md_USING_autotoc_md14}
+Для начала добавим 2 архипелага
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Выберите действие: 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{Введите название архипелага: Новая Земля}
+\DoxyCodeLine{Введите количество островов: 200}
+\DoxyCodeLine{Введите количество обитаемых островов: 5}
+\DoxyCodeLine{}
+\DoxyCodeLine{...}
+\DoxyCodeLine{}
+\DoxyCodeLine{Выберите действие: 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{Введите название архипелага: Южные Сандвичевы острова}
+\DoxyCodeLine{Введите количество островов: 13}
+\DoxyCodeLine{Введите количество обитаемых островов: 0}
+
+\end{DoxyCode}
+
+
+Выведем информацию обо всех архипелагах
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Выберите действие: 4}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{Название архипелага: Новая Земля}
+\DoxyCodeLine{Количество островов: 200}
+\DoxyCodeLine{Количество обитаемых островов: 5}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{Название архипелага: Южные Сандвичевы острова}
+\DoxyCodeLine{Количество островов: 13}
+\DoxyCodeLine{Количество обитаемых островов: 0}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+
+\end{DoxyCode}
+
+
+Отредактируем какой-\/нибудь архипелаг
+
+Нас просят выбрать, выберем 1 архипелаг
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Выберите действие: 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{№ 1: Новая Земля}
+\DoxyCodeLine{}
+\DoxyCodeLine{№ 2: Южные Сандвичевы острова}
+\DoxyCodeLine{}
+\DoxyCodeLine{Выберите архипелаг: 1}
+
+\end{DoxyCode}
+
+
+Далее выбираем поле, которое хотим изменить. Выбираем 3 поле и вводим новую информацию
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1) Название}
+\DoxyCodeLine{2) Количество островов}
+\DoxyCodeLine{3) Количество обитаемых островов}
+\DoxyCodeLine{Какое поле нужно изменить: 3}
+\DoxyCodeLine{Введите количество обитаемых островов: 6}
+
+\end{DoxyCode}
+
+
+Выведем информацию об одном архипелаге. Нас опять просят выбрать архипелаг, выбераем и идём дальше
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Выберите действие: 5}
+\DoxyCodeLine{}
+\DoxyCodeLine{№ 1: Новая Земля}
+\DoxyCodeLine{}
+\DoxyCodeLine{№ 2: Южные Сандвичевы острова}
+\DoxyCodeLine{}
+\DoxyCodeLine{Выберите архипелаг: 1}
+
+\end{DoxyCode}
+
+
+Как видим, информация изменилась
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{Название архипелага: Новая Земля}
+\DoxyCodeLine{Количество островов: 200}
+\DoxyCodeLine{Количество обитаемых островов: 6}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+
+\end{DoxyCode}
+
+
+Проверим наши архипелаги на необитаемость. Как видим 1 архипелаг является обитаемым
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Выберите действие: 6}
+\DoxyCodeLine{}
+\DoxyCodeLine{№ 1: Новая Земля}
+\DoxyCodeLine{}
+\DoxyCodeLine{№ 2: Южные Сандвичевы острова}
+\DoxyCodeLine{}
+\DoxyCodeLine{Выберите архипелаг: 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{Архипелаг обитаемый}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+
+\end{DoxyCode}
+
+
+А вот 2 архипелаг нет
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Выберите действие: 6}
+\DoxyCodeLine{}
+\DoxyCodeLine{№ 1: Новая Земля}
+\DoxyCodeLine{}
+\DoxyCodeLine{№ 2: Южные Сандвичевы острова}
+\DoxyCodeLine{}
+\DoxyCodeLine{Выберите архипелаг: 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{Архипелаг необитаемый}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+
+\end{DoxyCode}
+
+
+Выйдем из программы
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Выберите действие: 7}
+\DoxyCodeLine{}
+\DoxyCodeLine{Process finished with exit code 0}
+
+\end{DoxyCode}
+ 
