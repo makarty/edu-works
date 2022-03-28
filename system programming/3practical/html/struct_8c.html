@@ -62,6 +62,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">struct.c File Reference</div>  </div>
@@ -74,11 +75,29 @@ Include dependency graph for struct.c:</div>
 <div class="center"><img src="struct_8c__incl.png" border="0" usemap="#astruct_8c" alt=""/></div>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab008a69fe0ab9635ae7c335711f9fe4d"><td class="memItemLeft" align="right" valign="top"><a id="ab008a69fe0ab9635ae7c335711f9fe4d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOT_INHABITED_ISLAND</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ab008a69fe0ab9635ae7c335711f9fe4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd78423a409ea41e4562492edacb94d"><td class="memItemLeft" align="right" valign="top"><a id="aecd78423a409ea41e4562492edacb94d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LIST_EMPTY</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:aecd78423a409ea41e4562492edacb94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5c3b9a1708498f68a5e05bf30caca70"><td class="memItemLeft" align="right" valign="top"><a id="aa5c3b9a1708498f68a5e05bf30caca70"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ONE_ELEMENT_IN_LIST</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aa5c3b9a1708498f68a5e05bf30caca70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a492c6ccf2bde2bebcd32e73e0933ee92"><td class="memItemLeft" align="right" valign="top"><a id="a492c6ccf2bde2bebcd32e73e0933ee92"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FIRST</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a492c6ccf2bde2bebcd32e73e0933ee92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8558b60e344ca90c8ba5bd4729dbeed9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_8c.html#a8558b60e344ca90c8ba5bd4729dbeed9">is_uninhabited</a> (<a class="el" href="structarchipelago.html">archipelago</a> archplg)</td></tr>
 <tr class="memdesc:a8558b60e344ca90c8ba5bd4729dbeed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция проверки на необитаемость архипелага  <a href="struct_8c.html#a8558b60e344ca90c8ba5bd4729dbeed9">More...</a><br /></td></tr>
 <tr class="separator:a8558b60e344ca90c8ba5bd4729dbeed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfeef09ab96cdb234345399a6a42167f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_8c.html#adfeef09ab96cdb234345399a6a42167f">print_inhabited_archipelagos</a> (<a class="el" href="structlinked__list.html">linked_list</a> *list)</td></tr>
+<tr class="memdesc:adfeef09ab96cdb234345399a6a42167f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция вывода архипелагов, состоящих из обитаемых островов  <a href="struct_8c.html#adfeef09ab96cdb234345399a6a42167f">More...</a><br /></td></tr>
+<tr class="separator:adfeef09ab96cdb234345399a6a42167f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a300a94031567f893096c5db2a66b7894"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_8c.html#a300a94031567f893096c5db2a66b7894">choose_archipelago</a> (<a class="el" href="structlinked__list.html">linked_list</a> *list)</td></tr>
 <tr class="memdesc:a300a94031567f893096c5db2a66b7894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция вывода краткой информации  <a href="struct_8c.html#a300a94031567f893096c5db2a66b7894">More...</a><br /></td></tr>
 <tr class="separator:a300a94031567f893096c5db2a66b7894"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,7 +166,30 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">list</td><td>Список в который необходимо вставить элемент </td></tr>
-    <tr><td class="paramname">data</td><td>Данный, которые необходимо вставить </td></tr>
+    <tr><td class="paramname">data</td><td>Данный, которые необходимо вставить <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="struct_8c.html#ab2502b12af7d2ebda4868b2e1939e2a3">add</a>(<a class="code" href="structlinked__list.html">linked_list</a>* list, <a class="code" href="structarchipelago.html">archipelago</a>* data)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* tmp = <a class="code" href="struct_8c.html#a329958fdc7118b04e17a09910fbe76fc">create_node</a>(data);</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="struct_8c.html#aad185c4f0c4890681211fb7c19116ba4">is_empty</a>(list))</div>
+<div class="line">        list-&gt;head = tmp;</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span> (list-&gt;size == ONE_ELEMENT_IN_LIST)</div>
+<div class="line">            list-&gt;head-&gt;next = tmp;</div>
+<div class="line">        list-&gt;tail-&gt;next = tmp;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    tmp-&gt;prev = list-&gt;tail;</div>
+<div class="line">    list-&gt;tail = tmp;</div>
+<div class="line"> </div>
+<div class="line">    list-&gt;size++;</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_a329958fdc7118b04e17a09910fbe76fc"><div class="ttname"><a href="struct_8c.html#a329958fdc7118b04e17a09910fbe76fc">create_node</a></div><div class="ttdeci">struct node * create_node(archipelago *data)</div><div class="ttdoc">Функция создания узла двусвязного списка</div><div class="ttdef"><b>Definition:</b> struct.c:192</div></div>
+<div class="ttc" id="astruct_8c_html_aad185c4f0c4890681211fb7c19116ba4"><div class="ttname"><a href="struct_8c.html#aad185c4f0c4890681211fb7c19116ba4">is_empty</a></div><div class="ttdeci">int is_empty(linked_list *list)</div><div class="ttdoc">Функция проверки списка на пустоту</div><div class="ttdef"><b>Definition:</b> struct.c:217</div></div>
+<div class="ttc" id="astruct_8c_html_ab2502b12af7d2ebda4868b2e1939e2a3"><div class="ttname"><a href="struct_8c.html#ab2502b12af7d2ebda4868b2e1939e2a3">add</a></div><div class="ttdeci">void add(linked_list *list, archipelago *data)</div><div class="ttdoc">Функция вставки элемента в конец списка</div><div class="ttdef"><b>Definition:</b> struct.c:249</div></div>
+<div class="ttc" id="astructarchipelago_html"><div class="ttname"><a href="structarchipelago.html">archipelago</a></div><div class="ttdef"><b>Definition:</b> struct.h:13</div></div>
+<div class="ttc" id="astructlinked__list_html"><div class="ttname"><a href="structlinked__list.html">linked_list</a></div><div class="ttdef"><b>Definition:</b> struct.h:25</div></div>
+<div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition:</b> struct.h:19</div></div>
+</div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>
@@ -173,7 +215,25 @@ Functions</h2></td></tr>
 <p>Функция вывода краткой информации </p>
 <p>Выводит номер и название всех элементов списка архипелагов </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>список архипелагов </td></tr>
+    <tr><td class="paramname">list</td><td>список архипелагов <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="struct_8c.html#a300a94031567f893096c5db2a66b7894">choose_archipelago</a>(<a class="code" href="structlinked__list.html">linked_list</a> * list)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> i = 1;</div>
+<div class="line">    <span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* tmp = list-&gt;tail;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (tmp-&gt;prev != NULL)</div>
+<div class="line">    {</div>
+<div class="line">        tmp = tmp-&gt;prev;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (tmp != NULL)</div>
+<div class="line">    {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;\n№ %d: %s\n&quot;</span>, i, tmp-&gt;element-&gt;name);</div>
+<div class="line">        i++;</div>
+<div class="line">        tmp = tmp-&gt;next;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_a300a94031567f893096c5db2a66b7894"><div class="ttname"><a href="struct_8c.html#a300a94031567f893096c5db2a66b7894">choose_archipelago</a></div><div class="ttdeci">void choose_archipelago(linked_list *list)</div><div class="ttdoc">Функция вывода краткой информации</div><div class="ttdef"><b>Definition:</b> struct.c:104</div></div>
+</div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>
@@ -196,7 +256,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Функция создания двусвязного списка </p>
-<dl class="section return"><dt>Returns</dt><dd>созданный список </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>созданный список <div class="fragment"><div class="line"><a class="code" href="structlinked__list.html">linked_list</a>* <a class="code" href="struct_8c.html#af73a1a7cb7b2ef007718c7ca2223ef03">create_linked_list</a>()</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="structlinked__list.html">linked_list</a>* list = (<a class="code" href="structlinked__list.html">linked_list</a>*) malloc(<span class="keyword">sizeof</span>(<a class="code" href="structlinked__list.html">linked_list</a>));</div>
+<div class="line">    <span class="keywordflow">if</span> (list == NULL) exit (MEMORY_ERROR);</div>
+<div class="line">    list-&gt;head = NULL;</div>
+<div class="line">    list-&gt;tail = NULL;</div>
+<div class="line">    list-&gt;size = 0;</div>
+<div class="line">    <span class="keywordflow">return</span> list;</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_af73a1a7cb7b2ef007718c7ca2223ef03"><div class="ttname"><a href="struct_8c.html#af73a1a7cb7b2ef007718c7ca2223ef03">create_linked_list</a></div><div class="ttdeci">linked_list * create_linked_list()</div><div class="ttdoc">Функция создания двусвязного списка</div><div class="ttdef"><b>Definition:</b> struct.c:164</div></div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -223,7 +293,16 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>созданный узел </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>созданный узел <div class="fragment"><div class="line"><span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* <a class="code" href="struct_8c.html#a329958fdc7118b04e17a09910fbe76fc">create_node</a>(<a class="code" href="structarchipelago.html">archipelago</a>* data)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* tmp = (<span class="keyword">struct </span><a class="code" href="structnode.html">node</a>*)malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="structnode.html">node</a>));</div>
+<div class="line">    <span class="keywordflow">if</span> (tmp == NULL) exit (MEMORY_ERROR);</div>
+<div class="line">    tmp-&gt;element = data;</div>
+<div class="line">    tmp-&gt;next = NULL;</div>
+<div class="line">    tmp-&gt;prev = NULL;</div>
+<div class="line">    <span class="keywordflow">return</span> tmp;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -261,7 +340,30 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Элемент списка </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Элемент списка <div class="fragment"><div class="line"><a class="code" href="structarchipelago.html">archipelago</a>* <a class="code" href="struct_8c.html#aea68e4027f636d8183c56a47d8cfdfdf">get_element</a>(<a class="code" href="structlinked__list.html">linked_list</a>* list, <span class="keywordtype">int</span> index)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="struct_8c.html#aad185c4f0c4890681211fb7c19116ba4">is_empty</a>(list))</div>
+<div class="line">    {</div>
+<div class="line">        puts(<span class="stringliteral">&quot;Список пуст&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> NULL;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordtype">int</span> count = 0;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (index &gt;= list-&gt;size)</div>
+<div class="line">        index = list-&gt;size - 1;</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (index &lt; FIRST)</div>
+<div class="line">        index = 0;</div>
+<div class="line">    <span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* current_element = list-&gt;head;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (count != index)</div>
+<div class="line">    {</div>
+<div class="line">        current_element = current_element-&gt;next;</div>
+<div class="line">        count++;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> current_element-&gt;element;</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_aea68e4027f636d8183c56a47d8cfdfdf"><div class="ttname"><a href="struct_8c.html#aea68e4027f636d8183c56a47d8cfdfdf">get_element</a></div><div class="ttdeci">archipelago * get_element(linked_list *list, int index)</div><div class="ttdoc">Функция получения элемента по индексу</div><div class="ttdef"><b>Definition:</b> struct.c:434</div></div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -288,7 +390,13 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 если список пуст 0 если список не пуст </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 если список пуст 0 если список не пуст <div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="struct_8c.html#aad185c4f0c4890681211fb7c19116ba4">is_empty</a>(<a class="code" href="structlinked__list.html">linked_list</a>* list)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (list-&gt;size == LIST_EMPTY)</div>
+<div class="line">        <span class="keywordflow">return</span> TRUE;</div>
+<div class="line">    <span class="keywordflow">return</span> FALSE;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -315,7 +423,14 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 если архипелаг необитаемый 0 если архипелаг обитаемый </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 если архипелаг необитаемый 0 если архипелаг обитаемый <div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="struct_8c.html#a8558b60e344ca90c8ba5bd4729dbeed9">is_uninhabited</a>(<a class="code" href="structarchipelago.html">archipelago</a> archplg)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (archplg.num_of_inhabited_islands == NOT_INHABITED_ISLAND)</div>
+<div class="line">        <span class="keywordflow">return</span> TRUE;</div>
+<div class="line">    <span class="keywordflow">return</span> FALSE;</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_a8558b60e344ca90c8ba5bd4729dbeed9"><div class="ttname"><a href="struct_8c.html#a8558b60e344ca90c8ba5bd4729dbeed9">is_uninhabited</a></div><div class="ttdeci">int is_uninhabited(archipelago archplg)</div><div class="ttdoc">Функция проверки на необитаемость архипелага</div><div class="ttdef"><b>Definition:</b> struct.c:26</div></div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -338,7 +453,32 @@ Functions</h2></td></tr>
 <p>Функция освобождения памяти </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>Двусвязный список </td></tr>
+    <tr><td class="paramname">list</td><td>Двусвязный список <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="struct_8c.html#a6c50e8c2ad497e241a0e31647a258962">list_remove</a>(<a class="code" href="structlinked__list.html">linked_list</a>* list)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (!<a class="code" href="struct_8c.html#aad185c4f0c4890681211fb7c19116ba4">is_empty</a>(list))</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* tmp = list-&gt;tail;</div>
+<div class="line">        <span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* tmp_prev;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">while</span> (tmp-&gt;prev != NULL)</div>
+<div class="line">        {</div>
+<div class="line">            tmp = tmp-&gt;prev;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">while</span> (tmp != NULL)</div>
+<div class="line">        {</div>
+<div class="line">            free(tmp-&gt;element-&gt;name);</div>
+<div class="line">            free(tmp-&gt;element);</div>
+<div class="line">            tmp_prev = tmp;</div>
+<div class="line">            tmp = tmp-&gt;next;</div>
+<div class="line">            free(tmp_prev);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    free(list);</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_a6c50e8c2ad497e241a0e31647a258962"><div class="ttname"><a href="struct_8c.html#a6c50e8c2ad497e241a0e31647a258962">list_remove</a></div><div class="ttdeci">void list_remove(linked_list *list)</div><div class="ttdoc">Функция освобождения памяти</div><div class="ttdef"><b>Definition:</b> struct.c:538</div></div>
+</div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>
@@ -364,7 +504,62 @@ Functions</h2></td></tr>
 <p>Функция вывода полной информации об элементе </p>
 <p>Выводит полную информацию об архипелаге </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">archplg</td><td>Архипелаг </td></tr>
+    <tr><td class="paramname">archplg</td><td>Архипелаг <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="struct_8c.html#ac35080cfa4b71101e55c2bc57814a0e4">print_information</a>(<a class="code" href="structarchipelago.html">archipelago</a> archplg)</div>
+<div class="line">{</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n-----------------------------&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\nНазвание архипелага: %s&quot;</span>, archplg.name);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\nКоличество островов: %d&quot;</span>, archplg.num_of_islands);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\nКоличество обитаемых островов: %d&quot;</span>, archplg.num_of_inhabited_islands);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n-----------------------------&quot;</span>);</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_ac35080cfa4b71101e55c2bc57814a0e4"><div class="ttname"><a href="struct_8c.html#ac35080cfa4b71101e55c2bc57814a0e4">print_information</a></div><div class="ttdeci">void print_information(archipelago archplg)</div><div class="ttdoc">Функция вывода полной информации об элементе</div><div class="ttdef"><b>Definition:</b> struct.c:138</div></div>
+</div><!-- fragment --> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adfeef09ab96cdb234345399a6a42167f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfeef09ab96cdb234345399a6a42167f">&#9670;&nbsp;</a></span>print_inhabited_archipelagos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_inhabited_archipelagos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlinked__list.html">linked_list</a> *&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция вывода архипелагов, состоящих из обитаемых островов </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>Список архипелагов <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="struct_8c.html#adfeef09ab96cdb234345399a6a42167f">print_inhabited_archipelagos</a>(<a class="code" href="structlinked__list.html">linked_list</a>* list)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="struct_8c.html#aad185c4f0c4890681211fb7c19116ba4">is_empty</a>(list))</div>
+<div class="line">    {</div>
+<div class="line">        puts(<span class="stringliteral">&quot;Список пуст&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* tmp = list-&gt;tail;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (tmp-&gt;prev != NULL)</div>
+<div class="line">        tmp = tmp-&gt;prev;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (tmp != NULL)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span> (tmp-&gt;element-&gt;num_of_islands == tmp-&gt;element-&gt;num_of_inhabited_islands)</div>
+<div class="line">            <a class="code" href="struct_8c.html#ac35080cfa4b71101e55c2bc57814a0e4">print_information</a>(*tmp-&gt;element);</div>
+<div class="line">        tmp = tmp-&gt;next;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_adfeef09ab96cdb234345399a6a42167f"><div class="ttname"><a href="struct_8c.html#adfeef09ab96cdb234345399a6a42167f">print_inhabited_archipelagos</a></div><div class="ttdeci">void print_inhabited_archipelagos(linked_list *list)</div><div class="ttdoc">Функция вывода архипелагов, состоящих из обитаемых островов</div><div class="ttdef"><b>Definition:</b> struct.c:59</div></div>
+</div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>
@@ -390,7 +585,29 @@ Functions</h2></td></tr>
 <p>Функция вывода всех элементов списка </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>Двусвязный список </td></tr>
+    <tr><td class="paramname">list</td><td>Двусвязный список <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="struct_8c.html#aa9de53d0568bd07d726b6ef633fab425">print_linked_list</a>(<a class="code" href="structlinked__list.html">linked_list</a>* list)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="struct_8c.html#aad185c4f0c4890681211fb7c19116ba4">is_empty</a>(list))</div>
+<div class="line">    {</div>
+<div class="line">        puts(<span class="stringliteral">&quot;Список пуст&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* tmp = list-&gt;tail;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (tmp-&gt;prev != NULL)</div>
+<div class="line">    {</div>
+<div class="line">        tmp = tmp-&gt;prev;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (tmp != NULL)</div>
+<div class="line">    {</div>
+<div class="line">        <a class="code" href="struct_8c.html#ac35080cfa4b71101e55c2bc57814a0e4">print_information</a>(*tmp-&gt;element);</div>
+<div class="line">        tmp = tmp-&gt;next;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_aa9de53d0568bd07d726b6ef633fab425"><div class="ttname"><a href="struct_8c.html#aa9de53d0568bd07d726b6ef633fab425">print_linked_list</a></div><div class="ttdeci">void print_linked_list(linked_list *list)</div><div class="ttdoc">Функция вывода всех элементов списка</div><div class="ttdef"><b>Definition:</b> struct.c:485</div></div>
+</div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>
@@ -427,7 +644,48 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">list</td><td>Двусвязный список из которого удаляют элемент </td></tr>
-    <tr><td class="paramname">index</td><td>Индекс элемента </td></tr>
+    <tr><td class="paramname">index</td><td>Индекс элемента <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="struct_8c.html#ab7484bec38e55520e12927c52797cd85">remove_element</a>(<a class="code" href="structlinked__list.html">linked_list</a>* list, <span class="keywordtype">int</span> index)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code" href="struct_8c.html#aad185c4f0c4890681211fb7c19116ba4">is_empty</a>(list))</div>
+<div class="line">    {</div>
+<div class="line">        puts(<span class="stringliteral">&quot;Список пуст&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordtype">int</span> current_index = 0;</div>
+<div class="line">    <span class="keyword">struct </span><a class="code" href="structnode.html">node</a>* tmp = list-&gt;head;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (list-&gt;size == ONE_ELEMENT_IN_LIST)</div>
+<div class="line">    {</div>
+<div class="line">        free(tmp-&gt;element-&gt;name);</div>
+<div class="line">        free(tmp-&gt;element);</div>
+<div class="line">        free(tmp);</div>
+<div class="line">        list-&gt;head = NULL;</div>
+<div class="line">        list-&gt;tail = NULL;</div>
+<div class="line">        list-&gt;size--;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (current_index != index)</div>
+<div class="line">    {</div>
+<div class="line">        tmp = tmp-&gt;next;</div>
+<div class="line">        current_index++;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (index == FIRST)</div>
+<div class="line">        <a class="code" href="struct_8c.html#afe69cbba5887e2451c1d1ab9208fed44">remove_first</a>(list);</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        tmp-&gt;prev-&gt;next = tmp-&gt;next;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (index == list-&gt;size - 1)</div>
+<div class="line">        <a class="code" href="struct_8c.html#a2f2a9e5f734aac606d31c892b3431604">remove_last</a>(list);</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        tmp-&gt;next-&gt;prev = tmp-&gt;prev;</div>
+<div class="line">    list-&gt;size--;</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_8c_html_a2f2a9e5f734aac606d31c892b3431604"><div class="ttname"><a href="struct_8c.html#a2f2a9e5f734aac606d31c892b3431604">remove_last</a></div><div class="ttdeci">void remove_last(linked_list *list)</div><div class="ttdoc">Функция удаления элемента из конца списка</div><div class="ttdef"><b>Definition:</b> struct.c:309</div></div>
+<div class="ttc" id="astruct_8c_html_ab7484bec38e55520e12927c52797cd85"><div class="ttname"><a href="struct_8c.html#ab7484bec38e55520e12927c52797cd85">remove_element</a></div><div class="ttdeci">void remove_element(linked_list *list, int index)</div><div class="ttdoc">Функция удаления элемента по индексу</div><div class="ttdef"><b>Definition:</b> struct.c:364</div></div>
+<div class="ttc" id="astruct_8c_html_afe69cbba5887e2451c1d1ab9208fed44"><div class="ttname"><a href="struct_8c.html#afe69cbba5887e2451c1d1ab9208fed44">remove_first</a></div><div class="ttdeci">void remove_first(linked_list *list)</div><div class="ttdoc">Функция удаления элемента из начала списка</div><div class="ttdef"><b>Definition:</b> struct.c:284</div></div>
+</div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>
@@ -453,7 +711,15 @@ Functions</h2></td></tr>
 <p>Функция удаления элемента из начала списка </p>
 <p>Является вспомогательной функцией для функции remove_element </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>Двусвязный список из которого удаляют элемент </td></tr>
+    <tr><td class="paramname">list</td><td>Двусвязный список из которого удаляют элемент <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="struct_8c.html#afe69cbba5887e2451c1d1ab9208fed44">remove_first</a>(<a class="code" href="structlinked__list.html">linked_list</a>* list)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (list-&gt;head-&gt;next == NULL)</div>
+<div class="line">        list-&gt;tail = NULL;</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        list-&gt;head-&gt;next-&gt;prev = NULL;</div>
+<div class="line">    list-&gt;head = list-&gt;head-&gt;next;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>
@@ -479,7 +745,15 @@ Functions</h2></td></tr>
 <p>Функция удаления элемента из конца списка </p>
 <p>Является вспомогательной функцией для функции remove_element </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>Двусвязный список из которого удаляют элемент </td></tr>
+    <tr><td class="paramname">list</td><td>Двусвязный список из которого удаляют элемент <div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="struct_8c.html#a2f2a9e5f734aac606d31c892b3431604">remove_last</a>(<a class="code" href="structlinked__list.html">linked_list</a>* list)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (list-&gt;head-&gt;next == NULL)</div>
+<div class="line">        list-&gt;head = list-&gt;head-&gt;next;</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        list-&gt;tail-&gt;prev-&gt;next = NULL;</div>
+<div class="line">    list-&gt;tail = list-&gt;tail-&gt;prev;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>

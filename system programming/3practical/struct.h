@@ -5,6 +5,7 @@
 #define INC_3PRACTICAL_STRUCT_H
 #define TRUE 1
 #define FALSE 0
+#define MEMORY_ERROR 1
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,6 +30,7 @@ typedef struct{
 
 // Запросы
 int is_uninhabited(archipelago archplg);
+void print_inhabited_archipelagos(linked_list* list);
 
 void choose_archipelago(linked_list * list);
 void print_information(archipelago archplg);

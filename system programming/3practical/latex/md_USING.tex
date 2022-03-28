@@ -19,7 +19,8 @@
 \DoxyCodeLine{4) Вывести информацию обо всех архипелагах}
 \DoxyCodeLine{5) Вывести информацию об одном архипелаге}
 \DoxyCodeLine{6) Проверка архипелага на необитаемость}
-\DoxyCodeLine{7) Выход}
+\DoxyCodeLine{7) Вывести все обитаемые архипелаги}
+\DoxyCodeLine{8) Выход}
 \DoxyCodeLine{Выберите действие: }
 
 \end{DoxyCode}
@@ -92,13 +93,23 @@
 
 
 \begin{DoxyItemize}
+\item Вывести все обитаемые архипелаги
+\end{DoxyItemize}
+
+Выводит все архипелаги, в состав которых не входят необитаемые острова
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyItemize}
 \item Выход
 \end{DoxyItemize}
 
 Выход из программы
 
 \DoxyHorRuler{0}
-\hypertarget{md_USING_autotoc_md14}{}\doxysubsection{Пример использования программы}\label{md_USING_autotoc_md14}
+\hypertarget{md_USING_autotoc_md15}{}\doxysubsection{Пример использования программы}\label{md_USING_autotoc_md15}
 Для начала добавим 2 архипелага
 
 
@@ -116,6 +127,12 @@
 \DoxyCodeLine{Введите название архипелага: Южные Сандвичевы острова}
 \DoxyCodeLine{Введите количество островов: 13}
 \DoxyCodeLine{Введите количество обитаемых островов: 0}
+\DoxyCodeLine{}
+\DoxyCodeLine{Выберите действие: 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{Введите название архипелага: Земля Франца-\/Иосифа}
+\DoxyCodeLine{Введите количество островов: 10}
+\DoxyCodeLine{Введите количество обитаемых островов: 10}
 
 \end{DoxyCode}
 
@@ -136,6 +153,11 @@
 \DoxyCodeLine{Количество островов: 13}
 \DoxyCodeLine{Количество обитаемых островов: 0}
 \DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{Название архипелага: Земля Франца-\/Иосифа}
+\DoxyCodeLine{Количество островов: 10}
+\DoxyCodeLine{Количество обитаемых островов: 10}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
 
 \end{DoxyCode}
 
@@ -151,6 +173,8 @@
 \DoxyCodeLine{№ 1: Новая Земля}
 \DoxyCodeLine{}
 \DoxyCodeLine{№ 2: Южные Сандвичевы острова}
+\DoxyCodeLine{}
+\DoxyCodeLine{№ 3: Земля Франца-\/Иосифа}
 \DoxyCodeLine{}
 \DoxyCodeLine{Выберите архипелаг: 1}
 
@@ -180,6 +204,8 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{№ 2: Южные Сандвичевы острова}
 \DoxyCodeLine{}
+\DoxyCodeLine{№ 3: Земля Франца-\/Иосифа}
+\DoxyCodeLine{}
 \DoxyCodeLine{Выберите архипелаг: 1}
 
 \end{DoxyCode}
@@ -208,6 +234,8 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{№ 2: Южные Сандвичевы острова}
 \DoxyCodeLine{}
+\DoxyCodeLine{№ 3: Земля Франца-\/Иосифа}
+\DoxyCodeLine{}
 \DoxyCodeLine{Выберите архипелаг: 1}
 \DoxyCodeLine{}
 \DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
@@ -227,6 +255,8 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{№ 2: Южные Сандвичевы острова}
 \DoxyCodeLine{}
+\DoxyCodeLine{№ 3: Земля Франца-\/Иосифа}
+\DoxyCodeLine{}
 \DoxyCodeLine{Выберите архипелаг: 2}
 \DoxyCodeLine{}
 \DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
@@ -236,11 +266,26 @@
 \end{DoxyCode}
 
 
-Выйдем из программы
+Выведем все архипелаги без необитаемых островов
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Выберите действие: 7}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{Название архипелага: Земля Франца-\/Иосифа}
+\DoxyCodeLine{Количество островов: 10}
+\DoxyCodeLine{Количество обитаемых островов: 10}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+
+\end{DoxyCode}
+
+
+Выйдем из программы
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Выберите действие: 8}
 \DoxyCodeLine{}
 \DoxyCodeLine{Process finished with exit code 0}
 

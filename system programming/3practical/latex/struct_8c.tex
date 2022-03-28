@@ -3,11 +3,28 @@
 {\ttfamily \#include \char`\"{}struct.\+h\char`\"{}}\newline
 Include dependency graph for struct.\+c\+:
 % FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_8c_ab008a69fe0ab9635ae7c335711f9fe4d}\label{struct_8c_ab008a69fe0ab9635ae7c335711f9fe4d}} 
+\#define {\bfseries NOT\+\_\+\+INHABITED\+\_\+\+ISLAND}~0
+\item 
+\mbox{\Hypertarget{struct_8c_aecd78423a409ea41e4562492edacb94d}\label{struct_8c_aecd78423a409ea41e4562492edacb94d}} 
+\#define {\bfseries LIST\+\_\+\+EMPTY}~0
+\item 
+\mbox{\Hypertarget{struct_8c_aa5c3b9a1708498f68a5e05bf30caca70}\label{struct_8c_aa5c3b9a1708498f68a5e05bf30caca70}} 
+\#define {\bfseries ONE\+\_\+\+ELEMENT\+\_\+\+IN\+\_\+\+LIST}~1
+\item 
+\mbox{\Hypertarget{struct_8c_a492c6ccf2bde2bebcd32e73e0933ee92}\label{struct_8c_a492c6ccf2bde2bebcd32e73e0933ee92}} 
+\#define {\bfseries FIRST}~1
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{struct_8c_a8558b60e344ca90c8ba5bd4729dbeed9}{is\+\_\+uninhabited}} (\mbox{\hyperlink{structarchipelago}{archipelago}} archplg)
 \begin{DoxyCompactList}\small\item\em Функция проверки на необитаемость архипелага \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8c_adfeef09ab96cdb234345399a6a42167f}{print\+\_\+inhabited\+\_\+archipelagos}} (\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Функция вывода архипелагов, состоящих из обитаемых островов \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{struct_8c_a300a94031567f893096c5db2a66b7894}{choose\+\_\+archipelago}} (\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$list)
 \begin{DoxyCompactList}\small\item\em Функция вывода краткой информации \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{struct_8c_ac35080cfa4b71101e55c2bc57814a0e4}{print\+\_\+information}} (\mbox{\hyperlink{structarchipelago}{archipelago}} archplg)
@@ -49,7 +66,28 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 \begin{DoxyParams}{Parameters}
 {\em list} & Список в который необходимо вставить элемент \\
 \hline
-{\em data} & Данный, которые необходимо вставить \\
+{\em data} & Данный, которые необходимо вставить 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{struct_8c_ab2502b12af7d2ebda4868b2e1939e2a3}{add}}(\mbox{\hyperlink{structlinked__list}{linked\_list}}* list, \mbox{\hyperlink{structarchipelago}{archipelago}}* data)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* tmp = \mbox{\hyperlink{struct_8c_a329958fdc7118b04e17a09910fbe76fc}{create\_node}}(data);}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (\mbox{\hyperlink{struct_8c_aad185c4f0c4890681211fb7c19116ba4}{is\_empty}}(list))}
+\DoxyCodeLine{        list-\/>head = tmp;}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (list-\/>size == ONE\_ELEMENT\_IN\_LIST)}
+\DoxyCodeLine{            list-\/>head-\/>next = tmp;}
+\DoxyCodeLine{        list-\/>tail-\/>next = tmp;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    tmp-\/>prev = list-\/>tail;}
+\DoxyCodeLine{    list-\/>tail = tmp;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    list-\/>size++;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{struct_8c_a300a94031567f893096c5db2a66b7894}\label{struct_8c_a300a94031567f893096c5db2a66b7894}} 
@@ -64,7 +102,28 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 
 Выводит номер и название всех элементов списка архипелагов 
 \begin{DoxyParams}{Parameters}
-{\em list} & список архипелагов \\
+{\em list} & список архипелагов 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{struct_8c_a300a94031567f893096c5db2a66b7894}{choose\_archipelago}}(\mbox{\hyperlink{structlinked__list}{linked\_list}} * list)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} i = 1;}
+\DoxyCodeLine{    \textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* tmp = list-\/>tail;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (tmp-\/>prev != NULL)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        tmp = tmp-\/>prev;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (tmp != NULL)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}\(\backslash\)n№ \%d: \%s\(\backslash\)n"{}}, i, tmp-\/>element-\/>name);}
+\DoxyCodeLine{        i++;}
+\DoxyCodeLine{        tmp = tmp-\/>next;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{struct_8c_af73a1a7cb7b2ef007718c7ca2223ef03}\label{struct_8c_af73a1a7cb7b2ef007718c7ca2223ef03}} 
@@ -79,6 +138,19 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 
 \begin{DoxyReturn}{Returns}
 созданный список 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structlinked__list}{linked\_list}}* \mbox{\hyperlink{struct_8c_af73a1a7cb7b2ef007718c7ca2223ef03}{create\_linked\_list}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{structlinked__list}{linked\_list}}* list = (\mbox{\hyperlink{structlinked__list}{linked\_list}}*) malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structlinked__list}{linked\_list}}));}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (list == NULL) exit (MEMORY\_ERROR);}
+\DoxyCodeLine{    list-\/>head = NULL;}
+\DoxyCodeLine{    list-\/>tail = NULL;}
+\DoxyCodeLine{    list-\/>size = 0;}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} list;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
 \end{DoxyReturn}
 \mbox{\Hypertarget{struct_8c_a329958fdc7118b04e17a09910fbe76fc}\label{struct_8c_a329958fdc7118b04e17a09910fbe76fc}} 
 \index{struct.c@{struct.c}!create\_node@{create\_node}}
@@ -97,6 +169,19 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 созданный узел 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* \mbox{\hyperlink{struct_8c_a329958fdc7118b04e17a09910fbe76fc}{create\_node}}(\mbox{\hyperlink{structarchipelago}{archipelago}}* data)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* tmp = (\textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}*)malloc(\textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnode}{node}}));}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (tmp == NULL) exit (MEMORY\_ERROR);}
+\DoxyCodeLine{    tmp-\/>element = data;}
+\DoxyCodeLine{    tmp-\/>next = NULL;}
+\DoxyCodeLine{    tmp-\/>prev = NULL;}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
 \end{DoxyReturn}
 \mbox{\Hypertarget{struct_8c_aea68e4027f636d8183c56a47d8cfdfdf}\label{struct_8c_aea68e4027f636d8183c56a47d8cfdfdf}} 
 \index{struct.c@{struct.c}!get\_element@{get\_element}}
@@ -117,6 +202,32 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Элемент списка 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structarchipelago}{archipelago}}* \mbox{\hyperlink{struct_8c_aea68e4027f636d8183c56a47d8cfdfdf}{get\_element}}(\mbox{\hyperlink{structlinked__list}{linked\_list}}* list, \textcolor{keywordtype}{int} index)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (\mbox{\hyperlink{struct_8c_aad185c4f0c4890681211fb7c19116ba4}{is\_empty}}(list))}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        puts(\textcolor{stringliteral}{"{}Список пуст"{}});}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} count = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (index >= list-\/>size)}
+\DoxyCodeLine{        index = list-\/>size -\/ 1;}
+\DoxyCodeLine{    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (index < FIRST)}
+\DoxyCodeLine{        index = 0;}
+\DoxyCodeLine{    \textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* current\_element = list-\/>head;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (count != index)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        current\_element = current\_element-\/>next;}
+\DoxyCodeLine{        count++;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} current\_element-\/>element;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
 \end{DoxyReturn}
 \mbox{\Hypertarget{struct_8c_aad185c4f0c4890681211fb7c19116ba4}\label{struct_8c_aad185c4f0c4890681211fb7c19116ba4}} 
 \index{struct.c@{struct.c}!is\_empty@{is\_empty}}
@@ -135,6 +246,16 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 1 если список пуст 0 если список не пуст 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{struct_8c_aad185c4f0c4890681211fb7c19116ba4}{is\_empty}}(\mbox{\hyperlink{structlinked__list}{linked\_list}}* list)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (list-\/>size == LIST\_EMPTY)}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} TRUE;}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} FALSE;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
 \end{DoxyReturn}
 \mbox{\Hypertarget{struct_8c_a8558b60e344ca90c8ba5bd4729dbeed9}\label{struct_8c_a8558b60e344ca90c8ba5bd4729dbeed9}} 
 \index{struct.c@{struct.c}!is\_uninhabited@{is\_uninhabited}}
@@ -153,6 +274,16 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 1 если архипелаг необитаемый 0 если архипелаг обитаемый 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{struct_8c_a8558b60e344ca90c8ba5bd4729dbeed9}{is\_uninhabited}}(\mbox{\hyperlink{structarchipelago}{archipelago}} archplg)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (archplg.num\_of\_inhabited\_islands == NOT\_INHABITED\_ISLAND)}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} TRUE;}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} FALSE;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
 \end{DoxyReturn}
 \mbox{\Hypertarget{struct_8c_a6c50e8c2ad497e241a0e31647a258962}\label{struct_8c_a6c50e8c2ad497e241a0e31647a258962}} 
 \index{struct.c@{struct.c}!list\_remove@{list\_remove}}
@@ -166,7 +297,35 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & Двусвязный список \\
+{\em list} & Двусвязный список 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\_remove}}(\mbox{\hyperlink{structlinked__list}{linked\_list}}* list)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (!\mbox{\hyperlink{struct_8c_aad185c4f0c4890681211fb7c19116ba4}{is\_empty}}(list))}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* tmp = list-\/>tail;}
+\DoxyCodeLine{        \textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* tmp\_prev;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{while} (tmp-\/>prev != NULL)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            tmp = tmp-\/>prev;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{while} (tmp != NULL)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            free(tmp-\/>element-\/>name);}
+\DoxyCodeLine{            free(tmp-\/>element);}
+\DoxyCodeLine{            tmp\_prev = tmp;}
+\DoxyCodeLine{            tmp = tmp-\/>next;}
+\DoxyCodeLine{            free(tmp\_prev);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    free(list);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{struct_8c_ac35080cfa4b71101e55c2bc57814a0e4}\label{struct_8c_ac35080cfa4b71101e55c2bc57814a0e4}} 
@@ -181,7 +340,57 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 
 Выводит полную информацию об архипелаге 
 \begin{DoxyParams}{Parameters}
-{\em archplg} & Архипелаг \\
+{\em archplg} & Архипелаг 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{struct_8c_ac35080cfa4b71101e55c2bc57814a0e4}{print\_information}}(\mbox{\hyperlink{structarchipelago}{archipelago}} archplg)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}});}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)nНазвание архипелага: \%s"{}}, archplg.name);}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)nКоличество островов: \%d"{}}, archplg.num\_of\_islands);}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)nКоличество обитаемых островов: \%d"{}}, archplg.num\_of\_inhabited\_islands);}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8c_adfeef09ab96cdb234345399a6a42167f}\label{struct_8c_adfeef09ab96cdb234345399a6a42167f}} 
+\index{struct.c@{struct.c}!print\_inhabited\_archipelagos@{print\_inhabited\_archipelagos}}
+\index{print\_inhabited\_archipelagos@{print\_inhabited\_archipelagos}!struct.c@{struct.c}}
+\doxysubsubsection{\texorpdfstring{print\_inhabited\_archipelagos()}{print\_inhabited\_archipelagos()}}
+{\footnotesize\ttfamily void print\+\_\+inhabited\+\_\+archipelagos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlinked__list}{linked\+\_\+list}} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Функция вывода архипелагов, состоящих из обитаемых островов 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Список архипелагов 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{struct_8c_adfeef09ab96cdb234345399a6a42167f}{print\_inhabited\_archipelagos}}(\mbox{\hyperlink{structlinked__list}{linked\_list}}* list)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (\mbox{\hyperlink{struct_8c_aad185c4f0c4890681211fb7c19116ba4}{is\_empty}}(list))}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        puts(\textcolor{stringliteral}{"{}Список пуст"{}});}
+\DoxyCodeLine{        \textcolor{keywordflow}{return};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* tmp = list-\/>tail;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (tmp-\/>prev != NULL)}
+\DoxyCodeLine{        tmp = tmp-\/>prev;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (tmp != NULL)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (tmp-\/>element-\/>num\_of\_islands == tmp-\/>element-\/>num\_of\_inhabited\_islands)}
+\DoxyCodeLine{            \mbox{\hyperlink{struct_8c_ac35080cfa4b71101e55c2bc57814a0e4}{print\_information}}(*tmp-\/>element);}
+\DoxyCodeLine{        tmp = tmp-\/>next;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{struct_8c_aa9de53d0568bd07d726b6ef633fab425}\label{struct_8c_aa9de53d0568bd07d726b6ef633fab425}} 
@@ -196,7 +405,32 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 
 
 \begin{DoxyParams}{Parameters}
-{\em list} & Двусвязный список \\
+{\em list} & Двусвязный список 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{struct_8c_aa9de53d0568bd07d726b6ef633fab425}{print\_linked\_list}}(\mbox{\hyperlink{structlinked__list}{linked\_list}}* list)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (\mbox{\hyperlink{struct_8c_aad185c4f0c4890681211fb7c19116ba4}{is\_empty}}(list))}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        puts(\textcolor{stringliteral}{"{}Список пуст"{}});}
+\DoxyCodeLine{        \textcolor{keywordflow}{return};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* tmp = list-\/>tail;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (tmp-\/>prev != NULL)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        tmp = tmp-\/>prev;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (tmp != NULL)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \mbox{\hyperlink{struct_8c_ac35080cfa4b71101e55c2bc57814a0e4}{print\_information}}(*tmp-\/>element);}
+\DoxyCodeLine{        tmp = tmp-\/>next;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{struct_8c_ab7484bec38e55520e12927c52797cd85}\label{struct_8c_ab7484bec38e55520e12927c52797cd85}} 
@@ -213,7 +447,49 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 \begin{DoxyParams}{Parameters}
 {\em list} & Двусвязный список из которого удаляют элемент \\
 \hline
-{\em index} & Индекс элемента \\
+{\em index} & Индекс элемента 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{struct_8c_ab7484bec38e55520e12927c52797cd85}{remove\_element}}(\mbox{\hyperlink{structlinked__list}{linked\_list}}* list, \textcolor{keywordtype}{int} index)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (\mbox{\hyperlink{struct_8c_aad185c4f0c4890681211fb7c19116ba4}{is\_empty}}(list))}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        puts(\textcolor{stringliteral}{"{}Список пуст"{}});}
+\DoxyCodeLine{        \textcolor{keywordflow}{return};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} current\_index = 0;}
+\DoxyCodeLine{    \textcolor{keyword}{struct }\mbox{\hyperlink{structnode}{node}}* tmp = list-\/>head;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (list-\/>size == ONE\_ELEMENT\_IN\_LIST)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        free(tmp-\/>element-\/>name);}
+\DoxyCodeLine{        free(tmp-\/>element);}
+\DoxyCodeLine{        free(tmp);}
+\DoxyCodeLine{        list-\/>head = NULL;}
+\DoxyCodeLine{        list-\/>tail = NULL;}
+\DoxyCodeLine{        list-\/>size-\/-\/;}
+\DoxyCodeLine{        \textcolor{keywordflow}{return};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (current\_index != index)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        tmp = tmp-\/>next;}
+\DoxyCodeLine{        current\_index++;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (index == FIRST)}
+\DoxyCodeLine{        \mbox{\hyperlink{struct_8c_afe69cbba5887e2451c1d1ab9208fed44}{remove\_first}}(list);}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}}
+\DoxyCodeLine{        tmp-\/>prev-\/>next = tmp-\/>next;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (index == list-\/>size -\/ 1)}
+\DoxyCodeLine{        \mbox{\hyperlink{struct_8c_a2f2a9e5f734aac606d31c892b3431604}{remove\_last}}(list);}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}}
+\DoxyCodeLine{        tmp-\/>next-\/>prev = tmp-\/>prev;}
+\DoxyCodeLine{    list-\/>size-\/-\/;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{struct_8c_afe69cbba5887e2451c1d1ab9208fed44}\label{struct_8c_afe69cbba5887e2451c1d1ab9208fed44}} 
@@ -228,7 +504,19 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 
 Является вспомогательной функцией для функции remove\+\_\+element 
 \begin{DoxyParams}{Parameters}
-{\em list} & Двусвязный список из которого удаляют элемент \\
+{\em list} & Двусвязный список из которого удаляют элемент 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{struct_8c_afe69cbba5887e2451c1d1ab9208fed44}{remove\_first}}(\mbox{\hyperlink{structlinked__list}{linked\_list}}* list)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (list-\/>head-\/>next == NULL)}
+\DoxyCodeLine{        list-\/>tail = NULL;}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}}
+\DoxyCodeLine{        list-\/>head-\/>next-\/>prev = NULL;}
+\DoxyCodeLine{    list-\/>head = list-\/>head-\/>next;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{struct_8c_a2f2a9e5f734aac606d31c892b3431604}\label{struct_8c_a2f2a9e5f734aac606d31c892b3431604}} 
@@ -243,6 +531,18 @@ void \mbox{\hyperlink{struct_8c_a6c50e8c2ad497e241a0e31647a258962}{list\+\_\+rem
 
 Является вспомогательной функцией для функции remove\+\_\+element 
 \begin{DoxyParams}{Parameters}
-{\em list} & Двусвязный список из которого удаляют элемент \\
+{\em list} & Двусвязный список из которого удаляют элемент 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{struct_8c_a2f2a9e5f734aac606d31c892b3431604}{remove\_last}}(\mbox{\hyperlink{structlinked__list}{linked\_list}}* list)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (list-\/>head-\/>next == NULL)}
+\DoxyCodeLine{        list-\/>head = list-\/>head-\/>next;}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}}
+\DoxyCodeLine{        list-\/>tail-\/>prev-\/>next = NULL;}
+\DoxyCodeLine{    list-\/>tail = list-\/>tail-\/>prev;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
 \hline
 \end{DoxyParams}

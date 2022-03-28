@@ -11,7 +11,7 @@ sudo apt install doxygen
 Создание исполняемых файлов
 
 ```bash
-make main
+make -f Makefile
 ```
 
 Удаление исполняемых файлов

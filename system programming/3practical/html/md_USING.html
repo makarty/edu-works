@@ -75,7 +75,8 @@ $(function() {
 <div class="line">4) Вывести информацию обо всех архипелагах</div>
 <div class="line">5) Вывести информацию об одном архипелаге</div>
 <div class="line">6) Проверка архипелага на необитаемость</div>
-<div class="line">7) Выход</div>
+<div class="line">7) Вывести все обитаемые архипелаги</div>
+<div class="line">8) Выход</div>
 <div class="line">Выберите действие: </div>
 </div><!-- fragment --><p>Коротко о пунктах меню:</p>
 <hr  />
@@ -110,11 +111,16 @@ $(function() {
 <p>Проверяет наличие обитаемых островов в архипелаге и делает вывод об обитаемости/необитаемости</p>
 <hr  />
 <ul>
+<li>Вывести все обитаемые архипелаги</li>
+</ul>
+<p>Выводит все архипелаги, в состав которых не входят необитаемые острова</p>
+<hr  />
+<ul>
 <li>Выход</li>
 </ul>
 <p>Выход из программы</p>
 <hr  />
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md15"></a>
 Пример использования программы</h2>
 <p>Для начала добавим 2 архипелага</p>
 <div class="fragment"><div class="line">Выберите действие: 1</div>
@@ -130,6 +136,12 @@ $(function() {
 <div class="line">Введите название архипелага: Южные Сандвичевы острова</div>
 <div class="line">Введите количество островов: 13</div>
 <div class="line">Введите количество обитаемых островов: 0</div>
+<div class="line"> </div>
+<div class="line">Выберите действие: 1</div>
+<div class="line"> </div>
+<div class="line">Введите название архипелага: Земля Франца-Иосифа</div>
+<div class="line">Введите количество островов: 10</div>
+<div class="line">Введите количество обитаемых островов: 10</div>
 </div><!-- fragment --><p>Выведем информацию обо всех архипелагах</p>
 <div class="fragment"><div class="line">Выберите действие: 4</div>
 <div class="line"> </div>
@@ -143,6 +155,11 @@ $(function() {
 <div class="line">Количество островов: 13</div>
 <div class="line">Количество обитаемых островов: 0</div>
 <div class="line">-----------------------------</div>
+<div class="line">-----------------------------</div>
+<div class="line">Название архипелага: Земля Франца-Иосифа</div>
+<div class="line">Количество островов: 10</div>
+<div class="line">Количество обитаемых островов: 10</div>
+<div class="line">-----------------------------</div>
 </div><!-- fragment --><p>Отредактируем какой-нибудь архипелаг</p>
 <p>Нас просят выбрать, выберем 1 архипелаг</p>
 <div class="fragment"><div class="line">Выберите действие: 2</div>
@@ -150,6 +167,8 @@ $(function() {
 <div class="line">№ 1: Новая Земля</div>
 <div class="line"> </div>
 <div class="line">№ 2: Южные Сандвичевы острова</div>
+<div class="line"> </div>
+<div class="line">№ 3: Земля Франца-Иосифа</div>
 <div class="line"> </div>
 <div class="line">Выберите архипелаг: 1</div>
 </div><!-- fragment --><p>Далее выбираем поле, которое хотим изменить. Выбираем 3 поле и вводим новую информацию</p>
@@ -165,6 +184,8 @@ $(function() {
 <div class="line"> </div>
 <div class="line">№ 2: Южные Сандвичевы острова</div>
 <div class="line"> </div>
+<div class="line">№ 3: Земля Франца-Иосифа</div>
+<div class="line"> </div>
 <div class="line">Выберите архипелаг: 1</div>
 </div><!-- fragment --><p>Как видим, информация изменилась</p>
 <div class="fragment"><div class="line">-----------------------------</div>
@@ -179,6 +200,8 @@ $(function() {
 <div class="line"> </div>
 <div class="line">№ 2: Южные Сандвичевы острова</div>
 <div class="line"> </div>
+<div class="line">№ 3: Земля Франца-Иосифа</div>
+<div class="line"> </div>
 <div class="line">Выберите архипелаг: 1</div>
 <div class="line"> </div>
 <div class="line">-------------------</div>
@@ -191,13 +214,23 @@ $(function() {
 <div class="line"> </div>
 <div class="line">№ 2: Южные Сандвичевы острова</div>
 <div class="line"> </div>
+<div class="line">№ 3: Земля Франца-Иосифа</div>
+<div class="line"> </div>
 <div class="line">Выберите архипелаг: 2</div>
 <div class="line"> </div>
 <div class="line">---------------------</div>
 <div class="line">Архипелаг необитаемый</div>
 <div class="line">---------------------</div>
-</div><!-- fragment --><p>Выйдем из программы</p>
+</div><!-- fragment --><p>Выведем все архипелаги без необитаемых островов</p>
 <div class="fragment"><div class="line">Выберите действие: 7</div>
+<div class="line"> </div>
+<div class="line">-----------------------------</div>
+<div class="line">Название архипелага: Земля Франца-Иосифа</div>
+<div class="line">Количество островов: 10</div>
+<div class="line">Количество обитаемых островов: 10</div>
+<div class="line">-----------------------------</div>
+</div><!-- fragment --><p>Выйдем из программы</p>
+<div class="fragment"><div class="line">Выберите действие: 8</div>
 <div class="line"> </div>
 <div class="line">Process finished with exit code 0</div>
 </div><!-- fragment --> </div></div><!-- contents -->

@@ -79,6 +79,21 @@ Include dependency graph for main.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:af852474ee86ef5d47722bc1ef210e275"><td class="memItemLeft" align="right" valign="top"><a id="af852474ee86ef5d47722bc1ef210e275"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_MENU_CHOICE</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:af852474ee86ef5d47722bc1ef210e275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c36005776c733c898a4ff32d9e955ef"><td class="memItemLeft" align="right" valign="top"><a id="a6c36005776c733c898a4ff32d9e955ef"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_MENU_CHOICE</b>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a6c36005776c733c898a4ff32d9e955ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcd14621b2992b2b39a184aeeef89c44"><td class="memItemLeft" align="right" valign="top"><a id="abcd14621b2992b2b39a184aeeef89c44"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_FIELD_CHOICE</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:abcd14621b2992b2b39a184aeeef89c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35536598d1e0f664cccc9205d45a0284"><td class="memItemLeft" align="right" valign="top"><a id="a35536598d1e0f664cccc9205d45a0284"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_FIELD_CHOICE</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a35536598d1e0f664cccc9205d45a0284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288116f92845fddefeb044f5b84bc889"><td class="memItemLeft" align="right" valign="top"><a id="a288116f92845fddefeb044f5b84bc889"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_ERROR</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a288116f92845fddefeb044f5b84bc889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a2a76e18bbd8b8cd9026f1cee18f197"><td class="memItemLeft" align="right" valign="top"><a id="a5a2a76e18bbd8b8cd9026f1cee18f197"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>APPEND</b>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a5a2a76e18bbd8b8cd9026f1cee18f197"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,8 +112,11 @@ Macros</h2></td></tr>
 <tr class="memitem:aebde15b113399744575f62908b3dcbbf"><td class="memItemLeft" align="right" valign="top"><a id="aebde15b113399744575f62908b3dcbbf"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CHECK_IS_UNINHABITED</b>&#160;&#160;&#160;6</td></tr>
 <tr class="separator:aebde15b113399744575f62908b3dcbbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ed4b08cd1bc88d6e22b4f9816f381aa"><td class="memItemLeft" align="right" valign="top"><a id="a3ed4b08cd1bc88d6e22b4f9816f381aa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PRINT_INHABITED_ARCHIPELAGOS</b>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:a3ed4b08cd1bc88d6e22b4f9816f381aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad111e603bbebe5d87f6bc39264ce4733"><td class="memItemLeft" align="right" valign="top"><a id="ad111e603bbebe5d87f6bc39264ce4733"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>EXIT</b>&#160;&#160;&#160;7</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EXIT</b>&#160;&#160;&#160;8</td></tr>
 <tr class="separator:ad111e603bbebe5d87f6bc39264ce4733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -155,7 +173,24 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>число которое ввёл пользователь </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>число которое ввёл пользователь <div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="main_8c.html#a95b4c447c0d3b1e7f49831969a3a96aa">get_user_int</a>(<span class="keywordtype">char</span>* question, <span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> user_choose = 0;</div>
+<div class="line">    <span class="keywordtype">int</span> success = 0;</div>
+<div class="line">    <span class="keywordtype">char</span> buff[32];</div>
+<div class="line">    <span class="keywordflow">do</span></div>
+<div class="line">    {</div>
+<div class="line">        fputs(question, stdout);</div>
+<div class="line">        fgets(buff, 32, stdin);</div>
+<div class="line">        fflush(stdin);</div>
+<div class="line">        success = sscanf(buff, <span class="stringliteral">&quot;%d&quot;</span>, &amp;user_choose);</div>
+<div class="line">        <span class="keywordflow">if</span> (user_choose &gt; max || user_choose &lt; min || success != INPUT_ERROR)</div>
+<div class="line">            puts(<span class="stringliteral">&quot;Error&quot;</span>);</div>
+<div class="line">    } <span class="keywordflow">while</span> (user_choose &gt; max || user_choose &lt; min || success != INPUT_ERROR);</div>
+<div class="line">    <span class="keywordflow">return</span> user_choose;</div>
+<div class="line">}</div>
+<div class="ttc" id="amain_8c_html_a95b4c447c0d3b1e7f49831969a3a96aa"><div class="ttname"><a href="main_8c.html#a95b4c447c0d3b1e7f49831969a3a96aa">get_user_int</a></div><div class="ttdeci">int get_user_int(char *question, int min, int max)</div><div class="ttdoc">Функция ввода числа</div><div class="ttdef"><b>Definition:</b> main.c:49</div></div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -175,7 +210,29 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Функция ввода строки </p>
-<dl class="section return"><dt>Returns</dt><dd>строку которую ввёл пользователь </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>строку которую ввёл пользователь <div class="fragment"><div class="line"><span class="keywordtype">char</span>* <a class="code" href="main_8c.html#a59041c58142455deba39b341a62b96f2">input</a>()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">char</span> *str = (<span class="keywordtype">char</span> *)malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">char</span>));</div>
+<div class="line">    <span class="keywordflow">if</span> (str == NULL) exit (MEMORY_ERROR);</div>
+<div class="line">    <span class="keywordtype">int</span> lenght = 1;</div>
+<div class="line">    <span class="keywordtype">char</span> cur_char = 0;</div>
+<div class="line">    fflush(stdin);</div>
+<div class="line">    <span class="keywordflow">while</span> ((cur_char = getc(stdin)) != <span class="charliteral">&#39;\n&#39;</span>)</div>
+<div class="line">    {</div>
+<div class="line">        str[lenght - 1] = cur_char;</div>
+<div class="line">        lenght++;</div>
+<div class="line">        str = (<span class="keywordtype">char</span> *)realloc(str, lenght);</div>
+<div class="line">        <span class="keywordflow">if</span> (str == NULL)</div>
+<div class="line">        {</div>
+<div class="line">            perror(<span class="stringliteral">&quot;realloc&quot;</span>);</div>
+<div class="line">            exit(MEMORY_ERROR);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    str[lenght - 1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> str;</div>
+<div class="line">}</div>
+<div class="ttc" id="amain_8c_html_a59041c58142455deba39b341a62b96f2"><div class="ttname"><a href="main_8c.html#a59041c58142455deba39b341a62b96f2">input</a></div><div class="ttdeci">char * input()</div><div class="ttdoc">Функция ввода строки</div><div class="ttdef"><b>Definition:</b> main.c:94</div></div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
