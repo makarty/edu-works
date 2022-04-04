@@ -22,6 +22,17 @@ table.content{
 }
 
 
+.foot{
+    position: relative;
+}
+
+
+.f1{
+    position: absolute;
+    left: 650px;
+}
+
+
 h2{
     font-family: "Courier";
     font-size: 180%;
