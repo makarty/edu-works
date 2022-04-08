@@ -10,6 +10,8 @@
 
 - [Практическая работа № 3. Использование механизма виртуальной памяти в программах для ОС GNU/Linux](https://github.com/makarty/edu-works/tree/master/system%20programming/3practical)
 
+- [Практическая работа № 4. Управление файлами в ОС GNU/Linux](https://github.com/makarty/edu-works/tree/master/system%20programming/4practical)
+
 ## Объектно-ориентированное программирование
 
 - [Наследование и полиморфизм](https://github.com/makarty/edu-works/tree/master/oop/inheritance%20and%20polymorphism)
