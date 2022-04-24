@@ -15,6 +15,11 @@ table.content{
 }
 
 
+.image{
+    float: left;
+}
+
+
 .up{
     position: fixed;
     right: 1%;
