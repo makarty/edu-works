@@ -7,15 +7,13 @@
 
 #define MIN_MENU_CHOICE 0
 #define MAX_MENU_CHOICE 8
-#define INIT_ERROR 1
 #define CREATE 1
 #define APPEND 2
 #define EDIT 3
 #define DELETE 4
 #define PRINT_ALL_INFORMATION 5
-#define PRINT_INFORMATION 6
-#define CHECK_IS_UNINHABITED 7
-#define EXIT 8
+#define CHECK_IS_UNINHABITED 6
+#define EXIT 7
 
 
 /**
@@ -24,7 +22,7 @@
  */
 int main()
 {
-    int choice, choice1, num_of_records = 0, number = 1;
+    int choice, choice1, number = 1, num_of_records = 0;
     int flag = TRUE;
     char* file_name = NULL;
 
@@ -40,14 +38,24 @@ int main()
                 add_archipelago(&number, file_name);
                 num_of_records++;
                 break;
+            case EDIT:
+                break;
+            case DELETE:
+                delete(file_name, &num_of_records);
+                number--;
+                break;
             case PRINT_ALL_INFORMATION:
                 show_archipelagos(file_name, num_of_records);
+                break;
+            case CHECK_IS_UNINHABITED:
+                is_uninhabited(file_name, num_of_records);
                 break;
             case EXIT:
                 flag = FALSE;
                 break;
         }
     }
+    remove(file_name);
 
     return 0;
 }

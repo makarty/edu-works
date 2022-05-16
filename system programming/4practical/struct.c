@@ -64,9 +64,8 @@ void PrintMenu()
     puts("3) Редактировать архипелаг");
     puts("4) Удалить архипелаг");
     puts("5) Вывести информацию обо всех архипелагах");
-    puts("6) Вывести информацию об одном архипелаге");
-    puts("7) Проверка архипелага на необитаемость");
-    puts("8) Выход");
+    puts("6) Проверка архипелага на необитаемость");
+    puts("7) Выход");
 }
 
 
@@ -74,14 +73,14 @@ char* create()
 {
     char* file_name = NULL;
     int flag = TRUE;
-    puts("Введите имя файла");
+    printf("Введите имя файла: ");
     while(flag)
     {
         file_name = input();
         int database = open(file_name, O_CREAT | O_EXCL, mode);
         if(database == ERROR)
         {
-            printf("Ошибка. Файл с именем |%s| уже существует.\n", file_name);
+            puts("Ошибка");
         } else
         {
             printf("Файл |%s| создан.\n", file_name);
@@ -95,6 +94,11 @@ char* create()
 
 void add_archipelago(int* number, char* file_name)
 {
+    if (file_name == NULL)
+    {
+        puts("Ошибка! Файла не существует");
+        return;
+    }
     int num_of_islands, num_of_inh_islands;
 
     num_of_islands = get_user_int("Введите количество островов: ", 0, INT_MAX);
@@ -114,6 +118,11 @@ void add_archipelago(int* number, char* file_name)
 
 void show_archipelagos(char* file_name, int count_of_records)
 {
+    if (file_name == NULL)
+    {
+        puts("Ошибка! Файла не существует");
+        return;
+    }
     int file = open(file_name, O_RDONLY);
     archipelago archplg;
     unsigned int pointer = 0;
@@ -133,4 +142,92 @@ void show_archipelagos(char* file_name, int count_of_records)
         lseek(file, pointer, SEEK_SET);
     }
     close(file);
+}
+
+
+void delete(char* file_name, int* number_of_records)
+{
+    if (file_name == NULL)
+    {
+        puts("Ошибка! Файла не существует");
+        return;
+    }
+    int number_to_delete;
+    unsigned int pointer = 0;
+    int flag = TRUE;
+    archipelago tmp_archplg;
+
+    while (flag)
+    {
+        number_to_delete = get_user_int("Выберите номер удаляемого архипелага: ", 1, INT_MAX);
+        int file = open(file_name, O_RDONLY);
+        for(int i = 0; i < *number_of_records; i++)
+        {
+            unsigned int read_code = read(file, &tmp_archplg, ARCHIPELAGO_SIZE);
+            if(read_code == ERROR)
+                perror("ERROR");
+            if(tmp_archplg.number == number_to_delete)
+                flag = FALSE;
+        }
+        if(flag == TRUE)
+            puts("Данного номера нет в списке");
+        close(file);
+    }
+
+
+    int old_file = open(file_name, O_RDONLY);
+    int new_file = open(TMP_FILENAME, O_CREAT | O_EXCL | O_APPEND | O_WRONLY, mode);
+    for (int i = 0; i < *number_of_records; i++)
+    {
+        unsigned int read_code = read(old_file, &tmp_archplg, ARCHIPELAGO_SIZE);
+        if(read_code == ERROR)
+            perror("ERROR");
+        if(tmp_archplg.number != number_to_delete)
+        {
+            if (tmp_archplg.number > number_to_delete)
+                tmp_archplg.number--;
+            unsigned int write_code = write(new_file, &tmp_archplg, ARCHIPELAGO_SIZE);
+            if(write_code == ERROR)
+                perror("ERROR");
+        }
+        pointer = pointer + ARCHIPELAGO_SIZE;
+        lseek(old_file, pointer, SEEK_SET);
+    }
+    close(old_file);
+    close(new_file);
+    remove(file_name);
+    rename(TMP_FILENAME, file_name);
+    *number_of_records = *number_of_records - 1;
+}
+
+
+void is_uninhabited(char* file_name, int number_of_records)
+{
+    if (file_name == NULL)
+    {
+        puts("Ошибка! Файла не существует");
+        return;
+    }
+    unsigned int number = 1, pointer = 0;
+    archipelago archplg;
+    int file = open(file_name, O_RDONLY);
+
+    number = get_user_int("Введите номер архипелага: ", 1, INT_MAX);
+    pointer = pointer + (number - 1) * ARCHIPELAGO_SIZE;
+    lseek(file, pointer, SEEK_SET);
+    if (number > number_of_records)
+    {
+        puts("Данного номера нет в списке");
+        return;
+    }
+
+    unsigned int read_code = read(file, &archplg, ARCHIPELAGO_SIZE);
+    if(read_code == ERROR)
+        perror("ERROR");
+
+    close(file);
+    if (archplg.num_of_inhabited_islands == 0)
+        puts("Архипелаг необитаемый");
+    else if (archplg.num_of_inhabited_islands != 0)
+        puts("Архипелаг обитаемый");
 }
