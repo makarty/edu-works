@@ -11,13 +11,7 @@ sudo apt install doxygen
 Создание исполняемых файлов
 
 ```bash
-make -f Makefile
-```
-
-Удаление исполняемых файлов
-
-```bash
-make clean
+make
 ```
 
 Создание файла конфигурации Doxyfile(если его не существует)

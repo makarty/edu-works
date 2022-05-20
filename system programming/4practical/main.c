@@ -39,6 +39,7 @@ int main()
                 num_of_records++;
                 break;
             case EDIT:
+                edit(file_name, num_of_records);
                 break;
             case DELETE:
                 delete(file_name, &num_of_records);

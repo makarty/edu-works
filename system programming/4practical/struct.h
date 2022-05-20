@@ -8,10 +8,9 @@
 #define INPUT_ERROR 1
 #define MEMORY_ERROR 1
 #define ERROR 1
+#define NUMBER_OF_INHABITED_ISLANDS 2
+#define NUMBER_OF_ISLANDS 1
 #define ARCHIPELAGO_SIZE sizeof(archipelago)
-#define OPEN_ERROR -1
-#define SEEK_ERROR -1
-#define INDEX_ERROR -1
 #define TMP_FILENAME "tmp"
 
 #include <stdio.h>
@@ -38,8 +37,9 @@ void PrintMenu();
 //Работа с файлами
 char* create();
 void add_archipelago(int* number, char* file_name);
-void show_archipelagos(char* file_name, int count_of_records);
+void show_archipelagos(char* file_name, int number_of_records);
 void delete(char* file_name, int* number_of_records);
+void edit(char* file_name, int number_of_records);
 
 
 

@@ -3,7 +3,6 @@
  */
 #include "struct.h"
 
-mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
 /**
  * @brief Функция ввода числа
@@ -57,6 +56,9 @@ char* input()
 }
 
 
+/**
+ * @brief Функция вывода пунктов меню на экран
+ */
 void PrintMenu()
 {
     puts("1) Создать файл");
@@ -69,8 +71,13 @@ void PrintMenu()
 }
 
 
+/**
+ * @brief Функция создания файла
+ * @return имя файла
+ */
 char* create()
 {
+    mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
     char* file_name = NULL;
     int flag = TRUE;
     printf("Введите имя файла: ");
@@ -92,6 +99,11 @@ char* create()
 }
 
 
+/**
+ * @brief Функция записи архипелага в файл
+ * @param number номер архипелага
+ * @param file_name имя файла
+ */
 void add_archipelago(int* number, char* file_name)
 {
     if (file_name == NULL)
@@ -116,7 +128,12 @@ void add_archipelago(int* number, char* file_name)
 }
 
 
-void show_archipelagos(char* file_name, int count_of_records)
+/**
+ * @brief Функция чтения и вывода всех архипелагов из файла
+ * @param number_of_records количество записей в файле
+ * @param file_name имя файла
+ */
+void show_archipelagos(char* file_name, int number_of_records)
 {
     if (file_name == NULL)
     {
@@ -127,7 +144,7 @@ void show_archipelagos(char* file_name, int count_of_records)
     archipelago archplg;
     unsigned int pointer = 0;
 
-    for(int i = 0; i < count_of_records; i++)
+    for(int i = 0; i < number_of_records; i++)
     {
         unsigned int read_code = read(file, &archplg, ARCHIPELAGO_SIZE);
         if(read_code == ERROR)
@@ -145,6 +162,11 @@ void show_archipelagos(char* file_name, int count_of_records)
 }
 
 
+/**
+ * @brief Функция удаления архипелага из файла
+ * @param number_of_records количество записей в файле
+ * @param file_name имя файла
+ */
 void delete(char* file_name, int* number_of_records)
 {
     if (file_name == NULL)
@@ -152,6 +174,9 @@ void delete(char* file_name, int* number_of_records)
         puts("Ошибка! Файла не существует");
         return;
     }
+
+    show_archipelagos(file_name, *number_of_records);
+
     int number_to_delete;
     unsigned int pointer = 0;
     int flag = TRUE;
@@ -174,7 +199,7 @@ void delete(char* file_name, int* number_of_records)
         close(file);
     }
 
-
+    mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
     int old_file = open(file_name, O_RDONLY);
     int new_file = open(TMP_FILENAME, O_CREAT | O_EXCL | O_APPEND | O_WRONLY, mode);
     for (int i = 0; i < *number_of_records; i++)
@@ -201,6 +226,11 @@ void delete(char* file_name, int* number_of_records)
 }
 
 
+/**
+ * @brief Функция проверки архипелага на необитаемость
+ * @param number_of_records количество записей в файле
+ * @param file_name имя файла
+ */
 void is_uninhabited(char* file_name, int number_of_records)
 {
     if (file_name == NULL)
@@ -208,6 +238,9 @@ void is_uninhabited(char* file_name, int number_of_records)
         puts("Ошибка! Файла не существует");
         return;
     }
+
+    show_archipelagos(file_name, number_of_records);
+
     unsigned int number = 1, pointer = 0;
     archipelago archplg;
     int file = open(file_name, O_RDONLY);
@@ -230,4 +263,83 @@ void is_uninhabited(char* file_name, int number_of_records)
         puts("Архипелаг необитаемый");
     else if (archplg.num_of_inhabited_islands != 0)
         puts("Архипелаг обитаемый");
+}
+
+
+/**
+ * @brief Функция изменения записи в файле
+ * @param number_of_records количество записей в файле
+ * @param file_name имя файла
+ */
+void edit(char* file_name, int number_of_records)
+{
+    if (file_name == NULL)
+    {
+        puts("Ошибка! Файла не существует");
+        return;
+    }
+
+    show_archipelagos(file_name, number_of_records);
+
+    int choice_archipelago, choice_field;
+    archipelago archplg;
+    unsigned int read_code, write_code, pointer = 0;
+
+    choice_archipelago = get_user_int("Выберите номер архипелага: ", 1, number_of_records);
+    if (choice_archipelago > number_of_records)
+    {
+        puts("Данного номера нет в списке");
+        return;
+    }
+    puts("1) Количество островов");
+    puts("2) Количество обитаемых островов");
+    choice_field = get_user_int("Выберите поле, которое хотите изменить: ",
+                                    NUMBER_OF_ISLANDS, NUMBER_OF_INHABITED_ISLANDS);
+    mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+    int old_file = open(file_name, O_RDONLY);
+    int new_file = open(TMP_FILENAME, O_CREAT | O_EXCL | O_APPEND | O_WRONLY, mode);
+
+    switch (choice_field) {
+        case NUMBER_OF_ISLANDS:
+            for(int i = 0; i < number_of_records; i++)
+            {
+                read_code = read(old_file, &archplg, ARCHIPELAGO_SIZE);
+                if(read_code == ERROR)
+                    perror("ERROR");
+                if (archplg.number == choice_archipelago)
+                {
+                    archplg.num_of_islands = get_user_int("Введите количество островов",
+                                                          archplg.num_of_inhabited_islands, INT_MAX);
+                }
+                write_code = write(new_file, &archplg, ARCHIPELAGO_SIZE);
+                pointer = pointer + ARCHIPELAGO_SIZE;
+                lseek(old_file, pointer, SEEK_SET);
+            }
+            close(old_file);
+            close(new_file);
+            remove(file_name);
+            rename(TMP_FILENAME, file_name);
+            break;
+        case NUMBER_OF_INHABITED_ISLANDS:
+            for(int i = 0; i < number_of_records; i++)
+            {
+                read_code = read(old_file, &archplg, ARCHIPELAGO_SIZE);
+                if(read_code == ERROR)
+                    perror("ERROR");
+                if (archplg.number == choice_archipelago)
+                {
+                    archplg.num_of_inhabited_islands = get_user_int("Введите количество обитаемых островов: ",
+                                                          0, archplg.num_of_islands);
+                }
+                write_code = write(new_file, &archplg, ARCHIPELAGO_SIZE);
+                pointer = pointer + ARCHIPELAGO_SIZE;
+                lseek(old_file, pointer, SEEK_SET);
+            }
+            close(old_file);
+            close(new_file);
+            remove(file_name);
+            rename(TMP_FILENAME, file_name);
+            break;
+    }
+
 }
