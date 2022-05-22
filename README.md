@@ -12,6 +12,8 @@
 
 - [Практическая работа № 4. Управление файлами в ОС GNU/Linux](https://github.com/makarty/edu-works/tree/master/system%20programming/4practical)
 
+- [Практическая работа №5. Взаимодействие процессов в ОС GNU/Linux](https://github.com/makarty/edu-works/tree/master/system%20programming/5practical)
+
 ## Объектно-ориентированное программирование
 
 - [Наследование и полиморфизм](https://github.com/makarty/edu-works/tree/master/oop/inheritance%20and%20polymorphism)
@@ -23,6 +25,8 @@
 - [Практическая работа № 1. Предварительная обработка данных](https://github.com/makarty/edu-works/tree/master/data%20analysis/1practical)
 
 - [Практическая работа № 2. Бинарная классификация](https://github.com/makarty/edu-works/tree/master/data%20analysis/2practical)
+
+- [Практическая работа № 3. Построение модели регрессии](https://github.com/makarty/edu-works/tree/master/data%20analysis/3practical)
 
 ## Разработка Web-приложений
 

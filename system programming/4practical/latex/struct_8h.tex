@@ -1,0 +1,204 @@
+\hypertarget{struct_8h}{}\doxysection{struct.\+h File Reference}
+\label{struct_8h}\index{struct.h@{struct.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+Include dependency graph for struct.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structarchipelago}{archipelago}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{struct_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\#define {\bfseries TRUE}~1
+\item 
+\mbox{\Hypertarget{struct_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{struct_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
+\#define {\bfseries FALSE}~0
+\item 
+\mbox{\Hypertarget{struct_8h_a288116f92845fddefeb044f5b84bc889}\label{struct_8h_a288116f92845fddefeb044f5b84bc889}} 
+\#define {\bfseries INPUT\+\_\+\+ERROR}~1
+\item 
+\mbox{\Hypertarget{struct_8h_a637db2f9919079c06b987c7595c1411d}\label{struct_8h_a637db2f9919079c06b987c7595c1411d}} 
+\#define {\bfseries MEMORY\+\_\+\+ERROR}~1
+\item 
+\mbox{\Hypertarget{struct_8h_a8fe83ac76edc595f6b98cd4a4127aed5}\label{struct_8h_a8fe83ac76edc595f6b98cd4a4127aed5}} 
+\#define {\bfseries ERROR}~1
+\item 
+\mbox{\Hypertarget{struct_8h_a93427d0643e9f0013defc7b8a1b89ceb}\label{struct_8h_a93427d0643e9f0013defc7b8a1b89ceb}} 
+\#define {\bfseries NUMBER\+\_\+\+OF\+\_\+\+INHABITED\+\_\+\+ISLANDS}~2
+\item 
+\mbox{\Hypertarget{struct_8h_a3a23bce5e3c8fc3ac1906e5015db5ee0}\label{struct_8h_a3a23bce5e3c8fc3ac1906e5015db5ee0}} 
+\#define {\bfseries NUMBER\+\_\+\+OF\+\_\+\+ISLANDS}~1
+\item 
+\mbox{\Hypertarget{struct_8h_a44008b683d196a7806d9376d73a853e2}\label{struct_8h_a44008b683d196a7806d9376d73a853e2}} 
+\#define {\bfseries ARCHIPELAGO\+\_\+\+SIZE}~sizeof(\mbox{\hyperlink{structarchipelago}{archipelago}})
+\item 
+\mbox{\Hypertarget{struct_8h_a0cd3160e3b9804d1baff3737e57295f4}\label{struct_8h_a0cd3160e3b9804d1baff3737e57295f4}} 
+\#define {\bfseries TMP\+\_\+\+FILENAME}~\char`\"{}tmp\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_8h_a95b4c447c0d3b1e7f49831969a3a96aa}{get\+\_\+user\+\_\+int}} (char $\ast$question, int min, int max)
+\begin{DoxyCompactList}\small\item\em Функция ввода числа \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{struct_8h_a59041c58142455deba39b341a62b96f2}{input}} ()
+\begin{DoxyCompactList}\small\item\em Функция ввода строки \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_a0dec81ea4328ea8bf97dcd42471e8805}{is\+\_\+uninhabited}} (char $\ast$file\+\_\+name, int number\+\_\+of\+\_\+records)
+\begin{DoxyCompactList}\small\item\em Функция проверки архипелага на необитаемость \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_8h_a632368ccd119d49b4fa1dc265ed984d4}\label{struct_8h_a632368ccd119d49b4fa1dc265ed984d4}} 
+void \mbox{\hyperlink{struct_8h_a632368ccd119d49b4fa1dc265ed984d4}{Print\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Функция вывода пунктов меню на экран \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{struct_8h_a6bf5e5f78e8d99e09472f8a45887e336}{create}} ()
+\begin{DoxyCompactList}\small\item\em Функция создания файла \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_a6228a972f8cffd5e3401d96371118617}{add\+\_\+archipelago}} (int $\ast$number, char $\ast$file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Функция записи архипелага в файл \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_a40b9cf23939fe585ad0c4801e2aa2493}{show\+\_\+archipelagos}} (char $\ast$file\+\_\+name, int number\+\_\+of\+\_\+records)
+\begin{DoxyCompactList}\small\item\em Функция чтения и вывода всех архипелагов из файла \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_a47cf6cdaea979889e8f741ca2621ec3f}{delete}} (char $\ast$file\+\_\+name, int $\ast$number\+\_\+of\+\_\+records)
+\begin{DoxyCompactList}\small\item\em Функция удаления архипелага из файла \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_8h_ac0740cf63d51fd7cfa662e6c854a9bfc}{edit}} (char $\ast$file\+\_\+name, int number\+\_\+of\+\_\+records)
+\begin{DoxyCompactList}\small\item\em Функция изменения записи в файле \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{struct_8h_a6228a972f8cffd5e3401d96371118617}\label{struct_8h_a6228a972f8cffd5e3401d96371118617}} 
+\index{struct.h@{struct.h}!add\_archipelago@{add\_archipelago}}
+\index{add\_archipelago@{add\_archipelago}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{add\_archipelago()}{add\_archipelago()}}
+{\footnotesize\ttfamily void add\+\_\+archipelago (\begin{DoxyParamCaption}\item[{int $\ast$}]{number,  }\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Функция записи архипелага в файл 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & номер архипелага \\
+\hline
+{\em file\+\_\+name} & имя файла \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8h_a6bf5e5f78e8d99e09472f8a45887e336}\label{struct_8h_a6bf5e5f78e8d99e09472f8a45887e336}} 
+\index{struct.h@{struct.h}!create@{create}}
+\index{create@{create}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily char$\ast$ create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция создания файла 
+
+\begin{DoxyReturn}{Returns}
+имя файла 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_8h_a47cf6cdaea979889e8f741ca2621ec3f}\label{struct_8h_a47cf6cdaea979889e8f741ca2621ec3f}} 
+\index{struct.h@{struct.h}!delete@{delete}}
+\index{delete@{delete}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily void delete (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+\_\+name,  }\item[{int $\ast$}]{number\+\_\+of\+\_\+records }\end{DoxyParamCaption})}
+
+
+
+Функция удаления архипелага из файла 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+of\+\_\+records} & количество записей в файле \\
+\hline
+{\em file\+\_\+name} & имя файла \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8h_ac0740cf63d51fd7cfa662e6c854a9bfc}\label{struct_8h_ac0740cf63d51fd7cfa662e6c854a9bfc}} 
+\index{struct.h@{struct.h}!edit@{edit}}
+\index{edit@{edit}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{edit()}{edit()}}
+{\footnotesize\ttfamily void edit (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+\_\+name,  }\item[{int}]{number\+\_\+of\+\_\+records }\end{DoxyParamCaption})}
+
+
+
+Функция изменения записи в файле 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+of\+\_\+records} & количество записей в файле \\
+\hline
+{\em file\+\_\+name} & имя файла \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8h_a95b4c447c0d3b1e7f49831969a3a96aa}\label{struct_8h_a95b4c447c0d3b1e7f49831969a3a96aa}} 
+\index{struct.h@{struct.h}!get\_user\_int@{get\_user\_int}}
+\index{get\_user\_int@{get\_user\_int}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{get\_user\_int()}{get\_user\_int()}}
+{\footnotesize\ttfamily int get\+\_\+user\+\_\+int (\begin{DoxyParamCaption}\item[{char $\ast$}]{question,  }\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+Функция ввода числа 
+
+
+\begin{DoxyParams}{Parameters}
+{\em question} & Сообщение пользователю \\
+\hline
+{\em min} & минимально возможное число для выбора \\
+\hline
+{\em max} & максимально возможное число для выбора \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+число которое ввёл пользователь 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_8h_a59041c58142455deba39b341a62b96f2}\label{struct_8h_a59041c58142455deba39b341a62b96f2}} 
+\index{struct.h@{struct.h}!input@{input}}
+\index{input@{input}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{input()}{input()}}
+{\footnotesize\ttfamily char$\ast$ input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция ввода строки 
+
+\begin{DoxyReturn}{Returns}
+строку которую ввёл пользователь 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_8h_a0dec81ea4328ea8bf97dcd42471e8805}\label{struct_8h_a0dec81ea4328ea8bf97dcd42471e8805}} 
+\index{struct.h@{struct.h}!is\_uninhabited@{is\_uninhabited}}
+\index{is\_uninhabited@{is\_uninhabited}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{is\_uninhabited()}{is\_uninhabited()}}
+{\footnotesize\ttfamily void is\+\_\+uninhabited (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+\_\+name,  }\item[{int}]{number\+\_\+of\+\_\+records }\end{DoxyParamCaption})}
+
+
+
+Функция проверки архипелага на необитаемость 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+of\+\_\+records} & количество записей в файле \\
+\hline
+{\em file\+\_\+name} & имя файла \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_8h_a40b9cf23939fe585ad0c4801e2aa2493}\label{struct_8h_a40b9cf23939fe585ad0c4801e2aa2493}} 
+\index{struct.h@{struct.h}!show\_archipelagos@{show\_archipelagos}}
+\index{show\_archipelagos@{show\_archipelagos}!struct.h@{struct.h}}
+\doxysubsubsection{\texorpdfstring{show\_archipelagos()}{show\_archipelagos()}}
+{\footnotesize\ttfamily void show\+\_\+archipelagos (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+\_\+name,  }\item[{int}]{number\+\_\+of\+\_\+records }\end{DoxyParamCaption})}
+
+
+
+Функция чтения и вывода всех архипелагов из файла 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+of\+\_\+records} & количество записей в файле \\
+\hline
+{\em file\+\_\+name} & имя файла \\
+\hline
+\end{DoxyParams}
