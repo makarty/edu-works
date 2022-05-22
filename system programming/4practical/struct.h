@@ -31,15 +31,15 @@ char* input();
 
 
 // Запросы
-void is_uninhabited(char* file_name, int number_of_records);
+void is_uninhabited(char* file_name, int number_of_records, int size);
 void PrintMenu();
 
 //Работа с файлами
-char* create();
-void add_archipelago(int* number, char* file_name);
-void show_archipelagos(char* file_name, int number_of_records);
-void delete(char* file_name, int* number_of_records);
-void edit(char* file_name, int number_of_records);
+char* create(char* name);
+void add_archipelago(int* number, char* file_name, int size);
+void show_archipelagos(char* file_name, int number_of_records, int size);
+void delete(char* file_name, int* number_of_records, int size);
+void edit(char* file_name, int number_of_records, int size);
 
 
 

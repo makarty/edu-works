@@ -61,13 +61,12 @@ char* input()
  */
 void PrintMenu()
 {
-    puts("1) Создать файл");
-    puts("2) Добавить архипелаг");
-    puts("3) Редактировать архипелаг");
-    puts("4) Удалить архипелаг");
-    puts("5) Вывести информацию обо всех архипелагах");
-    puts("6) Проверка архипелага на необитаемость");
-    puts("7) Выход");
+    puts("1) Добавить архипелаг");
+    puts("2) Редактировать архипелаг");
+    puts("3) Удалить архипелаг");
+    puts("4) Вывести информацию обо всех архипелагах");
+    puts("5) Проверка архипелага на необитаемость");
+    puts("6) Выход");
 }
 
 
@@ -75,15 +74,14 @@ void PrintMenu()
  * @brief Функция создания файла
  * @return имя файла
  */
-char* create()
+char* create(char* name)
 {
     mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
     char* file_name = NULL;
     int flag = TRUE;
-    printf("Введите имя файла: ");
     while(flag)
     {
-        file_name = input();
+        file_name = name;
         int database = open(file_name, O_CREAT | O_EXCL, mode);
         if(database == ERROR)
         {
@@ -104,7 +102,7 @@ char* create()
  * @param number номер архипелага
  * @param file_name имя файла
  */
-void add_archipelago(int* number, char* file_name)
+void add_archipelago(int* number, char* file_name, int size)
 {
     if (file_name == NULL)
     {
@@ -119,7 +117,7 @@ void add_archipelago(int* number, char* file_name)
     int file = open(file_name, O_WRONLY | O_APPEND);
     archipelago archplg = {*number, num_of_islands, num_of_inh_islands};
     *number = *number + 1;
-    unsigned int add_code = write(file, &archplg, ARCHIPELAGO_SIZE);
+    unsigned int add_code = write(file, &archplg, size);
     if(add_code == ERROR)
     {
         perror("ERROR");
@@ -133,7 +131,7 @@ void add_archipelago(int* number, char* file_name)
  * @param number_of_records количество записей в файле
  * @param file_name имя файла
  */
-void show_archipelagos(char* file_name, int number_of_records)
+void show_archipelagos(char* file_name, int number_of_records, int size)
 {
     if (file_name == NULL)
     {
@@ -146,7 +144,7 @@ void show_archipelagos(char* file_name, int number_of_records)
 
     for(int i = 0; i < number_of_records; i++)
     {
-        unsigned int read_code = read(file, &archplg, ARCHIPELAGO_SIZE);
+        unsigned int read_code = read(file, &archplg, size);
         if(read_code == ERROR)
         {
             perror("ERROR");
@@ -155,7 +153,7 @@ void show_archipelagos(char* file_name, int number_of_records)
                archplg.number,
                archplg.num_of_islands,
                archplg.num_of_inhabited_islands);
-        pointer = pointer + ARCHIPELAGO_SIZE;
+        pointer = pointer + size;
         lseek(file, pointer, SEEK_SET);
     }
     close(file);
@@ -167,7 +165,7 @@ void show_archipelagos(char* file_name, int number_of_records)
  * @param number_of_records количество записей в файле
  * @param file_name имя файла
  */
-void delete(char* file_name, int* number_of_records)
+void delete(char* file_name, int* number_of_records, int size)
 {
     if (file_name == NULL)
     {
@@ -175,7 +173,7 @@ void delete(char* file_name, int* number_of_records)
         return;
     }
 
-    show_archipelagos(file_name, *number_of_records);
+    show_archipelagos(file_name, *number_of_records, size);
 
     int number_to_delete;
     unsigned int pointer = 0;
@@ -188,7 +186,7 @@ void delete(char* file_name, int* number_of_records)
         int file = open(file_name, O_RDONLY);
         for(int i = 0; i < *number_of_records; i++)
         {
-            unsigned int read_code = read(file, &tmp_archplg, ARCHIPELAGO_SIZE);
+            unsigned int read_code = read(file, &tmp_archplg, size);
             if(read_code == ERROR)
                 perror("ERROR");
             if(tmp_archplg.number == number_to_delete)
@@ -204,18 +202,18 @@ void delete(char* file_name, int* number_of_records)
     int new_file = open(TMP_FILENAME, O_CREAT | O_EXCL | O_APPEND | O_WRONLY, mode);
     for (int i = 0; i < *number_of_records; i++)
     {
-        unsigned int read_code = read(old_file, &tmp_archplg, ARCHIPELAGO_SIZE);
+        unsigned int read_code = read(old_file, &tmp_archplg, size);
         if(read_code == ERROR)
             perror("ERROR");
         if(tmp_archplg.number != number_to_delete)
         {
             if (tmp_archplg.number > number_to_delete)
                 tmp_archplg.number--;
-            unsigned int write_code = write(new_file, &tmp_archplg, ARCHIPELAGO_SIZE);
+            unsigned int write_code = write(new_file, &tmp_archplg, size);
             if(write_code == ERROR)
                 perror("ERROR");
         }
-        pointer = pointer + ARCHIPELAGO_SIZE;
+        pointer = pointer + size;
         lseek(old_file, pointer, SEEK_SET);
     }
     close(old_file);
@@ -231,7 +229,7 @@ void delete(char* file_name, int* number_of_records)
  * @param number_of_records количество записей в файле
  * @param file_name имя файла
  */
-void is_uninhabited(char* file_name, int number_of_records)
+void is_uninhabited(char* file_name, int number_of_records, int size)
 {
     if (file_name == NULL)
     {
@@ -239,14 +237,14 @@ void is_uninhabited(char* file_name, int number_of_records)
         return;
     }
 
-    show_archipelagos(file_name, number_of_records);
+    show_archipelagos(file_name, number_of_records, size);
 
     unsigned int number = 1, pointer = 0;
     archipelago archplg;
     int file = open(file_name, O_RDONLY);
 
     number = get_user_int("Введите номер архипелага: ", 1, INT_MAX);
-    pointer = pointer + (number - 1) * ARCHIPELAGO_SIZE;
+    pointer = pointer + (number - 1) * size;
     lseek(file, pointer, SEEK_SET);
     if (number > number_of_records)
     {
@@ -254,7 +252,7 @@ void is_uninhabited(char* file_name, int number_of_records)
         return;
     }
 
-    unsigned int read_code = read(file, &archplg, ARCHIPELAGO_SIZE);
+    unsigned int read_code = read(file, &archplg, size);
     if(read_code == ERROR)
         perror("ERROR");
 
@@ -271,7 +269,7 @@ void is_uninhabited(char* file_name, int number_of_records)
  * @param number_of_records количество записей в файле
  * @param file_name имя файла
  */
-void edit(char* file_name, int number_of_records)
+void edit(char* file_name, int number_of_records, int size)
 {
     if (file_name == NULL)
     {
@@ -279,7 +277,7 @@ void edit(char* file_name, int number_of_records)
         return;
     }
 
-    show_archipelagos(file_name, number_of_records);
+    show_archipelagos(file_name, number_of_records, size);
 
     int choice_archipelago, choice_field;
     archipelago archplg;
@@ -303,7 +301,7 @@ void edit(char* file_name, int number_of_records)
         case NUMBER_OF_ISLANDS:
             for(int i = 0; i < number_of_records; i++)
             {
-                read_code = read(old_file, &archplg, ARCHIPELAGO_SIZE);
+                read_code = read(old_file, &archplg, size);
                 if(read_code == ERROR)
                     perror("ERROR");
                 if (archplg.number == choice_archipelago)
@@ -311,8 +309,8 @@ void edit(char* file_name, int number_of_records)
                     archplg.num_of_islands = get_user_int("Введите количество островов",
                                                           archplg.num_of_inhabited_islands, INT_MAX);
                 }
-                write_code = write(new_file, &archplg, ARCHIPELAGO_SIZE);
-                pointer = pointer + ARCHIPELAGO_SIZE;
+                write_code = write(new_file, &archplg, size);
+                pointer = pointer + size;
                 lseek(old_file, pointer, SEEK_SET);
             }
             close(old_file);
@@ -323,7 +321,7 @@ void edit(char* file_name, int number_of_records)
         case NUMBER_OF_INHABITED_ISLANDS:
             for(int i = 0; i < number_of_records; i++)
             {
-                read_code = read(old_file, &archplg, ARCHIPELAGO_SIZE);
+                read_code = read(old_file, &archplg, size);
                 if(read_code == ERROR)
                     perror("ERROR");
                 if (archplg.number == choice_archipelago)
@@ -331,8 +329,8 @@ void edit(char* file_name, int number_of_records)
                     archplg.num_of_inhabited_islands = get_user_int("Введите количество обитаемых островов: ",
                                                           0, archplg.num_of_islands);
                 }
-                write_code = write(new_file, &archplg, ARCHIPELAGO_SIZE);
-                pointer = pointer + ARCHIPELAGO_SIZE;
+                write_code = write(new_file, &archplg, size);
+                pointer = pointer + size;
                 lseek(old_file, pointer, SEEK_SET);
             }
             close(old_file);
