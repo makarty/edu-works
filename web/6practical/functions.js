@@ -1,8 +1,8 @@
 /**
  * Сколько раз в последовательности встречается заданное число
  *
- * @param sequence
- * @param number
+ * @param sequence - последовательность чисел
+ * @param number - заданное число
  * @returns {number}
  */
 function numCounter(sequence, number) {
@@ -19,7 +19,7 @@ function numCounter(sequence, number) {
 /**
  * Среднее арифметическое последовательности
  *
- * @param sequence
+ * @param sequence - последовательность чисел
  * @returns {number}
  */
 function arithmeticMean(sequence) {
@@ -38,7 +38,7 @@ function arithmeticMean(sequence) {
 /**
  * Сколько нулей в последовательности
  *
- * @param sequence
+ * @param sequence - последовательность чисел
  * @returns {number}
  */
 function zeroCounter(sequence){
