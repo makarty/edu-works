@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Драконы Скайрима</title>
+    <meta charset='utf-8'>
+    <meta content="Виды драконов, встречающихся в Скайриме" title="description">
+    <meta content="Драконы, Скайрим, Виды драконов" name="keywords">
+    <meta content='Артём Макаров' title="Автор">
+    <!--Тег для адаптивной разметки-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+<body style="background-image: url(images/fan-art-56.jpg); background-attachment: fixed;">
+    <!--Содержание и лого-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient" id="up">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Dragons</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn" data-bs-toggle="collapse" href="#content" role="button" aria-expanded="false"
+                            aria-controls="content">
+                            Содержание
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" data-bs-toggle="collapse" href="#feedback" role="button" aria-expanded="false"
+                            aria-controls="feedback">
+                            Обратная связь
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="collapse" id="feedback">
+        <div class="card card-body">
+            <form name="feedback" action="www.google.com">
+                <div>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name" placeholder="Иван">
+                </div>
+                <div>
+                    <label for="surname">Surname: </label>
+                    <input type="text" name="surname" id="surname" placeholder="Иванов">
+                </div>
+            
+                <div>
+                    <label for="estimation">Оценка: </label>
+                    <select name="estimation" id="estimation">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="email">email: </label>
+                    <input type="email" name="email" id="email" placeholder="example@domain.com">
+                </div>
+            
+                <div>
+                    <label for="agree">Я согласен на обработку персональных данных</label>
+                    <input type="checkbox" name="agree" id="agree" onclick="agreeWithForm(this.form)">
+                </div>
+            
+                <div>
+                    <button type="submit" name="submit" disabled>Отправить</button>
+                </div>
+            </form>
+            <script>
+                "use strict";
+                let form = document.feedback
+
+                function agreeWithForm(form) {
+                    form.submit.disabled = !form.submit.disabled;
+                }
+
+                function dataCollection(form) {
+                    let logObj = {
+                        name: form.name.value,
+                        surname: form.surname.value,
+                        estimation: form.estimation.value,
+                        email: form.email.value
+                    };
+                    console.log(logObj);
+                }
+
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    let userErrors = "";
+
+                    if ((form.name.value < 2) || (/\d+/.test(form.name.value))) {
+                        userErrors += "Incorrect name\n";
+                    }
+
+                    if ((form.surname.value < 2) || (/\d+/.test(form.surname.value))) {
+                        userErrors += "Incorrect surname\n";
+                    }
+
+                    if (userErrors.length > 0) {
+                        alert(userErrors);
+                    } else {
+                        dataCollection(form);
+                    }
+                })
+            </script>
+        </div>
+    </div>
+
+    <a class="btn btn-primary button" href="#" role="button" style="position: fixed; right: 0%; top: 96%;">Наверх</a>
+
+    <div class="collapse" id="content">
+        <div class="card card-body">
+            <ul>
+                <li>
+                    <a class="nav-link" href="#dragon">Обычный</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#blood">Кровавый</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#frost">Морозный</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#old">Старейший</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#drevny">Древний</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#red">Красный</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#noble">Благородный</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#legendary">Легендарный</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#snake">Змеевидный</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-7">
+                    <h1>Драконы</h1>
+                </div>
+            </div>
+            
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <div class="card w-100 h-100" id="dragon">
+                                    <img src="images/dragon.jpg" class="card-img-top" width="300" height="300">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Обычный дракон</h5>
+                                        <p class="card-text">
+                                            Обычный дракон — самая распространённая разновидность драконов,
+                                            а также наиболее слабая. Бывает трёх подвидов: белый, бронзовый и
+                                            коричневый. Внешне эти подвиды довольно сильно отличаются, однако
+                                            по своим возможностям и уровню угрозы практически идентичны.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card w-100 h-100" id="blood">
+                                    <img src="images/blood_dragon.jpg" class="card-img-top" width="300" height="300">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Кровавый дракон</h5>
+                                        <p class="card-text">
+                                            Кровавый дракон — одна из весьма распространённых разновидностей драконов,
+                                            представители которой не очень сильны, превосходя своих обычных собратьев,
+                                            в основном за счёт силы Голоса. Кожный покров отличается специфическим
+                                            зеленоватым оттенком, а чешуя отливает изумрудным металлическим блеском.
+                                            Шипы на спине соединены перепонками, образуя подобие плавника.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card w-100 h-100" id="frost">
+                                    <img src="images/Frost_dragon.jpg" class="card-img-top" width="300" height="300">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Морозный дракон</h5>
+                                        <p class="card-text">
+                                            Морозный дракон — один из видов драконов. Окрас — блестящий голубовато-белый,
+                                            однако массивные шипы на его хребте практически чёрные. Морозный дракон имеет
+                                            блестящую белую кожу с массивными чёрными шипами, выступающими из позвоночника.
+                                            Данный вид драконов хорошо владеет ледяным дыханием с большим уроном и эффектом замедления.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <div class="card w-100 h-100" id="old">
+                                    <img src="images/old.jpg" class="card-img-top" width="300" height="300">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Старейший дракон</h5>
+                                        <p class="card-text">
+                                            Старейший дракон обладает крепкой бронзовой кожей и мастерски использует
+                                            <i>Yol</i> (огонь) или <i>Fo</i> (мороз) для смертельного дыхания. Этот вид имеет очень
+                                            большой запас здоровья и считается одним из самых сильных.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card w-100 h-100" id="drevny">
+                                    <img src="images/drevny.jpg" class="card-img-top" width="300" height="300">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Древний дракон</h5>
+                                        <p class="card-text">
+                                            Особенностью древних драконов является красноватая кожа со странными чёрными
+                                            отметинами и шипами. По своему виду напоминают Старейших драконов, но вместо
+                                            золотисто-медного цвета они имеют бронзовый цвет.
+                                            Бывают двух подтипов: «Огненный» и «Морозный». Одни из самых сильных драконов,
+                                            которые используют <i>Yol</i> (огонь) или <i>Fo</i> (мороз) при дыхании.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card w-100 h-100" id="red">
+                                    <img src="images/red.jpg" class="card-img-top" width="300" height="300">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Красный дракон</h5>
+                                        <p class="card-text">
+                                            Красный Дракон имеет кроваво-красный оттенок кожи с чёрными отметинами и шипами.
+                                            Одни из самых сильных драконов, наряду с легендарными.
+                                            Красные драконы мастерски используют <i>Yol</i> (огонь) и отлично летают.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-between">
+                            <div class="col">
+                                <div class="card w-100 h-100" id="noble">
+                                    <img src="images/noble.jpg" class="card-img-top" width="300" height="300">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Благородный дракон</h5>
+                                        <p class="card-text">
+                                            Их отличительной особенностью является умение передвигаться под водой. У них
+                                            характерное строение тела, широкий, напоминающий плавник, хвост и гипертрофированные
+                                            суставы крыльев. Цвет чешуи — коричневатый. Используют крики: <i>Yol</i>
+                                            (огонь), <i>Fo</i> (мороз) или «Высасывание жизни».
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card w-100 h-100" id="legendary">
+                                    <img src="images/legendary.jpg" class="card-img-top" width="300" height="300">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Легендарный дракон</h5>
+                                        <p class="card-text">
+                                            Легендарные драконы являются одними из самых сильных драконов, оправдывая своё название.
+                                            Имеют серо-розовый окрас чешуи и гипертрофированные суставы крыльев.
+                                            Используют крики: <i>Yol</i> (огонь), <i>Fo</i> (мороз), или «Высасывание жизни».
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card w-100 h-100" id="snake">
+                                    <img src="images/snake.jpg" class="card-img-top" width="300" height="300">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Змеевидный дракон</h5>
+                                        <p class="card-text">
+                                            Вид драконов, встречающийся только на острове Солстхейм и имеющий свой, уникальный
+                                            внешний вид: бледно-синюю окраску, длинный череп, форма которого напоминает змеиный
+                                            (что оправдывает их название), гладкую кожу и огромные нижние челюсти, дополняемые особой формой
+                                            гребня, идущего вдоль спины.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-7">
+                    <h3>Основные крики драконов</h3>
+                </div>
+            </div>
+            <table class="table table-hover" style="background-color: white;">
+                <thead>
+                    <tr>
+                        <th scope="col">Слово крика</th>
+                        <th scope="col">Описание крика</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i>Yol</i></td>
+                        <td>Огонь</td>
+                    </tr>
+                    <tr>
+                        <td><i>Fo</i></td>
+                        <td>Мороз</td>
+                    </tr>
+                    <tr>
+                        <td><i>GaaN LAH HaaS</i></td>
+                        <td>Высасывание жизни</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
