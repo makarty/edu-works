@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Работа 9</title>
+</head>
+<body>
+    <div>
+        <h1>Добавление и удаление элементов списка</h1>
+        <h2>Список:</h2>
+        <ol id="list">
+            <li>Один</li>
+        </ol>
+        <button id="remove">Удалить</button>
+        <button id="add">Добавить</button>
+    </div>
+    <script>
+        function addItem() {
+            let content = prompt("Содержимое списка: ");
+            let newLi = document.createElement("li");
+            newLi.innerHTML = content;
+            list.appendChild(newLi);
+        }
+
+        function removeItem() {
+            let listItems = document.querySelectorAll("ol li");
+            let len = listItems.length;
+
+            if (len < 1) {
+                alert("Список пустой");
+            } else {
+                listItems[len - 1].remove();
+            }
+        }
+
+        document.getElementById("add").addEventListener("click", addItem);
+        document.getElementById("remove").addEventListener("click", removeItem);
+    </script>
+</body>
+</html>
