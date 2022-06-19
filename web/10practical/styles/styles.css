@@ -1,0 +1,57 @@
+.background{
+    background-image: url(../images/fan-art-56.jpg);
+    background-attachment: fixed;
+}
+
+
+table.content{
+    background-image: url(../images/bumaga.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: -10px;
+    background-position-y: center;
+    background-color: transparent;
+    width: 240px;
+}
+
+
+.image{
+    float: left;
+}
+
+
+.up{
+    position: fixed;
+    right: 1%;
+    top: 96%;
+}
+
+
+.foot{
+    position: relative;
+}
+
+
+.f1{
+    position: absolute;
+    left: 650px;
+}
+
+
+h2{
+    font-family: "Courier";
+    font-size: 180%;
+}
+
+
+#h1{
+    position: absolute;
+    left: 450px;
+    top: 200px;
+    color: brown;
+}
+
+
+#h2 .colortmt{
+    color: tomato;
+}
