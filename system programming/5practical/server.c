@@ -1,12 +1,11 @@
-/*!
- * \file ChildProgram.c
- * \brief Дочерняя программа
- *
- * Данная программа выводит число прописью
- */
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h>
 #include <stdio.h>
-#include <malloc.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <arpa/inet.h>
 #include <ctype.h>
 #include <limits.h>
 
@@ -18,7 +17,7 @@
 #define FIRST_ITERATION 0
 #define SINGLE_DIGIT_NUMBER 1
 #define CORRECT_NUMBER 1
-
+#define PORT 34293
 
 /*!
  * @brief Массив структур
@@ -66,7 +65,7 @@ int degree[] = {1, 10, 100, 1000, 10000,
  * @brief Функция ввода строки из потока ввода
  *
  * @details Считывает строку, введённую пользователем
- * @param text - Сообщение пользователю
+ * @param text Сообщение пользователю
  * @return Строку
  */
 char* input(char* text)
@@ -87,10 +86,11 @@ char* input(char* text)
     return str;
 }
 
+
 /*!
  * @brief Функция проверки строки
  * @details Проверяет, является ли введённая пользователем строка числом
- * @param str - Проверяемая строка
+ * @param str Проверяемая строка
  * @return 1 - если строка является числом
  * @return 0 - если ввод некорректен или строка не является числом
  */
@@ -227,24 +227,77 @@ void number_in_words(char* str)
     }
 }
 
-/*!
- * @brief Основная функция
- */
-int main(){
-    char* str;
-    int check;
-    str = input("Введите строку: ");
-    check = check_limit(str);
-    if(check == 0)
-    {
-        printf("Число не входит в диапазон от минимального до максимального значения int");
-    } else if(isnumber(str) == CORRECT_NUMBER)
-    {
-        printf("Результат: ");
-        number_in_words(str);
-    } else
-        puts("Некорректный ввод");
 
-    free(str);
-    return 0;
+int main(int argc, char *argv[])
+{
+    int socket_init = 0, conn = 0;
+    char user_string[1024];
+    ssize_t bytes_read = 0;
+    size_t lens;
+    struct sockaddr_in serv_addr = {
+            .sin_port = htons(PORT),
+    };
+
+    socket_init = socket(AF_INET, SOCK_STREAM, 0);
+
+    bind(socket_init, (struct sockaddr*)&serv_addr, sizeof(serv_addr));
+
+    listen(socket_init, 1);
+
+    while (1)
+    {
+        conn = accept(socket_init, (struct sockaddr*)NULL, NULL);
+        lens = 0;
+        read(socket_init, &lens, sizeof(size_t));
+        printf("\n%zu", lens);
+        read(socket_init, user_string, lens);
+        puts("нет проблем с чтением");
+        printf("Считаная строка: %s", user_string);
+        puts("\nнет проблем на сервере");
+        close(conn);
+        sleep(1);
+    }
 }
+/*
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <string.h>
+#include <sys/types.h>
+#include <time.h>
+
+int main(int argc, char *argv[]) {
+    int listenfd = 0, connfd = 0;
+    struct sockaddr_in serv_addr;
+
+    char sendBuff[1025];
+    time_t ticks;
+
+    listenfd = socket(AF_INET, SOCK_STREAM, 0);
+    memset(&serv_addr, '0', sizeof(serv_addr));
+    memset(sendBuff, '0', sizeof(sendBuff));
+
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    serv_addr.sin_port = htons(5000);
+
+    bind(listenfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr));
+
+    listen(listenfd, 10);
+
+    while(1) {
+        connfd = accept(listenfd, (struct sockaddr*)NULL, NULL);
+
+
+        ticks = time(NULL);
+        snprintf(sendBuff, sizeof(sendBuff), "%.24s\r\n", ctime(&ticks))
+        write(connfd, sendBuff, strlen(sendBuff));
+        close(connfd);
+        sleep(1);
+     }
+}
+*/

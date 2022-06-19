@@ -14,33 +14,11 @@
 
 /*!
  * @brief Основная функция
- * @code
-int main()
-{
-    pid_t childPid;
-    char* args[] = {"./ChildProgram", "str", NULL};
-    int childStatus;
-
-    childPid = fork();
-    if (PROCESS_CREATION_ERROR == childPid)
-        puts("error");
-    else if(CHILD_PROCESS == childPid)
-    {
-        execvp(args[0], args);
-    }else
-    {
-        wait(&childStatus);
-        if(WIFEXITED(childStatus))
-            printf("\nPARENT: process finished with code %d.\n", WEXITSTATUS(childStatus));
-    }
-    return 0;
-}
- @endcode
  */
 int main()
 {
     pid_t childPid;
-    char* args[] = {"./ChildProgram", "str", NULL};
+    char* args[] = {"./client", "str", NULL};
     int childStatus;
 
     childPid = fork();
