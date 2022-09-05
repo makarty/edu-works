@@ -83,14 +83,15 @@ int main(int argc, char* argv[]){
     }
     puts("нет проблем с коннектом");
 
-    size_t lens = strlen(str) + 1;
+    int lens = (int)strlen(str) + 1;
     printf("\n%s\n", str);
-    write(socket_init, &lens, sizeof(size_t));
+    write(socket_init, &lens, sizeof(int));
     write(socket_init, str, lens);
     puts("нет проблем с записью");
     //free(str);// Возможны ошибки
     return 0;
 }
+
 
 /*
 int main(int argc, char *argv[]) {

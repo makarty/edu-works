@@ -233,7 +233,7 @@ int main(int argc, char *argv[])
     int socket_init = 0, conn = 0;
     char user_string[1024];
     ssize_t bytes_read = 0;
-    size_t lens;
+    int lens;
     struct sockaddr_in serv_addr = {
             .sin_port = htons(PORT),
     };
@@ -248,11 +248,13 @@ int main(int argc, char *argv[])
     {
         conn = accept(socket_init, (struct sockaddr*)NULL, NULL);
         lens = 0;
-        read(socket_init, &lens, sizeof(size_t));
-        printf("\n%zu", lens);
+        read(socket_init, &lens, sizeof(int));
+        printf("\n%u", lens);
+        lens = 3;
         read(socket_init, user_string, lens);
         puts("нет проблем с чтением");
         printf("Считаная строка: %s", user_string);
+        printf("\n%d\n", lens);
         puts("\nнет проблем на сервере");
         close(conn);
         sleep(1);
