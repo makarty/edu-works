@@ -2,6 +2,10 @@
 
 Практические работы по учёбе
 
+## Разработка корпоративных информационных систем
+
+- [Практическая работа № 1. JavaCore, Наследование](https://github.com/makarty/edu-works/tree/master/cis/JavaCore)
+
 ## Системное программирование
 
 - [Практическая работа № 1. Управление процессами в ОС GNU Linux](https://github.com/makarty/edu-works/tree/master/system%20programming/1practical)
