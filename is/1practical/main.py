@@ -1,3 +1,14 @@
+# Шифр Мирабо
+
+# Шифровка
+def encryption():
+    pass
+
+
+def decryption():
+    pass
+
+
 def mirabeau_cipher():
     pass
 
