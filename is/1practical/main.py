@@ -1,16 +1,30 @@
 # Шифр Мирабо
 
-# Шифровка
-def encryption():
-    pass
 
+class MirabeauCipher:
 
-def decryption():
-    pass
+    def __init__(self, alphabet):
+        self.alphabet = alphabet
 
+    # Шифровка
+    def encryption(self, text: str):
+        cipher = []
+        for symbol in text:
+            if symbol == ' ':
+                cipher.append(0)
+            group_num = 1
+            for group in self.alphabet:
+                if symbol in group:
+                    encrypted_letter = group_num + (group.index(symbol) + 1) / 10
+                    cipher.append(encrypted_letter)
+                group_num += 1
+        return cipher
 
-def mirabeau_cipher():
-    pass
+    def decryption(self, cipher: list):
+        decrypted_text = ""
+        for encrypted_letter in cipher:
+
+        return decrypted_text
 
 
 def create_an_alphabet():
@@ -35,6 +49,8 @@ def create_an_alphabet():
 def main():
     alphabet = create_an_alphabet()
     print(alphabet)
+    cipher = MirabeauCipher(alphabet)
+    cipher.encryption("питон нигга")
 
 
 if __name__ == '__main__':
