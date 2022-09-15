@@ -41,8 +41,7 @@ public class Laptop extends PersonalComputer{
 
     @Override
     public String toString() {
-        return "Ноутбук " +
-                "Название: " + getName() +
+        return "Ноутбук " + getName() +
                 "\nПроцессор: " + getProcessor() +
                 "\nRAM: " + getName() +
                 "\nOS: " + getOS() +

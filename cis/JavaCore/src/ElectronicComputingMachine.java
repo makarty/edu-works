@@ -44,8 +44,7 @@ public class ElectronicComputingMachine {
 
     @Override
     public String toString() {
-        return "ЭВМ " +
-                "Название: " + name +
+        return "ЭВМ " + name +
                 "\nПроцессор: " + processor +
                 "\nRAM:" + RAM;
     }

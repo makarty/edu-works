@@ -47,8 +47,7 @@ public class PersonalComputer extends ElectronicComputingMachine{
 
     @Override
     public String toString() {
-        return "ПК " +
-                "Название: " + getName() +
+        return "ПК " + getName() +
                 "\nПроцессор: " + getProcessor() +
                 "\nRAM: " + getName() +
                 "\nOS: " + OS +

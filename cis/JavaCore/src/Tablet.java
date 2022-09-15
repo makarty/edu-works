@@ -40,8 +40,7 @@ public class Tablet extends PersonalComputer{
 
     @Override
     public String toString() {
-        return "Планшет " +
-                "Название: " + getName() +
+        return "Планшет " + getName() +
                 "\nПроцессор: " + getProcessor() +
                 "\nRAM: " + getName() +
                 "\nOS: " + getOS() +
