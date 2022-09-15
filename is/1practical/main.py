@@ -20,10 +20,14 @@ class MirabeauCipher:
                 group_num += 1
         return cipher
 
+    # Дешифровка
     def decryption(self, cipher: list):
         decrypted_text = ""
         for encrypted_letter in cipher:
-
+            encrypted_letter *= 10
+            i = int(encrypted_letter // 10 - 1)
+            j = int(encrypted_letter % 10 - 1)
+            decrypted_text += self.alphabet[i][j]
         return decrypted_text
 
 
@@ -46,11 +50,14 @@ def create_an_alphabet():
     return polybius_square
 
 
+def print_alphabet(alphabet: list):
+    for group in alphabet:
+        print(group)
+
+
 def main():
     alphabet = create_an_alphabet()
-    print(alphabet)
-    cipher = MirabeauCipher(alphabet)
-    cipher.encryption("питон нигга")
+    print_alphabet(alphabet)
 
 
 if __name__ == '__main__':
