@@ -1,5 +1,9 @@
 # Шифр Мирабо
 
+from gui import *
+from PyQt5.QtWidgets import QApplication
+import sys
+
 
 class MirabeauCipher:
 
@@ -58,6 +62,11 @@ def print_alphabet(alphabet: list):
 def main():
     alphabet = create_an_alphabet()
     print_alphabet(alphabet)
+
+    app = QApplication(sys.argv)
+    win = MyWindow()
+    win.show()
+    sys.exit(app.exec_())
 
 
 if __name__ == '__main__':
