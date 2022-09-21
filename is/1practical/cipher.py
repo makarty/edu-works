@@ -28,6 +28,7 @@ class MirabeauCipher:
             i = int(encrypted_letter // 10 - 1)
             j = int(encrypted_letter % 10 - 1)
             decrypted_text += self.alphabet[i][j]
+        print(decrypted_text)
         return decrypted_text
 
     def create_an_alphabet(self):

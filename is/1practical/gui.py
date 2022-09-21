@@ -59,6 +59,11 @@ class Ui_MainWindow(object):
 
     def decrypt(self):
         text = self.textEdit.toPlainText()
-        if not text.isdigit():
-            return
-        print("ok")
+        text = text.split()
+        for i in range(len(text)):
+            digit = text[i].replace('.', '')
+            if not digit.isdigit():
+                return
+            text[i] = float(text[i])
+        cl = MirabeauCipher()
+        cl.decryption(text)
