@@ -17,18 +17,19 @@ class MirabeauCipher:
                     encrypted_letter = group_num + (group.index(symbol) + 1) / 10
                     cipher.append(encrypted_letter)
                 group_num += 1
-        print(cipher)
         return cipher
 
     # Дешифровка
     def decryption(self, cipher: list):
         decrypted_text = ""
         for encrypted_letter in cipher:
+            if encrypted_letter == 0:
+                decrypted_text += ' '
+                continue
             encrypted_letter *= 10
             i = int(encrypted_letter // 10 - 1)
             j = int(encrypted_letter % 10 - 1)
             decrypted_text += self.alphabet[i][j]
-        print(decrypted_text)
         return decrypted_text
 
     def create_an_alphabet(self):
