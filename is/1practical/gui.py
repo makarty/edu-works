@@ -16,14 +16,14 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(15, 175, 200, 50))
+        self.pushButton.setGeometry(QtCore.QRect(15, 160, 200, 50))
         self.pushButton.setObjectName("pushButton")
-        
+        self.resultLabel = QtWidgets.QLabel(self.centralwidget)
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(215, 175, 200, 50))
+        self.pushButton_2.setGeometry(QtCore.QRect(215, 160, 200, 50))
         self.pushButton_2.setObjectName("pushButton_2")
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit.setGeometry(QtCore.QRect(15, 100, 400, 70))
+        self.textEdit.setGeometry(QtCore.QRect(15, 100, 400, 50))
         self.textEdit.setObjectName("textEdit")
         self.pushButton.clicked.connect(self.encrypt)
         self.pushButton_2.clicked.connect(self.decrypt)
@@ -55,7 +55,10 @@ class Ui_MainWindow(object):
         if not text.isalpha():
             return
         cl = MirabeauCipher()
-        cl.encryption(text)
+        enc = str(cl.encryption(text))
+        self.resultLabel.setGeometry(QtCore.QRect(430, 90, 400, 50))
+        self.resultLabel.setStyleSheet("font-size: 19px")
+        self.resultLabel.setText("Результат: " + enc)
 
     def decrypt(self):
         text = self.textEdit.toPlainText()
@@ -66,4 +69,7 @@ class Ui_MainWindow(object):
                 return
             text[i] = float(text[i])
         cl = MirabeauCipher()
-        cl.decryption(text)
+        dec = cl.decryption(text)
+        self.resultLabel.setGeometry(QtCore.QRect(430, 90, 400, 50))
+        self.resultLabel.setStyleSheet("font-size: 19px")
+        self.resultLabel.setText("Результат: " + dec)
