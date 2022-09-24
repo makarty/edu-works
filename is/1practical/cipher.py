@@ -19,6 +19,19 @@ class MirabeauCipher:
                 group_num += 1
         return cipher
 
+    def encryption_2x(self, text: str):
+        cipher1 = self.encryption(text)
+        cipher2 = []
+        for i in range(len(cipher1) - 1):
+            cipher2.append(cipher1[i] * cipher1[i + 1])
+        last = cipher1[-1]
+        for i in cipher2:
+            last += i
+        cipher2.append(last)
+        return cipher2
+
+
+
     # Дешифровка
     def decryption(self, cipher: list):
         decrypted_text = ""
@@ -31,6 +44,15 @@ class MirabeauCipher:
             j = int(encrypted_letter % 10 - 1)
             decrypted_text += self.alphabet[i][j]
         return decrypted_text
+
+    def decryption_2x(self, cipher: list):
+        last = cipher[-1]
+        for i in range(len(cipher) - 1):
+            last -= cipher[i]
+        cipher[-1] = float(f'{last:.1f}')
+        for i in range(len(cipher) - 1, 0, -1):
+            cipher[i - 1] = cipher[i - 1] / cipher[i]
+        return cipher
 
     def create_an_alphabet(self):
         polybius_square = []
@@ -47,6 +69,5 @@ class MirabeauCipher:
                 group.append(chr(cur_char))
                 cur_char += 1
             polybius_square.append(group)
-
         return polybius_square
 
