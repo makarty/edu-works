@@ -6,6 +6,10 @@
 
 - [Практическая работа № 1. JavaCore, Наследование](https://github.com/makarty/edu-works/tree/master/cis/JavaCore)
 
+## Информационная безопасность
+
+- - [Практическая работа № 1. Простые симметричные шифры](https://github.com/makarty/edu-works/tree/master/is/1practical)
+
 ## Системное программирование
 
 - [Практическая работа № 1. Управление процессами в ОС GNU Linux](https://github.com/makarty/edu-works/tree/master/system%20programming/1practical)
@@ -55,7 +59,3 @@
 - [Практическая работа № 10. Формы и элементы форм](https://github.com/makarty/edu-works/tree/master/web/10practical)
 
 - [Практическая работа №11. Основы jQuery](https://github.com/makarty/edu-works/tree/master/web/11practical)
-
-- [Практическая работа № 12. Анимация с помощью jQuery](https://github.com/makarty/edu-works/tree/master/web/12practical)
-
-- [Практическая работа № 13. Работа с Cookie](https://github.com/makarty/edu-works/tree/master/web/13practical)
