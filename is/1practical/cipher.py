@@ -23,7 +23,7 @@ class MirabeauCipher:
         cipher1 = self.encryption(text)
         cipher2 = []
         for i in range(len(cipher1) - 1):
-            cipher2.append(cipher1[i] * cipher1[i + 1])
+            cipher2.append(float(f'{(cipher1[i] * cipher1[i + 1]):.2f}'))
         last = cipher1[-1]
         for i in cipher2:
             last += i
