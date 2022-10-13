@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
- http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="lenovo"
+ http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:Tablet.properties"/>
+    <!--Внедрение простого значения-->
+    <bean id="laptop"
           class="ru.second.Laptop">
         <constructor-arg value="Lenovo IdeaPad 5 15ARE05"/>
     </bean>
+    <!--Внедрение зависимости по ссылке через конструктор-->
     <bean id="employee"
           class="ru.second.Employee">
-        <constructor-arg ref="lenovo"/>
+        <constructor-arg ref="laptop"/>
+    </bean>
+    <!--Внедрение простого значения из внешнего файла через setter-->
+    <bean id="tablet"
+          class="ru.second.Tablet">
+        <property name="os" value="${Tablet.os}"/>
     </bean>
 </beans>

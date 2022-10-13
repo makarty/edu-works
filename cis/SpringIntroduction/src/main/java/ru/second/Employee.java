@@ -7,7 +7,8 @@ public class Employee {
         this.workStation = workStation;
     }
 
+    // Метод, выводящий сообщение на основе вызова метода у зависимости
     public void printWorkStation(){
-        System.out.print("Я работаю на " + workStation.getName());
+        System.out.println("Я работаю на " + workStation.getName());
     }
 }
