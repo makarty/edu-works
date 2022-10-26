@@ -11,7 +11,17 @@ public class Furniture  {
 
     public Furniture(){}
 
+    public Furniture(Integer id, String name, String model, String material, int price, int volume) {
+        this.id = id;
+        this.name = name;
+        this.model = model;
+        this.material = material;
+        this.price = price;
+        this.volume = volume;
+    }
+
     public Furniture(String name, String model, String material, int price, int volume) {
+        this.id = 0;
         this.name = name;
         this.model = model;
         this.material = material;
@@ -37,6 +47,10 @@ public class Furniture  {
 
     public void setVolume(int volume) {
         this.volume = volume;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
