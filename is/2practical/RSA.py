@@ -1,5 +1,6 @@
 import random
 import sympy
+from math import log2, ceil
 
 
 def extended_gcd(a, b):
@@ -31,8 +32,12 @@ def encrypt(string, N, s):
     print(f"N - {N, s}")
     lst = []
     lst_coding = []
-    for i in string:
-        lst.append(ord(i))
+    if len(string) % 2 != 0:
+        string = string + chr(0)
+    for i in range(0, len(string) - 1, 2):
+        tmp = string[i] + string[i + 1]
+        b = int.from_bytes(bytes(tmp, "utf-8"), "little")
+        lst.append(b)
     for i in lst:
         c = round(pow(i, s, N))
         lst_coding.append(str(c))
@@ -43,9 +48,8 @@ def decrypt(lst_coding, N, e):
     lst = []
     for i in lst_coding:
         t = round(pow(int(i), e, N))
-        if t > 1114111:
-            return ['E', 'R', 'R', 'O', 'R']
-        lst.append(chr(t))
+        t = t.to_bytes(ceil(log2(t) / 8), "little")
+        lst.append(str(t, "utf-8"))
     print(f'lst - {lst}')
     return lst
 
